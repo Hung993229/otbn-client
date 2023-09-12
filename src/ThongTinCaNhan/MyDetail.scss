@@ -1,0 +1,31 @@
+.container-yourDetail {
+    justify-content: center;
+    .detail {
+        justify-content: center;
+        display: flex;
+        gap: 50px;
+
+        .detail-1 {
+            border: solid 1px;
+            margin: 10px;
+        }
+    }
+    .detail-2 {
+        color: aqua;
+        background-color: orange;
+    }
+    .detail-3 {
+        color: red;
+        .yourDetail-banner {
+            width: 900px;
+            height: 300px;
+        }
+        .yourDetail-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .yourDetail-name {
+        }
+    }
+}

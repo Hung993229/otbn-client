@@ -1,0 +1,45 @@
+.container-yourDetail {
+    justify-content: center;
+    .detail-2 {
+        color: aqua;
+        background-color: orange;
+        width: 900px;
+        margin: auto;
+    }
+    .detail-3 {
+        .yourDetail-banner {
+            width: 900px;
+            height: 300px;
+        }
+        .yourDetail-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+        }
+        .yourDetail-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: blue;
+        }
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 900px;
+        margin: auto;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        width: 50%;
+        text-align: center;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+}
