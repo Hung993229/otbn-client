@@ -1,15 +1,39 @@
 import "./DangNhap.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { loginUser } from "../redux/apiRequest";
+import { useDispatch } from "react-redux";
 const DangNhap = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const newUser = {
+            username: username,
+            password: password,
+        };
+        loginUser(newUser, dispatch, navigate);
+    };
     return (
         <section className="login-container">
             <div className="login-title"> ĐĂNG NHẬP</div>
-            <form onSubmit="">
+            <form onSubmit={handleLogin}>
                 <label>Sô Điện Thoại</label>
-                <input type="text" placeholder="Nhập số điện thoại" />
+                <input
+                    type="text"
+                    placeholder="Nhập số điện thoại"
+                    onChange={(e) => setUsername(e.target.value)}
+                />
                 <label>Mật Khẩu</label>
-                <input type="password" placeholder="Nhập mật khẩu" />
-                <button type="submit" class="btn btn-success">
+                <input
+                    type="password"
+                    placeholder="Nhập mật khẩu"
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <button type="submit" className="btn btn-success">
                     Đăng Nhập
                 </button>
             </form>

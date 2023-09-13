@@ -9,6 +9,7 @@ import FormRegister from "./Tao Thong Tin/FormRegister";
 import DangNhap from "./DangNhap/DangNhap";
 import DangKi from "./DangKi/DangKi";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import QuanLyUser from "./QuanLyUser/QuanLyUser";
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                     <Route path="/tao-thong-tin" element={<FormRegister />} />
                     <Route path="/dang-ki" element={<DangKi />} />
                     <Route path="/dang-nhap" element={<DangNhap />} />
+                    <Route path="/quan-ly-user" element={<QuanLyUser />} />
                     {/* <Route path="/dang-xuat" element={<FormRegister />} /> */}
                 </Routes>
             </div>
