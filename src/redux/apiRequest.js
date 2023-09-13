@@ -6,6 +6,9 @@ import {
     registerFailed,
     registerStart,
     registerSuccess,
+    logOutFailed,
+    logOutStart,
+    logOutSuccess,
 } from "./authSlice";
 import {
     deleteUserFailed,
@@ -47,12 +50,7 @@ export const getAllUsers = async (accessToken, dispatch, axiosJWT) => {
         dispatch(getUsersFailed());
     }
 };
-export const deleteUser = async (
-    accessToken,
-    dispatch,
-    id,
-    axiosJWT
-) => {
+export const deleteUser = async (accessToken, dispatch, id, axiosJWT) => {
     dispatch(deleteUserStart());
     try {
         const res = await axiosJWT.delete(`/v1/user/${id}`, {
@@ -61,5 +59,17 @@ export const deleteUser = async (
         dispatch(deleteUsersSuccess(res.data));
     } catch (err) {
         dispatch(deleteUserFailed(err.response.data));
+    }
+};
+export const logOut = async (dispatch, id, navigate, accessToken, axiosJWT) => {
+    dispatch(logOutStart());
+    try {
+        await axiosJWT.post("/v1/auth/logout", id, {
+            headers: { token: `Bearer ${accessToken}` },
+        });
+        dispatch(logOutSuccess());
+        navigate("/dang-nhap");
+    } catch (err) {
+        dispatch(logOutFailed());
     }
 };

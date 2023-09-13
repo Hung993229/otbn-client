@@ -1,8 +1,21 @@
 import "./Nav.scss";
-import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logOut } from "../redux/apiRequest";
+import { createAxios } from "../createInstance";
+import { logOutSuccess } from "../redux/authSlice";
+
 const Nav = () => {
     const user = useSelector((state) => state.auth.login.currentUser);
+    const accessToken = user?.accessToken;
+    const id = user?._id;
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    let axiosJWT = createAxios(user, dispatch, logOutSuccess);
+
+    const handleLogout = () => {
+        logOut(dispatch, id, navigate, accessToken, axiosJWT);
+    };
     return (
         <>
             <div className="container-nav">
@@ -22,6 +35,13 @@ const Nav = () => {
                         </NavLink>
                         <NavLink className="active1" to="/quan-ly-user">
                             Quản Lý user
+                        </NavLink>
+                        <NavLink
+                            className="active1"
+                            to="/dang-xuat"
+                            onClick={handleLogout}
+                        >
+                            Dang Xuat
                         </NavLink>
                     </>
                 ) : (
