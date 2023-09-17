@@ -12,12 +12,20 @@ const DangKi = () => {
     const navigate = useNavigate();
     const handleRegister = (e) => {
         e.preventDefault();
-        const newUser = {
-            email: email,
-            password: password,
-            username: username,
-        };
-        registerUser(newUser, dispatch, navigate);
+        if (password !== email) {
+            alert("Xác nhận mật khẩu chưa khớp");
+            return;
+        }
+        try {
+            const newUser = {
+                email: email,
+                password: password,
+                username: username,
+            };
+            registerUser(newUser, dispatch, navigate);
+        } catch (err) {
+            console.log(err);
+        }
     };
     return (
         <section className="register-container">
@@ -31,7 +39,7 @@ const DangKi = () => {
                 />
                 <label>Mật Khẩu</label>
                 <input
-                    type="text"
+                    type="password"
                     placeholder="Nhập mật khẩu"
                     onChange={(e) => setEmail(e.target.value)}
                 />

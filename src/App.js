@@ -18,14 +18,22 @@ function App() {
                 <Header />
                 <Nav />
                 <Routes>
-                    <Route path="/ket-ban" element={<YourDetail />} />
-                    <Route path="/mini-game" element={<MiniGame />} />
-                    <Route path="/huong-dan" element={<Instruct />} />
-                    <Route path="/ca-nhan" element={<MyDetail />} />
-                    <Route path="/tao-thong-tin" element={<FormRegister />} />
-                    <Route path="/dang-ki" element={<DangKi />} />
-                    <Route path="/dang-nhap" element={<DangNhap />} />
-                    <Route path="/quan-ly-user" element={<QuanLyUser />} />
+                    <Route exact path="/ket-ban" element={<YourDetail />} />
+                    <Route exact path="/mini-game" element={<MiniGame />} />
+                    <Route exact path="/huong-dan" element={<Instruct />} />
+                    <Route exact path="/ca-nhan" element={<MyDetail />} />
+                    <Route
+                        exact
+                        path="/tao-thong-tin"
+                        element={<FormRegister />}
+                    />
+                    <Route exact path="/dang-ki" element={<DangKi />} />
+                    <Route exact path="/dang-nhap" element={<DangNhap />} />
+                    <Route
+                        exact
+                        path="/quan-ly-user"
+                        element={<QuanLyUser />}
+                    />
                     {/* <Route path="/dang-xuat" element={<FormRegister />} /> */}
                 </Routes>
             </div>
