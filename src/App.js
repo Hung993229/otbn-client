@@ -10,7 +10,6 @@ import DangNhap from "./DangNhap/DangNhap";
 import DangKi from "./DangKi/DangKi";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import QuanLyUser from "./QuanLyUser/QuanLyUser";
-
 function App() {
     return (
         <Router>

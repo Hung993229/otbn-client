@@ -1,7 +1,27 @@
 import "./YourDetail.scss";
 import banner from "../assets/images/banner.jpg";
 import yourAvatar from "../assets/images/your-avatar.jpg";
+import { yourPost } from "../redux/apiRequest";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+
 const YourDetail = () => {
+    const yourDetail = useSelector((state) => state.post.post.yourDetail);
+    const dispatch = useDispatch();
+
+    
+    const yourId = '650aaa350273997bbfc5005f';
+    useEffect(() => {
+        if (!yourId) {
+            return console.log("chua co userId");
+        }
+        if (yourId) {
+            yourPost(yourId, dispatch);
+        }
+    }, []);
+    console.log("yourDetail", yourDetail);
+
     return (
         <div className="container-yourDetail">
             <div className="detail-3">

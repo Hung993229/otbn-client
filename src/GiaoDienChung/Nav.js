@@ -36,6 +36,9 @@ const Nav = () => {
                         <NavLink className="active1" to="/quan-ly-user">
                             Quản Lý user
                         </NavLink>
+                        <NavLink className="active1" to="/tao-thong-tin">
+                            Tao Thong Tin
+                        </NavLink>
                         <NavLink
                             className="active1"
                             to="/dang-xuat"

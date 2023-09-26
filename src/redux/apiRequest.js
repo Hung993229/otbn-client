@@ -18,7 +18,17 @@ import {
     getUsersStart,
     getUsersSuccess,
 } from "./userSlice";
-
+import {
+    registerPostStart,
+    registerPostSuccess,
+    registerPostFailed,
+    getPostStart,
+    getPostSuccess,
+    getPostFailed,
+    yourPostStart,
+    yourPostSuccess,
+    yourPostFailed,
+} from "./postSlice";
 export const loginUser = async (user, dispatch, navigate) => {
     dispatch(loginStart());
     try {
@@ -71,5 +81,34 @@ export const logOut = async (dispatch, id, navigate, accessToken, axiosJWT) => {
         navigate("/dang-nhap");
     } catch (err) {
         dispatch(logOutFailed());
+    }
+};
+export const registerPost = async (post, dispatch, navigate) => {
+    dispatch(registerPostStart());
+    try {
+        await axios.post("/v1/post/add-post", post);
+        dispatch(registerPostSuccess());
+        navigate("/ca-nhan");
+    } catch (err) {
+        dispatch(registerPostFailed());
+    }
+};
+
+export const getPost = async (userId, dispatch) => {
+    dispatch(getPostStart());
+    try {
+        const res = await axios.get(`/v1/post/${userId}`);
+        dispatch(getPostSuccess(res.data));
+    } catch (err) {
+        dispatch(getPostFailed());
+    }
+};
+export const yourPost = async (yourId, dispatch) => {
+    dispatch(yourPostStart());
+    try {
+        const res = await axios.get(`/v1/post/your-post/${yourId}`);
+        dispatch(yourPostSuccess(res.data));
+    } catch (err) {
+        dispatch(yourPostFailed());
     }
 };
