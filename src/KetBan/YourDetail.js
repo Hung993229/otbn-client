@@ -1,5 +1,5 @@
 import "./YourDetail.scss";
-import banner from "../assets/images/banner.jpg";
+// import banner from "../assets/images/banner.jpg";
 import yourAvatar from "../assets/images/your-avatar.jpg";
 import { yourPost } from "../redux/apiRequest";
 import { useDispatch } from "react-redux";
@@ -10,8 +10,9 @@ const YourDetail = () => {
     const yourDetail = useSelector((state) => state.post.post.yourDetail);
     const dispatch = useDispatch();
 
-    
-    const yourId = '650aaa350273997bbfc5005f';
+    const banner = yourDetail.banner;
+    const avatar = yourDetail.avatar;
+    const yourId = "650aa7cd8f10cc360af710d4";
     useEffect(() => {
         if (!yourId) {
             return console.log("chua co userId");
@@ -28,7 +29,7 @@ const YourDetail = () => {
                 <div>
                     <img src={banner} alt="hi" className="yourDetail-banner" />
                 </div>
-                <img src={yourAvatar} alt="hi" className="yourDetail-logo" />
+                <img src={avatar} alt="hi" className="yourDetail-logo" />
                 <div className="yourDetail-name">Tran Quang Hoang</div>
             </div>
             <table>

@@ -9,12 +9,9 @@ import { getPost } from "../redux/apiRequest";
 const MyDetail = () => {
     const user = useSelector((state) => state.auth.login.currentUser);
     const post = useSelector((state) => state.post.post.myDetail);
-    console.log("post", post);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
     const banner = post?.banner;
-    // const imageBase64 = new Buffer(banner, "base64").toString("binary");
 
     useEffect(() => {
         if (!user) {
@@ -24,13 +21,12 @@ const MyDetail = () => {
             getPost(user?._id, dispatch);
         }
     }, []);
-    console.log("post", banner);
 
     return (
         <div>
             <div>hiih</div>
             <div className="preview-image">
-                <img src={banner} />
+                <img src={banner} width="250px" />
             </div>
         </div>
 
