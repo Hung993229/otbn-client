@@ -1,45 +1,56 @@
 .container-yourDetail {
-    justify-content: center;
-    .detail-2 {
-        color: aqua;
-        background-color: orange;
-        width: 900px;
-        margin: auto;
+    width: 900px;
+    margin: auto;
+    .banner {
+        height: 250px;
     }
-    .detail-3 {
-        .yourDetail-banner {
-            width: 900px;
-            height: 300px;
-        }
-        .yourDetail-logo {
-            width: 70px;
-            height: 70px;
+    .yourDetail-avatar-hoTen-cauNoiTamDac {
+        display: flex;
+        .yourDetail-avatar {
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
         }
-        .yourDetail-name {
-            font-size: 20px;
-            font-weight: 600;
-            color: blue;
+        .yourDetail-hoTen-cauNoiTamDac {
+            .yourDetail-hoTen {
+            }
+            .yourdetail-cauNoiTamDac {
+            }
         }
     }
-
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
+    .Container-yourTieuChi-yourNoiDung {
         width: 900px;
         margin: auto;
+        display: flex;
+        .yourTieuChi {
+            width: 50%;
+            border: solid 1px gray;
+        }
+        .yourNoiDung {
+            width: 50%;
+            border: solid 1px gray;
+            display: flex;
+            margin: auto;
+            text-align: center;
+            align-items: center;
+            .donVi {
+                padding-right: 20px;
+            }
+        }
     }
-
-    td,
-    th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-        width: 50%;
-        text-align: center;
+    .yourMauNguoiYeuLyTuong {
+        color: red;
     }
-
-    tr:nth-child(even) {
-        background-color: #dddddd;
+    .xinLamQuen {
+        margin: 50px;
+        width: 350px;
+        background-color: blue;
+        cursor: pointer;
+    }
+    .boQua {
+        margin: 50px;
+        width: 350px;
+        background-color: red;
+        cursor: pointer;
     }
 }

@@ -1,73 +1,93 @@
-.register-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 3rem;
-    border-radius: 12px;
-    height: 400px;
-    min-width: 20%;
-    background-color: rgb(218, 218, 218);
-    text-align: center;
-}
-
-.register-title {
-    font-weight: 700;
-    font-size: 1.5rem;
-}
-
-input {
-    width: 400px;
-}
-// mau css
-
-.FormRegister-container {
-    // justify-content: center;
-    margin: 5px auto;
+.thuNhap {
     width: 900px;
-    .detail-2 {
-        color: aqua;
-        background-color: orange;
-        width: 900px;
-        margin: auto;
-    }
-
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 900px;
-    }
-
-    td,
-    th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
+    margin: auto;
+    border: solid 1px gray;
+    background-color: red;
+    label {
         width: 50%;
-        text-align: center;
     }
-
-    tr:nth-child(even) {
-        background-color: #dddddd;
+    select {
+        width: 50%;
     }
 }
-.preview-img-container {
-    .label-upload {
-        padding: 5px;
-        border-radius: 3px;
-        cursor: pointer;
-        background: #ebebeb;
-        width: 200px;
-        &:hover {
-            opacity: 0.9;
+.banner {
+    width: 900px;
+    height: 250px;
+
+    background-color: red;
+    margin: auto;
+    img {
+        width: 900px;
+        height: 250px;
+    }
+}
+
+.avatar-hoTen {
+    display: flex;
+    width: 900px;
+
+    margin: auto;
+    .container-avatar {
+        width: 450px;
+        margin-right: 0px;
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: red;
+
+            img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
         }
     }
-    .preview-image {
-        height: 100px;
-        width: 200px;
-        border: 1px solid red;
+    .hoTen {
+        width: 450px;
+        margin-right: 0px;
+
+        label {
+            width: 50%;
+            background-color: red;
+        }
+        input {
+            width: 50%;
+            border: solid 1px gray;
+        }
+    }
+    .cauNoiTamDac {
+        padding-left: 0px;
     }
 }
-.anh-dai-dien {
-    width: 200px;
+
+.containerTieuChi {
+    width: 900px;
+    margin: auto;
+    display: flex;
+    .tieuChi {
+        width: 50%;
+        border: solid 1px gray;
+    }
+    .noiDung {
+        width: 50%;
+        border: solid 1px gray;
+        display: flex;
+        margin: auto;
+        .donVi {
+            padding-right: 20px;
+        }
+    }
+    input {
+        border: solid 1px gray;
+    }
+}
+
+.luuY {
+}
+.mauNguoiYeuLyTuong {
+    width: 900px;
+    border: solid 1px gray;
+    margin: auto;
+    color: red;
 }

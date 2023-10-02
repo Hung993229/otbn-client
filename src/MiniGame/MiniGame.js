@@ -1,10 +1,5 @@
 import "./MiniGame.scss";
 const MiniGame = () => {
-    return (
-        <div className="container">
-            <div>MiniGame</div>
-          
-        </div>
-    );
+    return <div>MiniGame</div>;
 };
 export default MiniGame;
