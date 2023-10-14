@@ -6,16 +6,18 @@ import { useDispatch } from "react-redux";
 const DangNhap = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault();
-        const newUser = {
+
+        const user = {
             username: username,
             password: password,
         };
-        loginUser(newUser, dispatch, navigate);
+        loginUser(user, dispatch, navigate);
     };
     return (
         <section className="login-container">

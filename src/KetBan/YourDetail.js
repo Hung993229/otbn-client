@@ -1,18 +1,104 @@
 import "./YourDetail.scss";
 
-import { yourPost } from "../redux/apiRequest";
+import {
+    yourPost,
+    getAllPosts,
+    updateStatusUser,
+    registerStatus,
+    getStatus,
+    getPost,
+    registerYourStatus,
+    getYourStatus,
+    deleteYourStatus,
+    updatePost,
+} from "../redux/apiRequest";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+// import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const YourDetail = () => {
-    const yourDetail = useSelector((state) => state.post.post.yourDetail);
-    const dispatch = useDispatch();
+    const myDetail = useSelector((state) => state.post.post?.myDetail);
+    const yourDetail2 = useSelector((state) => state.post.post?.yourDetail);
+    const user = useSelector((state) => state.auth.login?.currentUser);
+    const status = useSelector((state) => state.status.status.status?.status);
+    const yourStatus = useSelector(
+        (state) => state.yourStatus.yourStatus.yourStatus?.yourstatus
+    );
+    const [indexId, setindexId] = useState(0);
 
-    // lọc user phu hop
-    const yourId = "650aaa480273997bbfc50061";
+    const [yourDetail, setyourDetail] = useState("");
+    const [ketnoi, setketnoi] = useState(0);
+    const allPosts = useSelector((state) => state.post.post?.allPosts);
+    const [suaPost, setsuaPost] = useState(1);
+    const dispatch = useDispatch();
+    console.log("yourDetail2", yourDetail2);
+    console.log("yourDetail", yourDetail);
+    // const navigate = useNavigate();
+
+    // loc user
+    useEffect(() => {
+        if (user) {
+            getStatus(user?._id, dispatch);
+            getYourStatus(user?._id, dispatch);
+        }
+    }, [user]);
+    useEffect(() => {
+        if (user) {
+            getPost(user?._id, dispatch);
+        }
+    }, [user]);
+
+    useEffect(() => {
+        const getTatCaPostPhuHop = () => {
+            const gioiTinh2 = myDetail?.gioiTinh2;
+            const tinhTrangHonNhan2 = myDetail?.tinhTrangHonNhan2;
+            const tonGiao2 = myDetail?.tonGiao2;
+            const thuNhap2 = myDetail?.thuNhap2;
+            const tuoiHop2 = myDetail?.tuoiHop2;
+            const tuoiHop3 = myDetail?.tuoiHop3;
+            const huyenDs = myDetail?.huyenDs;
+            const huyenQq = myDetail?.huyenQq;
+            getAllPosts(
+                dispatch,
+                gioiTinh2,
+                tinhTrangHonNhan2,
+                tonGiao2,
+                thuNhap2,
+                tuoiHop2,
+                tuoiHop3,
+                huyenDs,
+                huyenQq
+            );
+        };
+        getTatCaPostPhuHop();
+    }, [myDetail]);
 
     // Du Lieu Hien Thi
+    const yourIdDangKetNoi = status?.yourIdDangKetNoi;
+    useEffect(
+        () => {
+            const loadYourDetail = () => {
+                if (yourIdDangKetNoi) {
+                    yourPost(yourIdDangKetNoi, dispatch);
+                    if (yourDetail2) {
+                        setyourDetail(yourDetail2);
+                    }
+                } else {
+                    if (allPosts) {
+                        setyourDetail(allPosts[indexId]);
+                    }
+                }
+            };
+
+            loadYourDetail();
+        },
+        [status, indexId, allPosts, yourDetail2]
+       
+    );
+
+    // Chi Tiet
     const banner = yourDetail?.banner;
     const avatar = yourDetail?.avatar;
     const hoTen = yourDetail?.hoTen;
@@ -41,16 +127,89 @@ const YourDetail = () => {
     const ngheNghiep2 = yourDetail?.ngheNghiep2;
     const thuNhap2 = yourDetail?.thuNhap2;
     const tuoiHop2 = yourDetail?.tuoiHop2;
+    const tuoiHop3 = yourDetail?.tuoiHop3;
     const yeucaukhac2 = yourDetail?.yeucaukhac2;
+    // Quay Lai
+    const handleQuayLai = () => {
+        const a = allPosts.length - 1;
+        if (indexId > 0) {
+            setindexId(indexId - 1);
+        } else {
+            setindexId(a);
+        }
+    };
+    const indexIdTiepTheo = () => {
+        const a = allPosts.length - 1;
+        if (indexId < a) {
+            setindexId(indexId + 1);
+        } else {
+            setindexId(0);
+        }
+    };
+    // Tiep Theo
+    const handleKetNoi = () => {
+        setketnoi(1);
+        const statusId = status?._id;
+        if (statusId) {
+            const statusUser = {
+                dienThoai: "",
+                yourIdDangKetNoi: allPosts[indexId]?._id,
+                user: user?._id,
+            };
+            const id = status?._id;
+            updateStatusUser(statusUser, id, dispatch);
+            const newPost = {
+                myStatus: 1,
+            };
+            const id3 = myDetail?._id;
+            updatePost(newPost, id3, dispatch, setsuaPost);
+        }
+        if (!statusId) {
+            const statusUser = {
+                dienThoai: "",
+                yourIdDangKetNoi: allPosts[indexId]?._id,
+                user: user?._id,
+            };
+            registerStatus(statusUser, dispatch);
+            const newPost = {
+                myStatus: 1,
+            };
+            const id3 = myDetail?._id;
+            updatePost(newPost, id3, dispatch, setsuaPost);
+        }
 
-    useEffect(() => {
-        if (!yourId) {
-            return console.log("chua co userId");
+        const yourstatusUser = {
+            yourIdYeuCauKetNoi: user?._id,
+            user: allPosts[indexId]?.user,
+            hoTen: hoTen,
+            namSinh: namSinh,
+            queQuan: tinhQq,
+            dienThoai: user?.username,
+        };
+        registerYourStatus(yourstatusUser, dispatch);
+
+        // updateStatusUser(statusUser, id, dispatch);
+    };
+    const handleHuyKetNoi = () => {
+        setketnoi(0);
+        const statusUser = {
+            dienThoai: "",
+            yourIdDangKetNoi: "",
+            user: user._id,
+        };
+        const id = status._id;
+        updateStatusUser(statusUser, id, dispatch);
+        if (!yourStatus._id) {
+            const id2 = yourStatus?._id;
+            deleteYourStatus(id2, dispatch);
         }
-        if (yourId) {
-            yourPost(yourId, dispatch);
-        }
-    }, []);
+        const newPost = {
+            myStatus: 0,
+        };
+        const id3 = myDetail?._id;
+        updatePost(newPost, id3, dispatch, setsuaPost);
+    };
+    console.log("yourStatus", yourStatus);
 
     return (
         <div className="container-yourDetail">
@@ -87,13 +246,13 @@ const YourDetail = () => {
             <div className="Container-yourTieuChi-yourNoiDung">
                 <div className="yourTieuChi">Quê Quán</div>
                 <div className="yourNoiDung">
-                    {xaQq}-{huyenQq}-{tinhQq}
+                    {xaQq}&nbsp;-&nbsp;{huyenQq}&nbsp;-&nbsp;{tinhQq}
                 </div>
             </div>
             <div className="Container-yourTieuChi-yourNoiDung">
                 <div className="yourTieuChi">Hiện Đang Sinh Sống</div>
                 <div className="yourNoiDung">
-                    {xaDs}-{huyenDs}-{tinhDs}
+                    {xaDs}&nbsp;-&nbsp;{huyenDs}&nbsp;-&nbsp;{tinhDs}
                 </div>
             </div>
             <div className="Container-yourTieuChi-yourNoiDung">
@@ -112,6 +271,7 @@ const YourDetail = () => {
                 <div className="yourTieuChi">Đặc Điểm</div>
                 <div className="yourNoiDung">
                     <div>Chiều cao {chieuCao} (cm)</div>
+                    <div>&emsp;</div>
                     <div>Cân nặng {canNang} (kg)</div>
                 </div>
             </div>
@@ -138,7 +298,7 @@ const YourDetail = () => {
             </div>
             <div className="Container-yourTieuChi-yourNoiDung">
                 <div className="yourTieuChi">Nghề Nghiệp</div>
-                <div className="yourNoiDung">{tonGiao2}</div>
+                <div className="yourNoiDung">{ngheNghiep2}</div>
             </div>
             <div className="Container-yourTieuChi-yourNoiDung">
                 <div className="yourTieuChi">Thu Nhập</div>
@@ -146,15 +306,60 @@ const YourDetail = () => {
             </div>
             <div className="Container-yourTieuChi-yourNoiDung">
                 <div className="yourTieuChi">Tuổi Hợp</div>
-                <div className="yourNoiDung">{tuoiHop2}</div>
+                <div className="yourNoiDung">
+                    <div>Từ Năm &emsp;</div>
+                    <div>{tuoiHop2}</div>
+                    <div> &emsp;Đến Năm&emsp;</div>
+                    <div>{tuoiHop3}</div>
+                </div>
             </div>
             <div className="Container-yourTieuChi-yourNoiDung">
                 <div className="yourTieuChi">Yêu Cầu Khác</div>
                 <div className="yourNoiDung">{yeucaukhac2}</div>
             </div>
             <div>
-                <button className="xinLamQuen">Xin Làm Quen</button>
-                <button className="boQua">Bỏ Qua</button>
+                <div>
+                    {!yourIdDangKetNoi ? (
+                        <div>
+                            {ketnoi === 0 ? (
+                                <div>
+                                    <button
+                                        className="boQua"
+                                        onClick={handleQuayLai}
+                                    >
+                                        Quay Lại
+                                    </button>
+                                    <button
+                                        className="xinLamQuen"
+                                        onClick={handleKetNoi}
+                                    >
+                                        Kết Nối
+                                    </button>
+                                    <button
+                                        className="boQua"
+                                        onClick={indexIdTiepTheo}
+                                    >
+                                        Tiếp Theo
+                                    </button>
+                                </div>
+                            ) : (
+                                <button
+                                    className="xinLamQuen"
+                                    onClick={handleHuyKetNoi}
+                                >
+                                    Huỷ Kết Nối
+                                </button>
+                            )}
+                        </div>
+                    ) : (
+                        <button
+                            className="xinLamQuen"
+                            onClick={handleHuyKetNoi}
+                        >
+                            Huỷ Kết Nối
+                        </button>
+                    )}
+                </div>
             </div>
         </div>
     );

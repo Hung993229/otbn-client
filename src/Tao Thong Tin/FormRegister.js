@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { registerPost } from "../redux/apiRequest";
+import { registerPost, registerStatus } from "../redux/apiRequest";
 import { useEffect } from "react";
 import {
     apiGetPublicProvinces,
@@ -64,7 +64,9 @@ const FormRegister = () => {
     const [thuNhap, setthuNhap] = useState("");
     const [chieuCao, setchieuCao] = useState("");
     const [canNang, setcanNang] = useState("");
-    const [gioiThieuThem, setgioiThieuThem] = useState("");
+    const [gioiThieuThem, setgioiThieuThem] = useState(
+        "Hãy kể về: Sở thích, Sở ghét, Quan niệm sống, ... của bạn!"
+    );
 
     // Mau nguoi yeu ly tuong
     const [gioiTinh2, setgioiTinh2] = useState("");
@@ -74,7 +76,10 @@ const FormRegister = () => {
     const [ngheNghiep2, setngheNghiep2] = useState("");
     const [thuNhap2, setthuNhap2] = useState("");
     const [tuoiHop2, settuoiHop2] = useState("");
-    const [yeucaukhac2, setyeucaukhac2] = useState("");
+    const [tuoiHop3, settuoiHop3] = useState("");
+    const [yeucaukhac2, setyeucaukhac2] = useState(
+        "Mong muốn của bạn về người bạn muốn làm quen"
+    );
 
     // ngay/thang/nam
     var presentDate = new Date();
@@ -228,7 +233,22 @@ const FormRegister = () => {
 
     const handleRegisterPost = (e) => {
         e.preventDefault();
-        if (!hoTen) {
+        if (
+            !hoTen ||
+            !gioiTinh ||
+            !gioiTinh2 ||
+            !tinhTrangHonNhan ||
+            !tinhTrangHonNhan2 ||
+            !namSinh ||
+            !provincesID ||
+            !provincesID2 ||
+            !districtID ||
+            !districtID2 ||
+            !thuNhap ||
+            !thuNhap2 ||
+            !tonGiao2 ||
+            !tonGiao
+        ) {
             alert("Xin hãy điền đầy đủ các mục còn thiếu");
             return;
         }
@@ -261,14 +281,14 @@ const FormRegister = () => {
                 thangSinh: thangSinh,
                 namSinh: namSinh,
                 // Que Quan
-                tinhQq: tenTinh.province_name,
-                huyenQq: tenHuyen.district_name,
-                xaQq: tenXa.ward_name,
+                tinhQq: tenTinh?.province_name,
+                huyenQq: tenHuyen?.district_name,
+                xaQq: tenXa?.ward_name || "Xã ...",
 
                 // Hien Dang Song
-                tinhDs: tenTinh2.province_name,
-                huyenDs: tenHuyen2.district_name,
-                xaDs: tenXa2.ward_name,
+                tinhDs: tenTinh2?.province_name,
+                huyenDs: tenHuyen2?.district_name,
+                xaDs: tenXa2?.ward_name || "Xã ...",
 
                 tonGiao: tonGiao,
                 ngheNghiep: ngheNghiep,
@@ -285,11 +305,21 @@ const FormRegister = () => {
                 ngheNghiep2: ngheNghiep2,
                 thuNhap2: thuNhap2,
                 tuoiHop2: tuoiHop2,
+                tuoiHop3: tuoiHop3,
                 yeucaukhac2: yeucaukhac2,
+                myStatus: 0,
                 user: user._id,
             };
-            console.log("newPost", newPost);
+
             registerPost(newPost, dispatch, navigate);
+            const statusUser = {
+                cash: 25000,
+                dienThoai: "",
+                yourIdDangKetNoi: "",
+                user: user._id,
+            };
+            console.log("statusUser", statusUser);
+            registerStatus(statusUser, dispatch);
         } catch (err) {
             console.log(err);
         }
@@ -352,7 +382,6 @@ const FormRegister = () => {
                                 }
                                 className="cauNoiTamDac"
                                 placeholder="Câu Nói Tâm Đắc"
-                                // Thời gian thích hợp gặp một người thích hợp là Hạnh Phúc
                             />
                         </div>
                     </div>
@@ -372,7 +401,6 @@ const FormRegister = () => {
                 >
                     <option value="">---Mời Chọn---</option>
                     <option>Nam</option>
-
                     <option>Nữ</option>
                     <option>Lesbian</option>
                     <option>Gay</option>
@@ -572,11 +600,8 @@ const FormRegister = () => {
                     onChange={(e) => setthuNhap(e.target.value)}
                 >
                     <option value="">---Mời Chọn---</option>
-                    <option>Dưới 5 Triệu Đồng</option>
-                    <option>5-10 Triệu Đồng</option>
-                    <option>10-20 Triệu Đồng</option>
-                    <option>20-30 Triệu Đồng</option>
-                    <option>trên 30 Triệu Đồng</option>
+                    <option>Dưới 20 Triệu Đồng</option>
+                    <option>Trên 20 Triệu Đồng</option>
                 </select>
             </div>
             <div className="containerTieuChi">
@@ -708,25 +733,34 @@ const FormRegister = () => {
                     onChange={(e) => setthuNhap2(e.target.value)}
                 >
                     <option value="">---Mời Chọn---</option>
-                    <option>Dưới 5 Triệu Đồng</option>
-                    <option>5-10 Triệu Đồng</option>
-                    <option>10-20 Triệu Đồng</option>
-                    <option>20-30 Triệu Đồng</option>
-                    <option>trên 30 Triệu Đồng</option>
+                    <option>Dưới 20 Triệu Đồng</option>
+                    <option>Trên 20 Triệu Đồng</option>
                 </select>
             </div>
             <div className="containerTieuChi">
                 <div className="tieuChi" htmlFor="nam-sinh">
-                    Tuổi Hợp
+                    Khoảng Tuổi Muốn Làm Quen
                 </div>
-
-                <input
-                    className="noiDung"
-                    placeholder="Nhập các tuổi bạn muốn làm quen"
-                    name="nam-sinh"
-                    id="nam-sinh"
-                    onChange={(e) => settuoiHop2(e.target.value)}
-                />
+                <div className="noiDung">
+                    <label hidden>Từ Năm</label>
+                    <select onChange={(e) => settuoiHop2(e.target.value)}>
+                        <option value="">---Từ Năm---</option>
+                        {arrYear &&
+                            arrYear.length > 0 &&
+                            arrYear.map((item, index) => {
+                                return <option key={index}>{item}</option>;
+                            })}
+                    </select>
+                    <label hidden>Đến Năm</label>
+                    <select onChange={(e) => settuoiHop3(e.target.value)}>
+                        <option value="">---Đến Năm---</option>
+                        {arrYear &&
+                            arrYear.length > 0 &&
+                            arrYear.map((item, index) => {
+                                return <option key={index}>{item}</option>;
+                            })}
+                    </select>
+                </div>
             </div>
             <div className="containerTieuChi">
                 <label className="tieuChi">Yêu Cầu Khác</label>

@@ -1,6 +1,16 @@
 .container-yourDetail {
     width: 900px;
     margin: auto;
+
+    .detail-your-list {
+        display: flex;
+        cursor: pointer;
+        &:hover {
+            color: red;
+
+            text-decoration: under-line;
+        }
+    }
     .banner {
         height: 250px;
     }
@@ -23,11 +33,11 @@
         margin: auto;
         display: flex;
         .yourTieuChi {
-            width: 50%;
+            width: 30%;
             border: solid 1px gray;
         }
         .yourNoiDung {
-            width: 50%;
+            width: 70%;
             border: solid 1px gray;
             display: flex;
             margin: auto;
@@ -43,13 +53,13 @@
     }
     .xinLamQuen {
         margin: 50px;
-        width: 350px;
+        width: 150px;
         background-color: blue;
         cursor: pointer;
     }
     .boQua {
         margin: 50px;
-        width: 350px;
+        width: 150px;
         background-color: red;
         cursor: pointer;
     }

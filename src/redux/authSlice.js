@@ -63,5 +63,6 @@ export const {
     logOutStart,
     logOutSuccess,
     logOutFailed,
+    
 } = authSlice.actions;
 export default authSlice.reducer;

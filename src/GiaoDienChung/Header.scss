@@ -2,6 +2,12 @@
     display: flex;
     margin: auto;
     width: 900px;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(230, 29, 169, 0.5),
+        rgba(255, 0, 0, 0.5)
+    );
+    // url("../assets//images/banner.png");
 
     .logo {
         width: 50px;
@@ -9,7 +15,7 @@
         border-radius: 50%;
     }
     .title {
-        color: red;
+        color: rgb(255, 255, 255);
         font-size: 50px;
         font-weight: 600;
         min-width: 80%;
@@ -21,6 +27,15 @@
             border-radius: 50%;
         }
         .my-cash {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .gold {
+                width: 15px;
+                height: 15px;
+                justify-content: center;
+                align-items: center;
+            }
         }
     }
 }

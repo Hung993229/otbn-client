@@ -1,0 +1,172 @@
+.containerMiniGame {
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    .container-quayso-phanthuong {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25%;
+        .phanThuongMayMan {
+        }
+    }
+    .soMayMan1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 100px;
+        font-weight: 600;
+        width: 250px;
+        height: 150px;
+        margin: auto;
+    }
+    .soMayMan3 {
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+        height: 150px;
+        margin: auto;
+        padding-bottom: 0px;
+    }
+    .soMayMan4 {
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+        height: 150px;
+        margin: auto;
+        padding-top: 50px;
+
+        .soMayMan5 {
+            display: flex;
+            .gold3 {
+                width: 120px;
+                margin: auto;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    .soMayMan2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 100px;
+        font-weight: 600;
+        width: 250px;
+        height: 150px;
+        margin: auto;
+
+        .spinner-10 {
+            font-size: 100px;
+            font-weight: 600;
+            width: 60px;
+            aspect-ratio: 1;
+            color: #854f1d;
+            border-radius: 50%;
+            display: grid;
+            background: conic-gradient(
+                        from 90deg at 4px 4px,
+                        #0000 90deg,
+                        currentColor 0
+                    ) -4px -4px / calc(50% + 2px) calc(50% + 2px),
+                radial-gradient(
+                        farthest-side,
+                        currentColor 6px,
+                        #0000 7px calc(100% - 6px),
+                        currentColor calc(100% - 5px)
+                    )
+                    no-repeat;
+            animation: s10 2s infinite linear;
+            position: relative;
+        }
+        .spinner-10:before {
+            content: "";
+            border-radius: inherit;
+            background: inherit;
+            transform: rotate(45deg);
+        }
+        @keyframes s10 {
+            to {
+                transform: rotate(0.5turn);
+            }
+        }
+
+        /**/
+        body {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-auto-rows: 130px;
+            place-items: center;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+    }
+    .quaySo {
+        margin: 50px;
+        width: 200px;
+        height: 60px;
+        background-color: red;
+        cursor: pointer;
+    }
+    .quaySo2 {
+        margin: 50px;
+        width: 200px;
+        height: 60px;
+        background-color: rgb(117, 115, 115);
+        cursor: pointer;
+    }
+    .phanThuong2 {
+        padding-bottom: 0px;
+    }
+    .phanThuong {
+        display: flex;
+        font-size: 90px;
+        font-weight: 500;
+        color: gold;
+        width: 250px;
+        height: 100px;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+
+        padding-top: 50px;
+        .gold1 {
+            width: 70px;
+            height: 70px;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    .danhSachGiaiThuong {
+        display: flex;
+
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+        // border: 1px solid gray;
+        .cot1 {
+            width: 30%;
+            height: 50px;
+            border: 1px solid gray;
+            justify-content: center;
+            align-items: center;
+        }
+        .cot2 {
+            width: 30%;
+            height: 50px;
+            border: 1px solid gray;
+            justify-content: center;
+            align-items: center;
+        }
+        .cot3 {
+            width: 40%;
+            height: 50px;
+            border: 1px solid gray;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

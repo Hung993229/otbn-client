@@ -66,11 +66,11 @@
     margin: auto;
     display: flex;
     .tieuChi {
-        width: 50%;
+        width: 30%;
         border: solid 1px gray;
     }
     .noiDung {
-        width: 50%;
+        width: 70%;
         border: solid 1px gray;
         display: flex;
         margin: auto;
@@ -90,4 +90,10 @@
     border: solid 1px gray;
     margin: auto;
     color: red;
+}
+.boQua {
+    margin: 50px;
+    width: 350px;
+    background-color: red;
+    cursor: pointer;
 }

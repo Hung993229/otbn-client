@@ -7,6 +7,7 @@ import { logOutSuccess } from "../redux/authSlice";
 
 const Nav = () => {
     const user = useSelector((state) => state.auth.login.currentUser);
+    
     const accessToken = user?.accessToken;
     const id = user?._id;
     const dispatch = useDispatch();
@@ -36,9 +37,9 @@ const Nav = () => {
                         <NavLink className="active1" to="/quan-ly-user">
                             Quản Lý user
                         </NavLink>
-                        <NavLink className="active1" to="/tao-thong-tin">
+                        {/* <NavLink className="active1" to="/tao-thong-tin">
                             Tao Thong Tin
-                        </NavLink>
+                        </NavLink> */}
                         <NavLink
                             className="active1"
                             to="/dang-xuat"
@@ -54,9 +55,6 @@ const Nav = () => {
                         </NavLink>
                         <NavLink className="active1" to="/dang-nhap">
                             Dang Nhap
-                        </NavLink>
-                        <NavLink className="active1" to="/tao-thong-tin">
-                            Tao Thong Tin
                         </NavLink>
                     </>
                 )}

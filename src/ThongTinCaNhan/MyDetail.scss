@@ -23,11 +23,12 @@
         margin: auto;
         display: flex;
         .myTieuChi {
-            width: 50%;
+            width: 30%;
             border: solid 1px gray;
         }
         .myNoiDung {
-            width: 50%;
+            display: flex;
+            width: 70%;
             border: solid 1px gray;
             display: flex;
             margin: auto;
@@ -41,15 +42,69 @@
     .myMauNguoiYeuLyTuong {
         color: red;
     }
+}
+.detail-your-list {
+    display: flex;
+    cursor: pointer;
+    &:hover {
+        color: red;
+
+        text-decoration: under-line;
+    }
+}
+.container-yourDetail {
+    width: 900px;
+    margin: auto;
+
+    .banner {
+        height: 250px;
+    }
+    .yourDetail-avatar-hoTen-cauNoiTamDac {
+        display: flex;
+        .yourDetail-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .yourDetail-hoTen-cauNoiTamDac {
+            .yourDetail-hoTen {
+            }
+            .yourdetail-cauNoiTamDac {
+            }
+        }
+    }
+    .Container-yourTieuChi-yourNoiDung {
+        width: 900px;
+        margin: auto;
+        display: flex;
+        .yourTieuChi {
+            width: 30%;
+            border: solid 1px gray;
+        }
+        .yourNoiDung {
+            width: 70%;
+            border: solid 1px gray;
+            display: flex;
+            margin: auto;
+            text-align: center;
+            align-items: center;
+            .donVi {
+                padding-right: 20px;
+            }
+        }
+    }
+    .yourMauNguoiYeuLyTuong {
+        color: red;
+    }
     .xinLamQuen {
         margin: 50px;
-        width: 350px;
+        width: 150px;
         background-color: blue;
         cursor: pointer;
     }
     .boQua {
         margin: 50px;
-        width: 350px;
+        width: 150px;
         background-color: red;
         cursor: pointer;
     }
