@@ -1,0 +1,38 @@
+.container-themSanPham {
+    width: 350px;
+    margin: auto;
+    .sanPham {
+        margin: auto;
+        .anhsanpham {
+            object-fit: cover;
+            border: solid 1px gray;
+            width: 180px;
+            height: 180px;
+
+            background-color: red;
+            margin: auto;
+            img {
+                width: 180px;
+                height: 180px;
+            }
+        }
+        .tenSanPham {
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            border: solid 1px gray;
+        }
+        .giaBan {
+            display: flex;
+            .giabanCu {
+                border: solid 1px gray;
+            }
+            .giaBanMoi {
+                border: solid 1px gray;
+            }
+        }
+        .muaHang {
+            border: solid 1px gray;
+        }
+    }
+}

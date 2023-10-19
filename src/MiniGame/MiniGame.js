@@ -7,6 +7,11 @@ import gold from "../assets/images/Gold.png";
 import hopqua from "../assets/images/hopqua.jpg";
 import hopqua2 from "../assets/images/hopqua2.jpg";
 import hopqua3 from "../assets/images/hopqua3.jpg";
+import alrblade from "../assets/images/alrblade.png";
+import dell from "../assets/images/dell.jpg";
+import ssa54 from "../assets/images/ssa54.jpeg";
+import vocher from "../assets/images/vocher.png";
+import gau from "../assets/images/gau.jpg";
 import { updateStatusUser, getStatus, getPost } from "../redux/apiRequest";
 const MiniGame = () => {
     const user = useSelector((state) => state.auth.login?.currentUser);
@@ -35,12 +40,12 @@ const MiniGame = () => {
         if (user) {
             getStatus(user?._id, dispatch);
         }
-    }, [user]);
+    }, [user, dispatch]);
     useEffect(() => {
         if (user) {
             getPost(user?._id, dispatch);
         }
-    }, [user]);
+    }, [user, dispatch]);
 
     useEffect(() => {
         let timerId;
@@ -81,10 +86,9 @@ const MiniGame = () => {
     };
 
     const danhSachPhanThuong = [
-        15, 27, 38, 42, 89, 128, 128, 132, 169, 253, 458, 636, 985, 2146, 2789,
-        3449, 5, 15, 122, 2572, 3274, 822, 2123, 260, 357, 564, 538, 422, 458,
-        465, 655, 619, 682, 725, 787, 85, 869, 891, 937, 945, 1884, 1632, 2656,
-        344, 2568, 55, 65, 85, 95, 105,
+        15, 27, 38, 42, 89, 28, 28, 32, 69, 53, 58, 36, 85, 46, 89, 49, 5, 15,
+        12, 72, 22, 23, 60, 57, 64, 38, 22, 58, 65, 55, 19, 82, 25, 87, 85, 69,
+        91, 37, 45, 84, 32, 56, 44, 68, 55, 65, 85, 95, 75, 999,
     ];
 
     const indexPhanThuong = Math.floor(Math.random() * 49) + 1;
@@ -164,14 +168,17 @@ const MiniGame = () => {
                                                 <img
                                                     src={hopqua}
                                                     className="gold3"
+                                                    alt="timtim"
                                                 />
                                                 <img
                                                     src={hopqua2}
                                                     className="gold3"
+                                                    alt="timtim"
                                                 />
                                                 <img
                                                     src={hopqua3}
                                                     className="gold3"
+                                                    alt="timtim"
                                                 />
                                             </div>
                                         </div>
@@ -200,7 +207,11 @@ const MiniGame = () => {
                                     <div className="soMayMan3">
                                         <div className="phanThuong">
                                             <div>{cash}</div>
-                                            <img src={gold} className="gold1" />
+                                            <img
+                                                src={gold}
+                                                className="gold1"
+                                                alt="timtim"
+                                            />
                                         </div>
                                     </div>
                                 ) : (
@@ -263,53 +274,92 @@ const MiniGame = () => {
             <div>A. Cơ Cấu Giải Thưởng</div>
             <div>
                 <div className="danhSachGiaiThuong">
-                    <div className="cot1">Danh Sách</div>
-                    <div className="cot2">Mã Trúng Thưởng</div>
-                    <div className="cot3">Giải Thưởng</div>
+                    <div className="cot">Danh Sách</div>
+                    <div className="cot">Mã Trúng Thưởng</div>
+                    <div className="cot">Giải Thưởng</div>
                 </div>
                 <div className="danhSachGiaiThuong">
                     <div className="cot1">Giải Đặc Biệt</div>
-                    <div className="cot2">99999</div>
+                    <div className="cot2">
+                        99999 <br /> (1 Mã Trúng Thưởng Duy Nhất)
+                    </div>
                     <div className="cot3">
+                        <img
+                            src={alrblade}
+                            className="tengiaiThuong"
+                            alt="timtim"
+                        />
                         <div>
                             Xe Máy Honda AirBlade 150 2023 <br />
                             Trị Giá 55.000.000đ
                         </div>
-                        <img />
                     </div>
                 </div>
                 <div className="danhSachGiaiThuong">
                     <div className="cot1">Giải Nhất</div>
-                    <div className="cot2">x9999 9999x</div>
+                    <div className="cot2">
+                        x9999 9999x <br /> (20 Mã Trúng Thưởng)
+                    </div>
                     <div className="cot3">
+                        <img
+                            src={dell}
+                            className="tengiaiThuong"
+                            alt="timtim"
+                        />
                         <div>
                             Laptop Dell Inspiron 15 3520 <br /> Trị Giá
                             15.000.000 Đồng
                         </div>
-                        <img />
                     </div>
                 </div>
                 <div className="danhSachGiaiThuong">
-                    <div className="cot1">Giải Nhì</div>
-                    <div className="cot2">xx999 x999x 999xx</div>
+                    <div className="cot1">
+                        Giải Nhì <br />
+                    </div>
+                    <div className="cot2">
+                        xx999 x999x 999xx <br /> (300 Mã Trúng Thưởng)
+                    </div>
                     <div className="cot3">
+                        <img
+                            src={ssa54}
+                            className="tengiaiThuong"
+                            alt="timtim"
+                        />
                         <div>
                             Điện Thoại Sam Sung Galaxy A54 5G
                             <br />
                             Trị Giá 9.000.000đ
                         </div>
-                        <img />
                     </div>
                 </div>
                 <div className="danhSachGiaiThuong">
                     <div className="cot1">Giải khuyến Khích</div>
-                    <div className="cot2">Số Ngâu Nhiên</div>
+                    <div className="cot2">
+                        Số Ngâu Nhiên <br /> (Hàng Vạn Mã Trúng Thưởng)
+                    </div>
                     <div className="cot3">
+                        <div>
+                            <img
+                                src={gold}
+                                className="tengiaiThuong"
+                                alt="timtim"
+                            />
+                            <img
+                                src={gau}
+                                className="tengiaiThuong"
+                                alt="timtim"
+                            />
+                            <img
+                                src={vocher}
+                                className="tengiaiThuong"
+                                alt="timtim"
+                            />
+                        </div>
+
                         <div>
                             Rất nhiều phần quà là Gold, <br /> hiện vật hoặc
                             phiếu mua hàng!
                         </div>
-                        <img />
                     </div>
                 </div>
             </div>
@@ -322,7 +372,7 @@ const MiniGame = () => {
                 3. Nhận Thưởng: <br /> Phần Thưởng là hiện vật được nhận thưởng
                 trong không quá 30 ngày. <br />
                 Phần thưởng là Gold thì được cộng ngay vào tài khoản Gold.
-                <br /> Gold có thể dùng để mua hàng trong mục Shop (1Gold =
+                <br /> Gold có thể dùng để mua hàng trong mục Shopping (1Gold =
                 1Vnđ)
             </p>
         </div>

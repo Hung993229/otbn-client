@@ -1,59 +1,86 @@
 import "./Nav.scss";
-import { NavLink, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "../redux/apiRequest";
-import { createAxios } from "../createInstance";
-import { logOutSuccess } from "../redux/authSlice";
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Nav = () => {
     const user = useSelector((state) => state.auth.login.currentUser);
-    
-    const accessToken = user?.accessToken;
-    const id = user?._id;
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    let axiosJWT = createAxios(user, dispatch, logOutSuccess);
-
-    const handleLogout = () => {
-        logOut(dispatch, id, navigate, accessToken, axiosJWT);
-    };
     return (
         <>
             <div className="container-nav">
                 {user ? (
                     <>
-                        <NavLink className="active1" to="/ket-ban" exact>
-                            Kết Bạn
+                        <NavLink
+                            className={({ isActive }) =>
+                                isActive ? "active1" : ""
+                            }
+                            to="/ket-ban"
+                        >
+                            <div>
+                                <i className="fi fi-rr-users"></i>
+                                <div>Hội FA</div>
+                            </div>
                         </NavLink>
-                        <NavLink className="active1" to="/mini-game">
+                        <NavLink
+                            className={({ isActive }) =>
+                                isActive ? "active1" : ""
+                            }
+                            to="/hom-thu"
+                        >
+                            <div>
+                                <i className="fi fi-rr-users"></i>
+                                <div>Hòm Thư</div>
+                            </div>
+                        </NavLink>
+                        <NavLink
+                            className={({ isActive }) =>
+                                isActive ? "active1" : ""
+                            }
+                            to="/mini-game"
+                        >
                             Mini Game
                         </NavLink>
-                        <NavLink className="active1" to="/huong-dan">
+
+                        <NavLink
+                            className={({ isActive }) =>
+                                isActive ? "active1" : ""
+                            }
+                            to="/shop-online"
+                        >
+                            Shopping
+                        </NavLink>
+                        <NavLink
+                            className={({ isActive }) =>
+                                isActive ? "active1" : ""
+                            }
+                            to="/huong-dan"
+                        >
                             Hướng Dẫn
                         </NavLink>
-                        <NavLink className="active1" to="/ca-nhan">
-                            Cá Nhân
-                        </NavLink>
-                        <NavLink className="active1" to="/quan-ly-user">
-                            Quản Lý user
-                        </NavLink>
-                        {/* <NavLink className="active1" to="/tao-thong-tin">
-                            Tao Thong Tin
-                        </NavLink> */}
                         <NavLink
-                            className="active1"
-                            to="/dang-xuat"
-                            onClick={handleLogout}
+                            className={({ isActive }) =>
+                                isActive ? "active1" : ""
+                            }
+                            to="/ca-nhan"
                         >
-                            Dang Xuat
+                            Cá Nhân
                         </NavLink>
                     </>
                 ) : (
                     <>
-                        <NavLink className="active1" to="/dang-ki">
+                        <NavLink
+                            className={({ isActive }) =>
+                                isActive ? "active1" : ""
+                            }
+                            to="/dang-ki"
+                        >
                             Dang Ki
                         </NavLink>
-                        <NavLink className="active1" to="/dang-nhap">
+                        <NavLink
+                            className={({ isActive }) =>
+                                isActive ? "active1" : ""
+                            }
+                            to="/dang-nhap"
+                        >
                             Dang Nhap
                         </NavLink>
                     </>

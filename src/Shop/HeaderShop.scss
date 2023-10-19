@@ -1,0 +1,30 @@
+.container-header-shop {
+    .bannerShop {
+        width: 900px;
+        height: 250px;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+        object-fit: cover;
+    }
+    .hoptac-sanpham {
+        display: flex;
+        gap: 50%;
+        justify-content: center;
+        align-items: center;
+        .moihoptac {
+            display: block;
+            margin-right: 0px;
+            border-radius: 10px;
+            background-color: rgb(13, 199, 13);
+            width: 150px;
+        }
+        .themSanPham {
+            display: block;
+            margin-right: 0px;
+            border-radius: 10px;
+            background-color: rgb(120, 128, 120);
+            width: 150px;
+        }
+    }
+}

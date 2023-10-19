@@ -4,6 +4,7 @@ import userReducer from "./userSlice";
 import postReducer from "./postSlice";
 import statusReducer from "./statusSlice";
 import yourStatusReducer from "./yourStatusSlice";
+import shopReducer from "./shopSlice";
 import {
     persistStore,
     persistReducer,
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
     post: postReducer,
     status: statusReducer,
     yourStatus: yourStatusReducer,
+    shop: shopReducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

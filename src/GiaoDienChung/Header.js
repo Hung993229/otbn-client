@@ -15,12 +15,12 @@ const Header = () => {
         if (user) {
             getStatus(user?._id, dispatch);
         }
-    }, [user]);
+    }, [user, dispatch]);
     useEffect(() => {
         if (user) {
             getPost(user?._id, dispatch);
         }
-    }, [user]);
+    }, [user, dispatch]);
 
     const cash = currency(status?.cash, {
         symbol: "$",
@@ -33,12 +33,12 @@ const Header = () => {
     return (
         <>
             <div className="container-header">
-                <div>
+                <div className="container-logo">
                     <img src={logo} alt="he" className="logo" />
-                    <div>TimTim.Vn</div>
+                    <div className="my-cash2">TimTim.Vn</div>
                 </div>
 
-                <div className="title">KẾT NỐI TRÁI TIM</div>
+                <div className="title"></div>
                 <div className="my-detail">
                     <img
                         src={myDetail?.avatar}
@@ -47,7 +47,7 @@ const Header = () => {
                     />
                     <div className="my-cash">
                         <div>{cash}</div>
-                        <img src={gold} className="gold" />
+                        <img src={gold} className="gold" alt="timtim" />
                     </div>
                 </div>
             </div>

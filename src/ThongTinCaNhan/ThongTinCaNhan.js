@@ -7,6 +7,8 @@ import { getPost } from "../redux/apiRequest";
 import MyDetail from "./MyDetail";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+
+import DangNhap from "../DangNhap/DangNhap";
 const ThongTinCaNhan = () => {
     const [suaPost, setsuaPost] = useState(0);
     const myDetailId = useSelector((state) => state.post.post.myDetail?._id);
@@ -26,29 +28,34 @@ const ThongTinCaNhan = () => {
     }, [user]);
     return (
         <div>
-            {myDetailId ? (
+            {user ? (
                 <div>
-                    {suaPost === 0 ? (
+                    {myDetailId ? (
                         <div>
-                            <MyDetail
-                                suaPost={suaPost}
-                                setsuaPost={setsuaPost}
-                            />
-                           
+                            {suaPost === 0 ? (
+                                <div>
+                                    <MyDetail
+                                        suaPost={suaPost}
+                                        setsuaPost={setsuaPost}
+                                    />
+                                </div>
+                            ) : (
+                                <div>
+                                    <UpdateDetail
+                                        suaPost={suaPost}
+                                        setsuaPost={setsuaPost}
+                                    />
+                                </div>
+                            )}
                         </div>
                     ) : (
                         <div>
-                            <UpdateDetail
-                                suaPost={suaPost}
-                                setsuaPost={setsuaPost}
-                            />
+                            <FormRegister />
                         </div>
                     )}
                 </div>
             ) : (
-                <div>
-                    <FormRegister />
-                </div>
+                <DangNhap />
             )}
         </div>
     );

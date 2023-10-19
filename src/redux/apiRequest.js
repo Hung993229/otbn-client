@@ -65,12 +65,26 @@ import {
     deleteAllYourStatusSuccess,
     deleteAllYourStatusFailed,
 } from "./yourStatusSlice";
+import {
+    updateshopStart,
+    updateshopSuccess,
+    updateshopFailed,
+    registershopStart,
+    registershopSuccess,
+    registershopFailed,
+    getshopStart,
+    getshopSuccess,
+    getshopFailed,
+    deleteshopStart,
+    deleteshopSuccess,
+    deleteshopFailed,
+} from "./shopSlice";
 export const loginUser = async (user, dispatch, navigate) => {
     dispatch(loginStart());
     try {
         const res = await axios.post("/v1/auth/login", user);
         dispatch(loginSuccess(res.data));
-        navigate("/ca-nhan");
+        navigate("/mini-game");
     } catch (err) {
         dispatch(loginFailed());
     }
@@ -140,7 +154,7 @@ export const updatePost = async (newPost, id, dispatch, setsuaPost) => {
             setsuaPost(0);
         }
     } catch (err) {
-        dispatch(updatePostFailed(err.response.data));
+        dispatch(updatePostFailed(err));
     }
 };
 
@@ -241,7 +255,6 @@ export const getYourStatus = async (id, dispatch) => {
     }
 };
 export const deleteYourStatus = async (id, dispatch) => {
-    console.log("deleteid", id);
     dispatch(deleteyourStatusStart());
     try {
         const res = await axios.delete(`/v1/your-status/${id}`);
@@ -258,5 +271,44 @@ export const deleteAllYourStatus = async (id, dispatch) => {
         dispatch(deleteAllYourStatusSuccess(res.data));
     } catch (err) {
         dispatch(deleteAllYourStatusFailed());
+    }
+};
+
+export const registerShop = async (newSanPham, dispatch) => {
+    dispatch(registershopStart());
+    try {
+        const res = await axios.post("/v1/shop/add-shop", newSanPham);
+        dispatch(registershopSuccess(res.data));
+    } catch (err) {
+        dispatch(registershopFailed());
+    }
+};
+export const getShop = async (dispatch, huyenDs, huyenQq) => {
+    dispatch(getshopStart());
+    try {
+        const res = await axios.get(
+            `/v1/shop/?huyenDs=${huyenDs}&huyenQq=${huyenQq}`
+        );
+        dispatch(getshopSuccess(res.data));
+    } catch (err) {
+        dispatch(getshopFailed());
+    }
+};
+export const deleteShop = async (id, dispatch) => {
+    dispatch(deleteshopStart());
+    try {
+        const res = await axios.delete(`/v1/shop/${id}`);
+        dispatch(deleteshopSuccess(res.data));
+    } catch (err) {
+        dispatch(deleteshopFailed());
+    }
+};
+export const updateShop = async (statusUser, id, dispatch) => {
+    dispatch(updateshopStart());
+    try {
+        const res = await axios.put(`/v1/shop/${id}`, statusUser);
+        dispatch(updateshopSuccess(res.data));
+    } catch (err) {
+        dispatch(updateshopFailed(err.response.data));
     }
 };

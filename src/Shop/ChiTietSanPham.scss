@@ -1,0 +1,36 @@
+.container-ChiTietSanPham {
+    width: 350px;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px gray;
+    margin: auto;
+    .anhSanPham {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border: solid 1px gray;
+    }
+    .tenSanPham {
+    }
+    .giaBan {
+        display: flex;
+        margin: auto;
+        text-align: center;
+        justify-content: center;
+        gap: 10px;
+
+        .giabanCu {
+            text-decoration: line-through;
+        }
+        .giaBanMoi {
+            color: red;
+        }
+    }
+    .viTriSanPham {
+        // display: flex;
+
+        .diachisanpham {
+            font-size: 10px;
+        }
+    }
+}

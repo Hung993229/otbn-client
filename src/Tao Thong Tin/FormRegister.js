@@ -16,69 +16,69 @@ const FormRegister = () => {
     const user = useSelector((state) => state.auth.login.currentUser);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [previewAvatar, setpreviewAvatar] = useState("");
-    const [previewBanner, setpreviewBanner] = useState("");
+    const [previewAvatar, setpreviewAvatar] = useState();
+    const [previewBanner, setpreviewBanner] = useState();
     // Provinces
     const [provinces, setProvinces] = useState([]);
-    const [provincesID, setprovincesID] = useState("");
+    const [provincesID, setprovincesID] = useState();
 
     const [districts, setDistricts] = useState([]);
-    const [districtID, setDistrictID] = useState("");
+    const [districtID, setDistrictID] = useState();
 
     const [wards, setWards] = useState([]);
-    const [wardID, setWardID] = useState("");
+    const [wardID, setWardID] = useState();
     // Provinces2
     const [provinces2, setProvinces2] = useState([]);
-    const [provincesID2, setprovincesID2] = useState("");
+    const [provincesID2, setprovincesID2] = useState();
 
     const [districts2, setDistricts2] = useState([]);
-    const [districtID2, setDistrictID2] = useState("");
+    const [districtID2, setDistrictID2] = useState();
 
     const [wards2, setWards2] = useState([]);
-    const [wardID2, setWardID2] = useState("");
+    const [wardID2, setWardID2] = useState();
 
     // newPost
-    const [banner, setBanner] = useState("");
-    const [avatar, setAvatar] = useState("");
-    const [hoTen, sethoTen] = useState("");
+    const [banner, setBanner] = useState();
+    const [avatar, setAvatar] = useState();
+    const [hoTen, sethoTen] = useState();
     const [cauNoiTamDac, setcauNoiTamDac] = useState(
         "Thời gian thích hợp gặp một người thích hợp là Hạnh Phúc"
     );
-    const [gioiTinh, setgioiTinh] = useState("");
-    const [tinhTrangHonNhan, settinhTrangHonNhan] = useState("");
+    const [gioiTinh, setgioiTinh] = useState();
+    const [tinhTrangHonNhan, settinhTrangHonNhan] = useState();
     // ngay sinh
-    const [ngaySinh, setngaySinh] = useState("");
-    const [thangSinh, setthangSinh] = useState("");
-    const [namSinh, setnamSinh] = useState("");
+    const [ngaySinh, setngaySinh] = useState();
+    const [thangSinh, setthangSinh] = useState();
+    const [namSinh, setnamSinh] = useState();
     // Que Quan
-    const [tinhQq, settinhQq] = useState("");
-    const [huyenQq, sethuyenQq] = useState("");
-    const [xaQq, setxaQq] = useState("");
+    const [tinhQq, settinhQq] = useState();
+    const [huyenQq, sethuyenQq] = useState();
+    const [xaQq, setxaQq] = useState();
     // Hien Dang Song
-    const [tinhDs, settinhDs] = useState("");
-    const [huyenDs, sethuyenDs] = useState("");
-    const [xaDs, setxaDs] = useState("");
+    const [tinhDs, settinhDs] = useState();
+    const [huyenDs, sethuyenDs] = useState();
+    const [xaDs, setxaDs] = useState();
 
-    const [tonGiao, settonGiao] = useState("");
-    const [ngheNghiep, setngheNghiep] = useState("");
-    const [thuNhap, setthuNhap] = useState("");
-    const [chieuCao, setchieuCao] = useState("");
-    const [canNang, setcanNang] = useState("");
+    const [tonGiao, settonGiao] = useState();
+    const [ngheNghiep, setngheNghiep] = useState();
+    const [thuNhap, setthuNhap] = useState();
+    const [chieuCao, setchieuCao] = useState();
+    const [canNang, setcanNang] = useState();
     const [gioiThieuThem, setgioiThieuThem] = useState(
-        "Hãy kể về: Sở thích, Sở ghét, Quan niệm sống, ... của bạn!"
+        "Không mong gì nhiều chỉ mong gặp được người biết yêu thương, tôn trọng nhau!"
     );
 
     // Mau nguoi yeu ly tuong
-    const [gioiTinh2, setgioiTinh2] = useState("");
-    const [tinhTrangHonNhan2, settinhTrangHonNhan2] = useState("");
-    const [khuVucLamQuen2, setkhuVucLamQuen2] = useState("");
-    const [tonGiao2, settonGiao2] = useState("");
-    const [ngheNghiep2, setngheNghiep2] = useState("");
-    const [thuNhap2, setthuNhap2] = useState("");
-    const [tuoiHop2, settuoiHop2] = useState("");
-    const [tuoiHop3, settuoiHop3] = useState("");
+    const [gioiTinh2, setgioiTinh2] = useState();
+    const [tinhTrangHonNhan2, settinhTrangHonNhan2] = useState();
+    const [khuVucLamQuen2, setkhuVucLamQuen2] = useState();
+    const [tonGiao2, settonGiao2] = useState();
+    const [ngheNghiep2, setngheNghiep2] = useState();
+    const [thuNhap2, setthuNhap2] = useState();
+    const [tuoiHop2, settuoiHop2] = useState();
+    const [tuoiHop3, settuoiHop3] = useState();
     const [yeucaukhac2, setyeucaukhac2] = useState(
-        "Mong muốn của bạn về người bạn muốn làm quen"
+        "Không mong gì nhiều chỉ mong gặp được người biết yêu thương, tôn trọng nhau!"
     );
 
     // ngay/thang/nam
@@ -234,6 +234,8 @@ const FormRegister = () => {
     const handleRegisterPost = (e) => {
         e.preventDefault();
         if (
+            !banner ||
+            !avatar ||
             !hoTen ||
             !gioiTinh ||
             !gioiTinh2 ||
@@ -308,6 +310,7 @@ const FormRegister = () => {
                 tuoiHop3: tuoiHop3,
                 yeucaukhac2: yeucaukhac2,
                 myStatus: 0,
+                vaiTro: 0,
                 user: user._id,
             };
 
@@ -780,7 +783,7 @@ const FormRegister = () => {
             </p>
 
             <button type="submit" onClick={handleRegisterPost}>
-                Luu Thong Tin
+                Lưu Thông Tin
             </button>
         </div>
     );

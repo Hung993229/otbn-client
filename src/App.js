@@ -10,6 +10,9 @@ import DangNhap from "./DangNhap/DangNhap";
 import DangKi from "./DangKi/DangKi";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import QuanLyUser from "./QuanLyUser/QuanLyUser";
+import ShopOnline from "./Shop/ShopOnline";
+import HomThu from "./KetBan/HomThu";
+
 function App() {
     return (
         <Router>
@@ -17,22 +20,16 @@ function App() {
                 <Header />
                 <Nav />
                 <Routes>
-                    <Route exact path="/ket-ban" element={<KetBan />} />
-                    <Route exact path="/mini-game" element={<MiniGame />} />
-                    <Route exact path="/huong-dan" element={<Instruct />} />
-                    <Route exact path="/ca-nhan" element={<ThongTinCaNhan />} />
-                    <Route
-                        exact
-                        path="/tao-thong-tin"
-                        element={<FormRegister />}
-                    />
-                    <Route exact path="/dang-ki" element={<DangKi />} />
-                    <Route exact path="/dang-nhap" element={<DangNhap />} />
-                    <Route
-                        exact
-                        path="/quan-ly-user"
-                        element={<QuanLyUser />}
-                    />
+                    <Route path="/ket-ban" element={<KetBan />} />
+                    <Route path="/mini-game" element={<MiniGame />} />
+                    <Route path="/huong-dan" element={<Instruct />} />
+                    <Route path="/ca-nhan" element={<ThongTinCaNhan />} />
+                    <Route path="/tao-thong-tin" element={<FormRegister />} />
+                    <Route path="/dang-ki" element={<DangKi />} />
+                    <Route path="/dang-nhap" element={<DangNhap />} />
+                    <Route path="/quan-ly-user" element={<QuanLyUser />} />
+                    <Route path="/shop-online" element={<ShopOnline />} />
+                    <Route path="/hom-thu" element={<HomThu />} />
                 </Routes>
             </div>
         </Router>

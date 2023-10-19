@@ -1,29 +1,28 @@
-import "./KetBan.scss";
-
+import "./HomThu.scss";
 import YeuCauBiTuChoi from "./GuiYeuCau/YeuCauBiTuChoi";
 import YeuCauDuocDongY from "./GuiYeuCau/YeuCauDuocDongY";
 import ChonVaGuiYeuCau from "./GuiYeuCau/ChonVaGuiYeuCau";
 import YourDangKetNoi from "./GuiYeuCau/YourDangKetNoi";
 import TiepNhanYeuCauKetNoi from "./PhanHoiYeuCau/TiepNhanYeuCauKetNoi";
 import DongYKetNoi from "./PhanHoiYeuCau/DongYKetNoi";
+import MyDangKetNoi from "./PhanHoiYeuCau/MyDangKetNoi";
 
 import {
     yourPost,
     getStatus,
     getPost,
     getYourStatus,
-    getAllPosts,
+    getAllPosts
 } from "../redux/apiRequest";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-const KetBan = () => {
+const HomThu = () => {
     const dispatch = useDispatch();
     const myDetail = useSelector((state) => state.post.post?.myDetail);
     const user = useSelector((state) => state.auth.login?.currentUser);
     const status = useSelector((state) => state.status.status.status?.status);
-    const allPosts = useSelector((state) => state.post.post?.allPosts);
     const allYourStatus = useSelector(
         (state) => state.yourStatus.yourStatus.allYourStatus?.yourStatus
     );
@@ -33,7 +32,7 @@ const KetBan = () => {
         if (user) {
             getYourStatus(user?._id, dispatch);
         }
-    }, [user]);
+    }, [user, status]);
     useEffect(() => {
         if (user) {
             getStatus(user?._id, dispatch);
@@ -65,21 +64,19 @@ const KetBan = () => {
         };
         getTatCaPostPhuHop();
     }, [myDetail]);
-
+    
     const myStatus = myDetail?.myStatus;
     const yourStatus = yourDetail?.myStatus;
 
     const yourIdDangKetNoi = status?.yourIdDangKetNoi;
     const dienThoai = status?.dienThoai;
-
     // yeu cau ket noi di
     const yourIdYeuCauKetNoidi = allYourStatus?.filter(
         (item) => item.yourIdYeuCauKetNoi === user._id
     );
     // yeu cau ket noi den
     const yourIdYeuCauKetNoi = allYourStatus?.filter(
-        (item) =>
-            item.yourIdYeuCauKetNoi?.length !== 0 && item.user === user._id
+        (item) => item.yourIdYeuCauKetNoi && item.user === user._id
     );
     // dong y ket noi
     const yourStatusdongYKetNoi = allYourStatus?.filter(
@@ -90,90 +87,47 @@ const KetBan = () => {
         (item) => item.tuChoiKetNoi
     );
     const yourStatushuyKetNoi = allYourStatus?.filter((item) => item.huyKetNoi);
-
     return (
-        <div>
+        <div className="container">
             <div>
                 {+myStatus === 0 &&
-                yourIdYeuCauKetNoidi?.length === 0 &&
-                yourStatusdongYKetNoi?.length === 0 &&
-                yourStatustuChoiKetNoi?.length === 0 ? (
-                    <ChonVaGuiYeuCau />
-                ) : (
-                    <div></div>
-                )}
-            </div>
-            <div>
-                {+myStatus === 1 &&
-                yourIdDangKetNoi &&
-                yourIdDangKetNoi?.length !== 0 &&
-                !dienThoai &&
-                yourIdYeuCauKetNoidi?.length !== 0 &&
-                yourStatusdongYKetNoi?.length === 0 &&
-                yourStatustuChoiKetNoi?.length === 0 ? (
-                    <YourDangKetNoi />
+                yourIdYeuCauKetNoi &&
+                yourIdYeuCauKetNoi?.length !== 0 &&
+                !dienThoai ? (
+                    <TiepNhanYeuCauKetNoi />
                 ) : (
                     <></>
                 )}
             </div>
-            {/* tu Choi */}
-            <div>
-                {+myStatus === 1 &&
-                yourIdDangKetNoi &&
-                !dienThoai &&
-                yourIdYeuCauKetNoidi?.length === 0 &&
-                yourStatusdongYKetNoi?.length === 0 &&
-                yourStatustuChoiKetNoi?.length !== 0 ? (
-                    <YeuCauBiTuChoi />
-                ) : (
-                    <></>
-                )}
-            </div>
-            <div>{/* ok Tu choi thi ve ban dau */}</div>
             {/* Dong Y */}
             <div>
                 {+myStatus === 1 &&
-                yourIdDangKetNoi &&
-                !dienThoai &&
-                yourIdYeuCauKetNoidi?.length === 0 &&
-                yourStatusdongYKetNoi?.length !== 0 &&
-                yourStatustuChoiKetNoi?.length === 0 ? (
-                    <YeuCauDuocDongY />
-                ) : (
-                    <></>
-                )}
-            </div>
-            <div>
-                {+myStatus === 1 &&
+                dienThoai &&
                 yourIdDangKetNoi &&
                 yourIdDangKetNoi?.length !== 0 &&
-                dienThoai &&
-                yourIdYeuCauKetNoidi?.length === 0 &&
-                yourStatusdongYKetNoi?.length === 0 &&
+                yourIdYeuCauKetNoi?.length === 0 &&
                 yourStatustuChoiKetNoi?.length === 0 &&
-                yourStatushuyKetNoi?.length === 0 ? (
-                    <YourDangKetNoi />
+                yourIdYeuCauKetNoidi?.length === 0 ? (
+                    <DongYKetNoi />
                 ) : (
                     <></>
                 )}
             </div>
-            {/* Chia tay */}
+
+            {/* Tu Choi */}
             <div>
-                {+myStatus === 1 &&
-                yourIdDangKetNoi &&
-                yourIdDangKetNoi?.length !== 0 &&
-                dienThoai &&
-                yourIdYeuCauKetNoidi?.length === 0 &&
-                yourStatusdongYKetNoi?.length === 0 &&
-                yourStatushuyKetNoi &&
-                yourStatushuyKetNoi?.length !== 0 ? (
-                    <YeuCauBiTuChoi />
+                {+myStatus === 0 &&
+                !dienThoai &&
+                yourIdDangKetNoi?.length === 0 &&
+                yourIdYeuCauKetNoi?.length === 0 &&
+                yourStatustuChoiKetNoi?.length === 0 &&
+                yourIdYeuCauKetNoidi?.length === 0 ? (
+                    <></>
                 ) : (
                     <></>
                 )}
             </div>
-            <div>{/* chia tay xong thi ve ban dau */}</div>
         </div>
     );
 };
-export default KetBan;
+export default HomThu;

@@ -1,11 +1,17 @@
 import { useEffect } from "react";
 import "./QuanLyUser.scss";
-import { getAllUsers, deleteUser, getAllPosts } from "../redux/apiRequest";
+import {
+    getAllUsers,
+    deleteUser,
+    yourPost,
+    updatePost,
+} from "../redux/apiRequest";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createAxios } from "../createInstance";
 import { loginSuccess } from "../redux/authSlice";
+import { useState } from "react";
 
 const QuanLyUser = () => {
     const user = useSelector((state) => state.auth.login.currentUser);
@@ -15,6 +21,8 @@ const QuanLyUser = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     let axiosJWT = createAxios(user, dispatch, loginSuccess);
+    const yourDetail = useSelector((state) => state.post.post?.yourDetail);
+    const [suaPost, setsuaPost] = useState();
 
     const handleDelete = (id) => {
         deleteUser(user?.accessToken, dispatch, id, axiosJWT);
@@ -27,17 +35,32 @@ const QuanLyUser = () => {
         if (user?.accessToken) {
             getAllUsers(user?.accessToken, dispatch, axiosJWT);
         }
-    }, []);
+    }, [user, dispatch]);
+    const handleThongTinUser = (id) => {
+        yourPost(id, dispatch);
+    };
+    const handleSuaVaiTroUser = () => {
+        const newPost = {
+            vaiTro: 0,
+        };
+        const id = yourDetail._id;
+        updatePost(newPost, id, dispatch, setsuaPost);
+    };
+    const handleSuaVaiTroBanHang = () => {
+        const newPost = {
+            vaiTro: 1,
+        };
+        const id = yourDetail._id;
+        updatePost(newPost, id, dispatch, setsuaPost);
+    };
+    const handleSuaVaiTroQuanLy = () => {
+        const newPost = {
+            vaiTro: 2,
+        };
+        const id = yourDetail._id;
+        updatePost(newPost, id, dispatch, setsuaPost);
+    };
 
-    useEffect(() => {
-        if (!user) {
-            navigate("/dang-nhap");
-        }
-        if (user) {
-            getAllPosts(dispatch);
-        }
-    }, []);
-    console.log("allPosts", allPosts);
     return (
         <main className="home-container">
             <div>
@@ -49,31 +72,49 @@ const QuanLyUser = () => {
                     {userList?.map((user) => {
                         return (
                             <div className="user-container" key={user._id}>
-                                <div className="home-user">{user.username}</div>
                                 <div
-                                    className="delete-user"
-                                    onClick={() => handleDelete(user._id)}
+                                    className="home-user"
+                                    onClick={() => handleThongTinUser(user._id)}
                                 >
-                                    Delete
+                                    {user.username}
                                 </div>
                             </div>
                         );
                     })}
                 </div>
-                <div className="errorMsg">{msg}</div>
-            </div>
-            <div>
-                <div className="home-title">Tất Cả Post</div>
                 <div>
-                    {allPosts?.map((post) => {
-                        return (
-                            <div className="user-container" key={post._id}>
-                                <div className="home-user">{post.tinhDs}</div>
-                                <div className="home-user">{post._id}</div>
-                                <div className="delete-user">Delete</div>
+                    {yourDetail && yourDetail.length !== 0 ? (
+                        <div>
+                            <div>{yourDetail?.hoTen}</div>
+                            <div>
+                                {+yourDetail?.vaiTro === 0 && <div>User</div>}
                             </div>
-                        );
-                    })}
+                            <div>
+                                {+yourDetail?.vaiTro === 1 && (
+                                    <div>Ban Hang</div>
+                                )}
+                            </div>
+                            <div>
+                                {+yourDetail?.vaiTro === 2 && (
+                                    <div>Quan Ly</div>
+                                )}
+                            </div>
+                            <div>Sửa Vai Trò</div>
+                            <div>
+                                <button onClick={handleSuaVaiTroUser}>
+                                    User
+                                </button>
+                                <button onClick={handleSuaVaiTroBanHang}>
+                                    Ban Hang
+                                </button>
+                                <button onClick={handleSuaVaiTroQuanLy}>
+                                    Quan Ly
+                                </button>
+                            </div>
+                        </div>
+                    ) : (
+                        <></>
+                    )}
                 </div>
             </div>
         </main>
