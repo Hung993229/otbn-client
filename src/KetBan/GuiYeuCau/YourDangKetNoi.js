@@ -113,6 +113,7 @@ const YourDangKetNoi = () => {
             registerYourStatus(yourstatusUser1, dispatch);
         }
     };
+    console.log("+vaiTro === 2", +vaiTro === 2);
     return (
         <div>
             <div>
@@ -129,7 +130,7 @@ const YourDangKetNoi = () => {
                                     kết nối của bạn!
                                 </div>
                                 <div>
-                                    Nếu chờ lâu quá mà chưa có phản hồi! <br />{" "}
+                                    Nếu chờ lâu quá mà chưa có phản hồi! <br />
                                     Bạn có thể huỷ Yêu Cầu Kết Nối để kết nối
                                     với người khác!
                                 </div>
@@ -150,7 +151,7 @@ const YourDangKetNoi = () => {
                                 </div>
                                 <button
                                     className="xinLamQuen"
-                                    onClick={() => handleHuyKetNoi}
+                                    onClick={handleHuyKetNoi}
                                 >
                                     Huỷ Kết Nối
                                 </button>

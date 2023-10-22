@@ -74,7 +74,7 @@ const QuanLyUser = () => {
                             <div className="user-container" key={user._id}>
                                 <div
                                     className="home-user"
-                                    onClick={() => handleThongTinUser(user._id)}
+                                    onClick={()=>handleThongTinUser(user._id)}
                                 >
                                     {user.username}
                                 </div>

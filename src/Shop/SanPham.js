@@ -1,7 +1,7 @@
 import "./SanPham.scss";
 import { useState } from "react";
 import { useEffect } from "react";
-import { getShop } from "../redux/apiRequest";
+import { getShop, getStatus, getPost } from "../redux/apiRequest";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 const SanPham = (props) => {
@@ -16,7 +16,15 @@ const SanPham = (props) => {
         const huyenQq = myDetail?.huyenQq;
         getShop(dispatch, huyenDs, huyenQq);
     }, [user]);
-
+    useEffect(() => {
+        if (!user) {
+            console.log("chua co userId");
+        }
+        if (user) {
+            getStatus(user?._id, dispatch);
+            getPost(user?._id, dispatch);
+        }
+    }, [user, dispatch]);
     return (
         <div>
             <div className="container-sanPham">

@@ -4,7 +4,7 @@ const postSlice = createSlice({
     initialState: {
         post: {
             myDetail: null,
-            yourDetail: null,
+            // yourDetail: null,
             isFetching: false,
             error: false,
             success: false,

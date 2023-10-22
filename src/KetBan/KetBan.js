@@ -33,7 +33,7 @@ const KetBan = () => {
         if (user) {
             getYourStatus(user?._id, dispatch);
         }
-    }, [user]);
+    }, [user, status]);
     useEffect(() => {
         if (user) {
             getStatus(user?._id, dispatch);
@@ -64,7 +64,7 @@ const KetBan = () => {
             );
         };
         getTatCaPostPhuHop();
-    }, [myDetail]);
+    }, [status]);
 
     const myStatus = myDetail?.myStatus;
     const yourStatus = yourDetail?.myStatus;
@@ -90,6 +90,11 @@ const KetBan = () => {
         (item) => item.tuChoiKetNoi
     );
     const yourStatushuyKetNoi = allYourStatus?.filter((item) => item.huyKetNoi);
+    console.log("myStatus", +myStatus);
+    console.log("yourIdDangKetNoi", yourIdDangKetNoi);
+    console.log("yourIdYeuCauKetNoidi", yourIdYeuCauKetNoidi);
+    console.log("yourStatusdongYKetNoi", yourStatusdongYKetNoi?.length === 0);
+    console.log("yourStatustuChoiKetNoi", yourStatustuChoiKetNoi?.length === 0);
 
     return (
         <div>

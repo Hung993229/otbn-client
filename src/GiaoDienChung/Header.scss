@@ -12,9 +12,11 @@
     height: 75px;
     object-fit: cover;
     .my-cash2 {
-        background-color: rgb(23, 225, 34);
+        background-color: #31c48d;
         width: 100px;
         border-radius: 5px;
+        color: #e6f702;
+        background-color: #ff0000;
     }
     .container-logo {
         margin-left: 12px;
@@ -43,7 +45,10 @@
             align-items: center;
             width: 100px;
             border-radius: 5px;
-            background-color: rgb(23, 225, 34);
+            background-color: #ff0000;
+            .my-cash-title {
+                color: #e6f702;
+            }
             .gold {
                 width: 15px;
                 height: 15px;

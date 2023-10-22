@@ -46,7 +46,7 @@ const Header = () => {
                         className="my-avatar"
                     />
                     <div className="my-cash">
-                        <div>{cash}</div>
+                        <div className="my-cash-title">{cash}</div>
                         <img src={gold} className="gold" alt="timtim" />
                     </div>
                 </div>

@@ -12,7 +12,7 @@ import {
     getStatus,
     getPost,
     getYourStatus,
-    getAllPosts
+    getAllPosts,
 } from "../redux/apiRequest";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -64,7 +64,7 @@ const HomThu = () => {
         };
         getTatCaPostPhuHop();
     }, [myDetail]);
-    
+
     const myStatus = myDetail?.myStatus;
     const yourStatus = yourDetail?.myStatus;
 
@@ -88,7 +88,7 @@ const HomThu = () => {
     );
     const yourStatushuyKetNoi = allYourStatus?.filter((item) => item.huyKetNoi);
     return (
-        <div className="container">
+        <div className="container-homthu">
             <div>
                 {+myStatus === 0 &&
                 yourIdYeuCauKetNoi &&

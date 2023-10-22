@@ -5,34 +5,24 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import {
-    getPost,
-    deleteYourStatus,
-    yourPost,
-    getYourStatus,
-    updateStatusUser,
-    getStatus,
-    deleteAllYourStatus,
-    updatePost,
-    logOut,
-} from "../redux/apiRequest";
+import { getPost, getStatus } from "../redux/apiRequest";
 const HeaderShop = (props) => {
     const { quanLyShop, setquanLyShop } = props;
+    const user = useSelector((state) => state.auth.login?.currentUser);
     const [moihoptac, setmoihoptac] = useState(0);
     const myDetail = useSelector((state) => state.post.post?.myDetail);
-    const user = useSelector((state) => state.auth.login?.currentUser);
+
     const dispatch = useDispatch();
     useEffect(() => {
-        if (!user) {
-            console.log("chua co userId");
-        }
-        if (user) {
-            getStatus(user?._id, dispatch);
-            getPost(user?._id, dispatch);
-        }
-    }, [user]);
+        getStatus(user?._id, dispatch);
+        getPost(user?._id, dispatch);
+    }, [dispatch]);
     const handleQuanLyShop = () => {
         setquanLyShop(1);
+    };
+    const vaiTro = +myDetail?.vaiTro;
+    const handlegetMydetail = () => {
+        getPost(user?._id, dispatch);
     };
     return (
         <div className="container-header-shop">
@@ -41,11 +31,12 @@ const HeaderShop = (props) => {
             </div>
             <div>--- CHÚC MỌI NGƯỜI SĂN SALE VUI VẺ! ---</div>
             <div>Quy Đổi: 1Gold = 1 VNĐ</div>
+            <div onClick={handlegetMydetail}>loading</div>
             <div className="hoptac-sanpham">
                 <button onClick={() => setmoihoptac(1)} className="moihoptac">
                     Mời Hợp Tác
                 </button>
-                {+myDetail?.vaiTro === 0 || !myDetail.vaiTro ? (
+                {vaiTro === 0 || !vaiTro ? (
                     <button
                         className="themSanPham"
                         onClick={() => setmoihoptac(2)}
@@ -55,7 +46,7 @@ const HeaderShop = (props) => {
                 ) : (
                     <></>
                 )}
-                {+myDetail?.vaiTro === 1 || +myDetail?.vaiTro === 2 ? (
+                {vaiTro === 1 || vaiTro === 2 ? (
                     <button onClick={handleQuanLyShop} className="themSanPham">
                         Quản Lý Shop
                     </button>
