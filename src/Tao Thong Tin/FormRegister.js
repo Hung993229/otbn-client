@@ -329,22 +329,25 @@ const FormRegister = () => {
     };
 
     return (
-        <div>
+        <div className="containerFormregis">
             <div>
                 <label hidden>Banner</label>
-                <div>
+                <div className="bannerFormregis">
                     <input
                         id="banner"
                         type="file"
                         hidden
                         onChange={handleOnchangeImageBanner}
                     />
-                    <label htmlFor="banner">
-                        <div className="banner">
+                    <label htmlFor="banner" className="bannerFormregis">
+                        <dispatchEvent>
                             {previewBanner && (
-                                <img src={previewBanner.preview} />
+                                <img
+                                    src={previewBanner.preview}
+                                    className="banner"
+                                />
                             )}
-                        </div>
+                        </dispatchEvent>
                     </label>
                 </div>
             </div>
@@ -357,21 +360,26 @@ const FormRegister = () => {
                             type="file"
                             hidden
                             onChange={handleOnchangeImage}
+                            className="avatarFormregis"
                         />
-                        <label htmlFor="avatar">
-                            <div className="avatar">
+                        <label htmlFor="avatar" className="avatarFormregis">
+                            <div>
                                 {previewAvatar && (
-                                    <img src={previewAvatar.preview} />
+                                    <img
+                                        src={previewAvatar.preview}
+                                        className="avatar"
+                                    />
                                 )}
                             </div>
                         </label>
                     </div>
                 </div>
                 <div>
-                    <div className="hoTen">
+                    <div>
                         <div>
                             <label hidden>Ho Va Ten</label>
                             <input
+                                className="hoTenFormregis"
                                 type="text"
                                 placeholder="Nhập Họ Và Tên"
                                 onChange={(e) => sethoTen(e.target.value)}
@@ -383,7 +391,7 @@ const FormRegister = () => {
                                 onChange={(e) =>
                                     setcauNoiTamDac(e.target.value)
                                 }
-                                className="cauNoiTamDac"
+                                className="cauNoiTamDacFormregis"
                                 placeholder="Câu Nói Tâm Đắc"
                             />
                         </div>
@@ -391,13 +399,13 @@ const FormRegister = () => {
                 </div>
             </div>
 
-            <div className="containerTieuChi">
-                <label className="tieuChi" htmlFor="gioi-tinh">
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis" htmlFor="gioi-tinh">
                     Giới Tính
                 </label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     name="gioi-tinh"
                     id="gioi-tinh"
                     onChange={(e) => setgioiTinh(e.target.value)}
@@ -409,13 +417,16 @@ const FormRegister = () => {
                     <option>Gay</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <label className="tieuChi" htmlFor="tinh-trang-hon-nhan">
+            <div className="containerTieuChiFormregis">
+                <label
+                    className="tieuChiFormregis"
+                    htmlFor="tinh-trang-hon-nhan"
+                >
                     Tình Trạng Hôn Nhân
                 </label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     name="tinh-divang-hon-nhan"
                     id="tinh-divang-hon-nhan"
                     onChange={(e) => settinhTrangHonNhan(e.target.value)}
@@ -427,10 +438,10 @@ const FormRegister = () => {
                     <option>Đã Kết Hôn</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <div className="tieuChi">Ngày Sinh</div>
+            <div className="containerTieuChiFormregis">
+                <div className="tieuChiFormregis">Ngày Sinh</div>
 
-                <div className="noiDung">
+                <div className="myNoiDungFormregis2">
                     <label hidden>Ngày</label>
                     <select onChange={(e) => setngaySinh(e.target.value)}>
                         <option value="">---Chọn Ngày---</option>
@@ -461,10 +472,10 @@ const FormRegister = () => {
                 </div>
             </div>
 
-            <div className="containerTieuChi">
-                <div className="tieuChi">Quê Quán</div>
+            <div className="containerTieuChiFormregis">
+                <div className="tieuChiFormregis">Quê Quán</div>
 
-                <div className="noiDung">
+                <div className="myNoiDungFormregis2">
                     <label hidden>Tỉnh</label>
                     <select
                         id="provinces"
@@ -509,10 +520,10 @@ const FormRegister = () => {
                 </div>
             </div>
 
-            <div className="containerTieuChi">
-                <div className="tieuChi">Hiện Đang Sinh Sống</div>
+            <div className="containerTieuChiFormregis">
+                <div className="tieuChiFormregis">Hiện Đang Sinh Sống</div>
 
-                <div className="noiDung">
+                <div className="myNoiDungFormregis2">
                     <select
                         id="provinces"
                         onChange={(e) => setprovincesID2(e.target.value)}
@@ -556,13 +567,13 @@ const FormRegister = () => {
                 </div>
             </div>
 
-            <div className="containerTieuChi">
-                <label className="tieuChi" htmlFor="ton-giao">
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis" htmlFor="ton-giao">
                     Tôn Giáo
                 </label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     name="ton-giao"
                     id="ton-giao"
                     onChange={(e) => settonGiao(e.target.value)}
@@ -578,11 +589,11 @@ const FormRegister = () => {
                 </select>
             </div>
 
-            <div className="containerTieuChi">
-                <label className="tieuChi">Nghề Nghiệp</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Nghề Nghiệp</label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     onChange={(e) => setngheNghiep(e.target.value)}
                 >
                     <option value="">---Mời Chọn---</option>
@@ -595,11 +606,11 @@ const FormRegister = () => {
                     <option>Khác</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <label className="tieuChi">Thu Nhập</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Thu Nhập</label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     onChange={(e) => setthuNhap(e.target.value)}
                 >
                     <option value="">---Mời Chọn---</option>
@@ -607,9 +618,9 @@ const FormRegister = () => {
                     <option>Trên 20 Triệu Đồng</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <div className="tieuChi">Đặc Điểm</div>
-                <div className="noiDung">
+            <div className="containerTieuChiFormregis">
+                <div className="tieuChiFormregis">Đặc Điểm</div>
+                <div className="noiDungFormregisDacDiem">
                     <div hidden>Chiều Cao</div>
                     <div className="containerTieuChi">
                         <input
@@ -634,10 +645,10 @@ const FormRegister = () => {
                 </div>
             </div>
 
-            <div className="containerTieuChi">
-                <label className="tieuChi">Giới thiệu thêm</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Giới thiệu thêm</label>
 
-                <div className="noiDung">
+                <div className="noiDungFormregis">
                     <input
                         className=""
                         onChange={(e) => setgioiThieuThem(e.target.value)}
@@ -648,13 +659,13 @@ const FormRegister = () => {
 
             <div className="mauNguoiYeuLyTuong">Mẫu Người Yêu Lý Tưởng</div>
 
-            <div className="containerTieuChi">
-                <label className="tieuChi" htmlFor="gioi-tin-2">
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis" htmlFor="gioi-tin-2">
                     Giới Tính
                 </label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     name="gioi-tinh-2"
                     id="gioi-tinh-2"
                     onChange={(e) => setgioiTinh2(e.target.value)}
@@ -667,11 +678,11 @@ const FormRegister = () => {
                 </select>
             </div>
 
-            <div className="containerTieuChi">
-                <label className="tieuChi">Tình trạng hôn nhân</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Tình trạng hôn nhân</label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     onChange={(e) => settinhTrangHonNhan2(e.target.value)}
                 >
                     <option value="">---Mời Chọn---</option>
@@ -681,11 +692,11 @@ const FormRegister = () => {
                     <option>Đã Kết Hôn</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <label className="tieuChi">Khu Vực Làm Quen</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Khu Vực Làm Quen</label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     onChange={(e) => setkhuVucLamQuen2(e.target.value)}
                 >
                     <option value="">---Mời Chọn---</option>
@@ -694,11 +705,11 @@ const FormRegister = () => {
                     <option value="">Ở Đâu Cũng Được</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <label className="tieuChi">Tôn Giáo</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Tôn Giáo</label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     onChange={(e) => settonGiao2(e.target.value)}
                 >
                     <option value="">---Mời Chọn---</option>
@@ -711,11 +722,11 @@ const FormRegister = () => {
                     <option>Cao Đài</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <label className="tieuChi">Nghề Nghiệp</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Nghề Nghiệp</label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     onChange={(e) => setngheNghiep2(e.target.value)}
                 >
                     <option value="">---Mời Chọn---</option>
@@ -728,11 +739,11 @@ const FormRegister = () => {
                     <option>Khác</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <label className="tieuChi">Thu Nhập</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Thu Nhập</label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     onChange={(e) => setthuNhap2(e.target.value)}
                 >
                     <option value="">---Mời Chọn---</option>
@@ -740,11 +751,11 @@ const FormRegister = () => {
                     <option>Trên 20 Triệu Đồng</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <div className="tieuChi" htmlFor="nam-sinh">
+            <div className="containerTieuChiFormregis">
+                <div className="tieuChiFormregis" htmlFor="nam-sinh">
                     Khoảng Tuổi Muốn Làm Quen
                 </div>
-                <div className="noiDung">
+                <div className="myNoiDungFormregis2">
                     <label hidden>Từ Năm</label>
                     <select onChange={(e) => settuoiHop2(e.target.value)}>
                         <option value="">---Từ Năm---</option>
@@ -765,10 +776,10 @@ const FormRegister = () => {
                     </select>
                 </div>
             </div>
-            <div className="containerTieuChi">
-                <label className="tieuChi">Yêu Cầu Khác</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Yêu Cầu Khác</label>
 
-                <div className="noiDung">
+                <div className="noiDungFormregis">
                     <input
                         className=""
                         onChange={(e) => setyeucaukhac2(e.target.value)}
@@ -782,7 +793,11 @@ const FormRegister = () => {
                 thoại ảo để đăng kí!
             </p>
 
-            <button type="submit" onClick={handleRegisterPost}>
+            <button
+                className="luuThongTin"
+                type="submit"
+                onClick={handleRegisterPost}
+            >
                 Lưu Thông Tin
             </button>
         </div>

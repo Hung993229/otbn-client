@@ -57,9 +57,9 @@ const YeuCauBiTuChoi = () => {
         deleteAllYourStatus(id2, dispatch);
     };
     return (
-        <div className="container">
-            <div>Kết Nối Của Bạn Đã Bị Huỷ Bỏ</div>
-            <div>
+        <div className="container-tuChoiKetNoi">
+            <h1>Kết Nối Của Bạn Đã Bị Huỷ Bỏ</h1>
+            <div className="thongtinNguoiTuChoi">
                 <div>{yourStatustuChoiKetNoi?.hoTen}</div>
                 <div>Sinh Năm: {yourStatustuChoiKetNoi?.namSinh}</div>
                 <div>Quê: {yourStatustuChoiKetNoi?.queQuan}</div>
@@ -68,7 +68,7 @@ const YeuCauBiTuChoi = () => {
                 Còn Rất Nhiều Người Để Bạn Có Thể Làm Quen, Hãy Tiếp Tục Kết Nối
                 Với Người Khác Bạn Nhé!
             </div>
-            <button className="xinLamQuen" onClick={handleYeuCauBiTuChoi}>
+            <button className="dongYHuyKetNoi" onClick={handleYeuCauBiTuChoi}>
                 Đồng Ý
             </button>
         </div>

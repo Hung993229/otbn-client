@@ -1,77 +1,215 @@
-.container-SuaSanPham {
-    display: flex;
+// .container-SuaSanPham {
+//     display: flex;
 
-    .suaSanPham {
-        width: 50%;
-        justify-content: center;
-        align-items: center;
+//     .suaSanPham {
+//         width: 50%;
+//         justify-content: center;
+//         align-items: center;
 
-        .anhSanPham {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border: solid 1px gray;
-        }
-        .tenSanPham {
-        }
-        .giaBan {
-            display: flex;
-            margin: auto;
-            text-align: center;
+//         .anhSanPham {
+//             width: 180px;
+//             height: 180px;
+//             object-fit: cover;
+//             border: solid 1px gray;
+//         }
+//         .tenSanPham {
+//         }
+//         .giaBan {
+//             display: flex;
+//             margin: auto;
+//             text-align: center;
+//             justify-content: center;
+//             gap: 10px;
+
+//             .giabanCu {
+//                 text-decoration: line-through;
+//             }
+//             .giaBanMoi {
+//                 color: red;
+//             }
+//         }
+//         .viTriSanPham {
+//             // display: flex;
+
+//             .diachisanpham {
+//                 font-size: 10px;
+//             }
+//         }
+//     }
+// }
+// .container-SuaSanPham {
+//     width: 350px;
+//     margin: auto;
+//     .sanPham {
+//         margin: auto;
+//         .anhsuasanpham {
+//             object-fit: cover;
+//             border: solid 1px gray;
+//             width: 180px;
+//             height: 180px;
+
+//             background-color: red;
+//             margin: auto;
+//             img {
+//                 width: 180px;
+//                 height: 180px;
+//             }
+//         }
+//         .tenSanPham {
+//             justify-content: center;
+//             align-items: center;
+//             margin: auto;
+//             border: solid 1px gray;
+//         }
+//         .giaBan {
+//             display: flex;
+//             .giabanCu {
+//                 border: solid 1px gray;
+//             }
+//             .giaBanMoi {
+//                 border: solid 1px gray;
+//             }
+//         }
+//         .muaHang {
+//             border: solid 1px gray;
+//         }
+//     }
+// }
+.suaSanPham {
+    width: 900px;
+    .quayLaiShopping {
+        margin-top: 10px;
+        font-size: 22px;
+        font-weight: 600;
+        background-color: #04aa6d;
+        min-width: 120px;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+    .themSanPham {
+        margin-top: 10px;
+        font-size: 22px;
+        font-weight: 600;
+        background-color: #04aa6d;
+        min-width: 120px;
+        margin: 20px;
+        border-radius: 10px;
+    }
+    .container-SuaSanPham {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 20px;
+        background-color: #88d3b4;
+        .sanPham {
             justify-content: center;
-            gap: 10px;
-
-            .giabanCu {
-                text-decoration: line-through;
+            align-items: center;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            .suaxoa {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 10px;
+                gap: 20px;
+                .sua {
+                    min-width: 120px;
+                    border-radius: 10px;
+                    background-color: #04aa6d;
+                }
+                .xoa {
+                    min-width: 120px;
+                    border-radius: 10px;
+                    background-color: red;
+                }
             }
-            .giaBanMoi {
-                color: red;
-            }
-        }
-        .viTriSanPham {
-            // display: flex;
 
-            .diachisanpham {
-                font-size: 10px;
+            .anhSanPham {
+                width: 200px;
+                height: 200px;
+                object-fit: cover;
+                border: solid 1px gray;
+            }
+            .tenSanPham {
+                font-size: 22px;
+                font-weight: 600;
+                margin-top: 10px;
+                text-transform: uppercase;
+            }
+            .giaBan {
+                display: flex;
+                margin: auto;
+                text-align: center;
+                justify-content: center;
+                gap: 10px;
+                .giabanCu {
+                    text-decoration: line-through;
+                }
+                .giaBanMoi {
+                    color: red;
+                }
+            }
+            .muaHang {
+                font-size: 22px;
+                font-weight: 600;
+                background-color: red;
+                min-width: 200px;
+                margin-top: 10px;
+                border-radius: 10px;
+            }
+            .thongtinSanPham {
+                text-align: justify;
+                padding: 20px;
             }
         }
     }
-}
-.container-themSanPham {
-    width: 350px;
-    margin: auto;
-    .sanPham {
-        margin: auto;
-        .anhsuasanpham {
-            object-fit: cover;
-            border: solid 1px gray;
-            width: 180px;
-            height: 180px;
+    .container-themSanPham {
+        .close {
+            text-align: right;
+            button {
+                background-color: red;
+                font-weight: 600;
+                border-radius: 10px;
+            }
+        }
+        .sanPham {
+            margin: auto;
+            .anhsuasanpham {
+                width: 250px;
+                height: 250px;
+                object-fit: cover;
+                border: solid 1px gray;
+                background-color: #fff;
+                margin: auto;
+            }
+            .tenSanPham {
+                justify-content: center;
+                align-items: center;
+                margin: auto;
+                border: solid 1px gray;
+            }
+            .thongTinSanPham {
+                height: 70px;
+            }
+            .giaBan {
+                display: flex;
+                gap: 10px;
+                .giabanCu {
+                }
+                .giaBanMoi {
+                }
+            }
 
-            background-color: red;
-            margin: auto;
-            img {
-                width: 180px;
-                height: 180px;
+            .luuSanPham {
+                margin-top: 10px;
+                font-size: 22px;
+                font-weight: 600;
+                background-color: red;
+                min-width: 200px;
+                margin-top: 10px;
+                border-radius: 10px;
             }
-        }
-        .tenSanPham {
-            justify-content: center;
-            align-items: center;
-            margin: auto;
-            border: solid 1px gray;
-        }
-        .giaBan {
-            display: flex;
-            .giabanCu {
-                border: solid 1px gray;
-            }
-            .giaBanMoi {
-                border: solid 1px gray;
-            }
-        }
-        .muaHang {
-            border: solid 1px gray;
         }
     }
 }

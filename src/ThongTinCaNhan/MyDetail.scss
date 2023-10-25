@@ -1,123 +1,206 @@
+// .container-myDetail {
+//     width: 900px;
+//     margin: auto;
+//     .banner {
+//         height: 250px;
+//     }
+//     .myDetail-avatar-hoTen-cauNoiTamDac {
+//         display: flex;
+//         .myDetail-avatar {
+//             width: 100px;
+//             height: 100px;
+//             border-radius: 50%;
+//         }
+//         .myDetail-hoTen-cauNoiTamDac {
+//             .myDetail-hoTen {
+//             }
+//             .mydetail-cauNoiTamDac {
+//             }
+//         }
+//     }
+//     .dangXuat {
+//         margin: 50px;
+//         width: 150px;
+//         background-color: red;
+//         cursor: pointer;
+//     }
+//     .suaThongTin {
+//         margin: 50px;
+//         width: 150px;
+//         background-color: blue;
+//         cursor: pointer;
+//     }
+//     .Container-myTieuChi-myNoiDung {
+//         width: 900px;
+//         margin: auto;
+//         display: flex;
+//         .myTieuChi {
+//             width: 30%;
+//             border: solid 1px gray;
+//         }
+//         .myNoiDung {
+//             display: flex;
+//             width: 70%;
+//             border: solid 1px gray;
+//             display: flex;
+//             margin: auto;
+//             text-align: center;
+//             align-items: center;
+//             .donVi {
+//                 padding-right: 20px;
+//             }
+//         }
+//     }
+//     .myMauNguoiYeuLyTuong {
+//         color: red;
+//     }
+// }
+// .detail-your-list {
+//     display: flex;
+//     cursor: pointer;
+//     &:hover {
+//         color: red;
+
+//         text-decoration: under-line;
+//     }
+// }
+// .container-yourDetail {
+//     width: 900px;
+//     margin: auto;
+
+//     .banner {
+//         height: 250px;
+//     }
+//     .yourDetail-avatar-hoTen-cauNoiTamDac {
+//         display: flex;
+//         .yourDetail-avatar {
+//             width: 100px;
+//             height: 100px;
+//             border-radius: 50%;
+//         }
+//         .yourDetail-hoTen-cauNoiTamDac {
+//             .yourDetail-hoTen {
+//             }
+//             .yourdetail-cauNoiTamDac {
+//             }
+//         }
+//     }
+//     .Container-yourTieuChi-yourNoiDung {
+//         width: 900px;
+//         margin: auto;
+//         display: flex;
+//         .yourTieuChi {
+//             width: 30%;
+//             border: solid 1px gray;
+//         }
+//         .yourNoiDung {
+//             width: 70%;
+//             border: solid 1px gray;
+//             display: flex;
+//             margin: auto;
+//             text-align: center;
+//             align-items: center;
+//             .donVi {
+//                 padding-right: 20px;
+//             }
+//         }
+//     }
+//     .yourMauNguoiYeuLyTuong {
+//         color: red;
+//     }
+//     .xinLamQuen {
+//         margin: 50px;
+//         width: 150px;
+//         background-color: blue;
+//         cursor: pointer;
+//     }
+//     .boQua {
+//         margin: 50px;
+//         width: 150px;
+//         background-color: red;
+//         cursor: pointer;
+//     }
+// }
+// lam lai
 .container-myDetail {
-    width: 900px;
-    margin: auto;
-    .banner {
-        height: 250px;
-    }
-    .myDetail-avatar-hoTen-cauNoiTamDac {
-        display: flex;
-        .myDetail-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
+    .thongTinCaNhan {
+        .bannerThongTinCaNhan {
+            width: 900px;
+            height: 250px;
+            object-fit: cover;
+            position: relative;
+        }
+        .myDetail-avatar-hoTen-cauNoiTamDac {
+            .myDetail-avatar {
+                width: 168px;
+                height: 168px;
+                object-fit: cover;
+                position: absolute;
+                border-radius: 50%;
+                top: 330px;
+                left: 35px;
+            }
         }
         .myDetail-hoTen-cauNoiTamDac {
             .myDetail-hoTen {
+                margin-top: 50px;
+                padding-left: 205px;
+                text-align: left;
+                display: block;
+                font-size: 25px;
+                font-weight: 600;
             }
             .mydetail-cauNoiTamDac {
+                padding-left: 205px;
+                text-align: left;
+                display: block;
             }
         }
-    }
-    .dangXuat {
-        margin: 50px;
-        width: 150px;
-        background-color: red;
-        cursor: pointer;
-    }
-    .suaThongTin {
-        margin: 50px;
-        width: 150px;
-        background-color: blue;
-        cursor: pointer;
-    }
-    .Container-myTieuChi-myNoiDung {
-        width: 900px;
-        margin: auto;
-        display: flex;
-        .myTieuChi {
-            width: 30%;
-            border: solid 1px gray;
-        }
-        .myNoiDung {
+        .Container-myTieuChi-myNoiDung {
             display: flex;
-            width: 70%;
-            border: solid 1px gray;
-            display: flex;
-            margin: auto;
-            text-align: center;
-            align-items: center;
-            .donVi {
-                padding-right: 20px;
+            margin-top: 20px;
+            .myTieuChi {
+                border-bottom: solid 1px rgb(143, 140, 140);
+                width: 40%;
             }
-        }
-    }
-    .myMauNguoiYeuLyTuong {
-        color: red;
-    }
-}
-.detail-your-list {
-    display: flex;
-    cursor: pointer;
-    &:hover {
-        color: red;
+            .myNoiDung {
+                text-align: center;
 
-        text-decoration: under-line;
-    }
-}
-.container-yourDetail {
-    width: 900px;
-    margin: auto;
+                border-bottom: solid 1px rgb(143, 140, 140);
+                width: 60%;
+            }
+            .myNoiDung2 {
+                text-align: center;
 
-    .banner {
-        height: 250px;
-    }
-    .yourDetail-avatar-hoTen-cauNoiTamDac {
-        display: flex;
-        .yourDetail-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
-        .yourDetail-hoTen-cauNoiTamDac {
-            .yourDetail-hoTen {
-            }
-            .yourdetail-cauNoiTamDac {
+                border-bottom: solid 1px rgb(143, 140, 140);
+                width: 60%;
+                padding-left: 15%;
+                display: flex;
             }
         }
-    }
-    .Container-yourTieuChi-yourNoiDung {
-        width: 900px;
-        margin: auto;
-        display: flex;
-        .yourTieuChi {
-            width: 30%;
-            border: solid 1px gray;
+        .myMauNguoiYeuLyTuong {
+            text-transform: uppercase;
+            font-size: 25px;
+            font-weight: 600;
+            text-align: left;
+            padding-left: 30px;
+            margin-top: 20px;
         }
-        .yourNoiDung {
-            width: 70%;
-            border: solid 1px gray;
-            display: flex;
-            margin: auto;
-            text-align: center;
-            align-items: center;
-            .donVi {
-                padding-right: 20px;
-            }
+
+        .suaThongTin {
+            margin-bottom: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            width: 150px;
+            margin-right: 20%;
+            margin-top: 30px;
+            background-color: #04aa6d;
         }
-    }
-    .yourMauNguoiYeuLyTuong {
-        color: red;
-    }
-    .xinLamQuen {
-        margin: 50px;
-        width: 150px;
-        background-color: blue;
-        cursor: pointer;
-    }
-    .boQua {
-        margin: 50px;
-        width: 150px;
-        background-color: red;
-        cursor: pointer;
+        .dangXuat {
+            cursor: pointer;
+            border-radius: 10px;
+            width: 150px;
+            background-color: #ff0000;
+        }
     }
 }

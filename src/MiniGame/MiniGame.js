@@ -101,42 +101,37 @@ const MiniGame = () => {
         .format()
         .slice(0, -3);
     const date = new Date();
-    const gio = date.getHours();
-    const phut = date.getMinutes();
-    // const gio = 20;
-    // const phut = 15;
+    // const gio = date.getHours();
+    // const phut = date.getMinutes();
+    const gio = 20;
+    const phut = 15;
     return (
         <div className="containerMiniGame">
-            <div>
-                <div className="container-quayso-phanthuong">
-                    <div className="quaySoMayMan">
-                        <div>QUAY SỐ MAY MẮN</div>
+            <div className="container-quayso-phanthuong">
+                <div className="soMayMan-PhanThuong">
+                    <div className="SoMayMan">
+                        <div className="tieude">QUAY SỐ MAY MẮN</div>
                         <div>
-                            <div>
-                                {quay === 0 ? (
-                                    <div>
-                                        <div className="soMayMan1">
-                                            <div>0</div>
-                                            <div>0</div>
-                                            <div>0</div>
-                                            <div>0</div>
-                                            <div>0</div>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <></>
-                                )}
-                            </div>
+                            {quay === 0 ? (
+                                <div className="soMayMan1">
+                                    <div>0</div>
+                                    <div>0</div>
+                                    <div>0</div>
+                                    <div>0</div>
+                                    <div>0</div>
+                                </div>
+                            ) : (
+                                <></>
+                            )}
+
                             <div>
                                 {quay === 1 ? (
-                                    <div>
-                                        <div className="soMayMan2">
-                                            <div className="spinner-10"></div>
-                                            <div className="spinner-10"></div>
-                                            <div className="spinner-10"></div>
-                                            <div className="spinner-10"></div>
-                                            <div className="spinner-10"></div>
-                                        </div>
+                                    <div className="soMayMan2">
+                                        <div className="spinner-10"></div>
+                                        <div className="spinner-10"></div>
+                                        <div className="spinner-10"></div>
+                                        <div className="spinner-10"></div>
+                                        <div className="spinner-10"></div>
                                     </div>
                                 ) : (
                                     <></>
@@ -157,28 +152,18 @@ const MiniGame = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="phanThuongMayMan">
-                        <div>PHẦN THƯỞNG MAY MẮN</div>
+                    <div className="phanThuong">
+                        <div className="tieude">PHẦN QUÀ MAY MẮN</div>
                         <div>
                             <div>
                                 {quay === 0 ? (
                                     <div>
-                                        <div className="soMayMan4">
-                                            <div className="soMayMan5">
-                                                <img
-                                                    src={hopqua}
-                                                    className="gold3"
-                                                    alt="timtim"
-                                                />
+                                        <div className="phanThuong1">
+                                            <div>
                                                 <img
                                                     src={hopqua2}
-                                                    className="gold3"
                                                     alt="timtim"
-                                                />
-                                                <img
-                                                    src={hopqua3}
-                                                    className="gold3"
-                                                    alt="timtim"
+                                                    className="phanThuong1HopQua"
                                                 />
                                             </div>
                                         </div>
@@ -190,7 +175,7 @@ const MiniGame = () => {
                             <div>
                                 {quay === 1 ? (
                                     <div>
-                                        <div className="soMayMan2">
+                                        <div className="phanThuong2">
                                             <div className="spinner-10"></div>
                                             <div className="spinner-10"></div>
                                             <div className="spinner-10"></div>
@@ -204,8 +189,8 @@ const MiniGame = () => {
                             </div>
                             <div>
                                 {quay === 2 ? (
-                                    <div className="soMayMan3">
-                                        <div className="phanThuong">
+                                    <div className="phanThuong3">
+                                        <div className="phanThuongcash">
                                             <div>{cash}</div>
                                             <img
                                                 src={gold}
@@ -221,7 +206,7 @@ const MiniGame = () => {
                         </div>
                     </div>
                 </div>
-                <div className="">
+                <div className="nutQuaySo">
                     {(gio === 20) & (phut < 16) & (phut > 0) ||
                     (gio === 20) & (phut < 16) & (phut === 0) ? (
                         <div>
@@ -271,19 +256,19 @@ const MiniGame = () => {
                 </div>
             </div>
 
-            <div>A. Cơ Cấu Giải Thưởng</div>
-            <div>
-                <div className="danhSachGiaiThuong">
-                    <div className="cot">Danh Sách</div>
-                    <div className="cot">Mã Trúng Thưởng</div>
-                    <div className="cot">Giải Thưởng</div>
+            <div className="danhSachGiaiThuong">
+                <h2>A. Giải Thưởng</h2>
+                <div className="Danhmuc">
+                    <div className="hang1">Danh Sách</div>
+                    <div className="hang1">Mã Trúng Thưởng</div>
+                    <div className="hang1">Giải Thưởng</div>
                 </div>
-                <div className="danhSachGiaiThuong">
-                    <div className="cot1">Giải Đặc Biệt</div>
-                    <div className="cot2">
+                <div className="danhSach">
+                    <div className="hang2 tenGiai">Giải Đặc Biệt</div>
+                    <div className="hang2 sotrung">
                         99999 <br /> (1 Mã Trúng Thưởng Duy Nhất)
                     </div>
-                    <div className="cot3">
+                    <div className="hang2">
                         <img
                             src={alrblade}
                             className="tengiaiThuong"
@@ -295,12 +280,12 @@ const MiniGame = () => {
                         </div>
                     </div>
                 </div>
-                <div className="danhSachGiaiThuong">
-                    <div className="cot1">Giải Nhất</div>
-                    <div className="cot2">
+                <div className="danhSach">
+                    <div className="hang2 tenGiai">Giải Nhất</div>
+                    <div className="hang2 sotrung">
                         x9999 9999x <br /> (20 Mã Trúng Thưởng)
                     </div>
-                    <div className="cot3">
+                    <div className="hang2">
                         <img
                             src={dell}
                             className="tengiaiThuong"
@@ -312,14 +297,14 @@ const MiniGame = () => {
                         </div>
                     </div>
                 </div>
-                <div className="danhSachGiaiThuong">
-                    <div className="cot1">
+                <div className="danhSach">
+                    <div className="hang2 tenGiai">
                         Giải Nhì <br />
                     </div>
-                    <div className="cot2">
+                    <div className="hang2 sotrung">
                         xx999 x999x 999xx <br /> (300 Mã Trúng Thưởng)
                     </div>
-                    <div className="cot3">
+                    <div className="hang2">
                         <img
                             src={ssa54}
                             className="tengiaiThuong"
@@ -332,23 +317,13 @@ const MiniGame = () => {
                         </div>
                     </div>
                 </div>
-                <div className="danhSachGiaiThuong">
-                    <div className="cot1">Giải khuyến Khích</div>
-                    <div className="cot2">
+                <div className="danhSach">
+                    <div className="hang2 tenGiai">Giải khuyến Khích</div>
+                    <div className="hang2 sotrung">
                         Số Ngâu Nhiên <br /> (Hàng Vạn Mã Trúng Thưởng)
                     </div>
-                    <div className="cot3">
+                    <div className="hang2">
                         <div>
-                            <img
-                                src={gold}
-                                className="tengiaiThuong"
-                                alt="timtim"
-                            />
-                            <img
-                                src={gau}
-                                className="tengiaiThuong"
-                                alt="timtim"
-                            />
                             <img
                                 src={vocher}
                                 className="tengiaiThuong"
@@ -363,18 +338,20 @@ const MiniGame = () => {
                     </div>
                 </div>
             </div>
+            <div className="huongDanMiniGame">
+                <h2>B. Hướng Dẫn</h2>
 
-            <div>B. Hướng Dẫn Trò Chơi</div>
-
-            <p>
-                1. Thời Gian Quay Số: 20h - 20h15 hàng ngày <br />
-                2. Người Tham Gia: Tất cả thành viên đều Có Thể tham gia <br />
-                3. Nhận Thưởng: <br /> Phần Thưởng là hiện vật được nhận thưởng
-                trong không quá 30 ngày. <br />
-                Phần thưởng là Gold thì được cộng ngay vào tài khoản Gold.
-                <br /> Gold có thể dùng để mua hàng trong mục Shopping (1Gold =
-                1Vnđ)
-            </p>
+                <p>
+                    1. Thời Gian Quay Số: 20h - 20h15 hàng ngày <br />
+                    2. Người Tham Gia: Tất cả thành viên đều Có Thể tham gia{" "}
+                    <br />
+                    3. Nhận Thưởng: <br /> - Phần Thưởng là hiện vật được nhận
+                    thưởng trong không quá 30 ngày. <br />
+                    - Phần thưởng là Gold thì được cộng ngay vào tài khoản Gold.
+                    <br />- Gold có thể dùng để mua hàng trong mục Shopping
+                    (1Gold = 1Vnđ)
+                </p>
+            </div>
         </div>
     );
 };

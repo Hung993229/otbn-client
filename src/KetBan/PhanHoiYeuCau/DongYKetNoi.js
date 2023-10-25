@@ -8,7 +8,10 @@ const DongYKetNoi = () => {
     return (
         <div className="container">
             <div>
-                <div>Chúc Mừng 2 Bạn Đã Đồng Ý Tìm Hiểu Thêm Về Nhau!</div>
+                <h1>
+                    Chúc Mừng 2 Bạn <br />
+                    Đã Đồng Ý Tìm Hiểu Thêm Về Nhau!
+                </h1>
                 <div>Hãy Kết Bạn ZaLo Để Trò Chuyện Nhiều Hơn Nhé!</div>
                 <div>
                     <a href={`https://zalo.me/${dienThoai}`} target="_blank">

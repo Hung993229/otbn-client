@@ -87,12 +87,15 @@ const MyDetail = (props) => {
     };
     console.log("taodata", taodata);
     return (
-        <div>
+        <div className="container-myDetail">
             {+taodata === 0 ? (
-                <div className="container-myDetail">
-                    <div className="banner">
+                <div className="thongTinCaNhan">
+                    <div>
                         <div>
-                            <img src={banner} />
+                            <img
+                                src={banner}
+                                className="bannerThongTinCaNhan"
+                            />
                         </div>
                     </div>
                     <div className="myDetail-avatar-hoTen-cauNoiTamDac">
@@ -148,7 +151,7 @@ const MyDetail = (props) => {
                     </div>
                     <div className="Container-myTieuChi-myNoiDung">
                         <div className="myTieuChi">Đặc Điểm</div>
-                        <div className="myNoiDung">
+                        <div className="myNoiDung2">
                             <div>Chiều cao {chieuCao} (cm)</div>
                             <div>&emsp;</div>
                             <div>Cân nặng {canNang} (kg)</div>
@@ -189,7 +192,7 @@ const MyDetail = (props) => {
                         <div className="myTieuChi">
                             Khoảng Tuổi Muốn Làm Quen
                         </div>
-                        <div className="myNoiDung">
+                        <div className="myNoiDung2">
                             <div>Từ Năm &emsp;</div>
                             <div>{tuoiHop2}</div>
                             <div> &emsp;Đến Năm&emsp;</div>
@@ -200,30 +203,35 @@ const MyDetail = (props) => {
                         <div className="myTieuChi">Yêu Cầu Khác</div>
                         <div className="myNoiDung">{yeucaukhac2}</div>
                     </div>
-                    <button
-                        className="suaThongTin"
-                        onClick={() => setsuaPost(1)}
-                    >
-                        Sửa Thông Tin
-                    </button>
-                    <button className="dangXuat" onClick={handleLogout}>
-                        Đăng Xuất
-                    </button>
-                    {+myDetail?.vaiTro === 2 || user?.admin === true ? (
+                    <div>
+                        {" "}
                         <button
-                            className="dangXuat"
-                            onClick={() => settaodata(1)}
+                            className="suaThongTin"
+                            onClick={() => setsuaPost(1)}
                         >
-                            Quản Lý
+                            Sửa Thông Tin
                         </button>
-                    ) : (
-                        <></>
-                    )}
-                    {user?.admin === true && (
-                        <button className="dangXuat" onClick={Admin}>
-                            Admin
+                        <button className="dangXuat" onClick={handleLogout}>
+                            Đăng Xuất
                         </button>
-                    )}
+                    </div>
+                    <div>
+                        {+myDetail?.vaiTro === 2 || user?.admin === true ? (
+                            <button
+                                className="suaThongTin"
+                                onClick={() => settaodata(1)}
+                            >
+                                Quản Lý
+                            </button>
+                        ) : (
+                            <></>
+                        )}
+                        {user?.admin === true && (
+                            <button className="dangXuat" onClick={Admin}>
+                                Admin
+                            </button>
+                        )}
+                    </div>
                 </div>
             ) : (
                 <></>

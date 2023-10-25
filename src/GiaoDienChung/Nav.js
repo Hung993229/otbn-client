@@ -17,7 +17,7 @@ const Nav = () => {
                             to="/ket-ban"
                         >
                             <div className="nav-detail">
-                                <i class="fa-solid fa-people-group"></i>
+                                <i className="fa-solid fa-people-group"></i>
                                 <div>Hội FA</div>
                             </div>
                         </NavLink>
@@ -28,7 +28,7 @@ const Nav = () => {
                             to="/hom-thu"
                         >
                             <div>
-                                <i class="fa-solid fa-envelope"></i>
+                                <i className="fa-solid fa-envelope"></i>
                                 <div>Hòm Thư</div>
                             </div>
                         </NavLink>
@@ -39,7 +39,7 @@ const Nav = () => {
                             to="/mini-game"
                         >
                             <div>
-                                <i class="fa-solid fa-dice"></i>
+                                <i className="fa-solid fa-dice"></i>
                                 <div> Mini Game</div>
                             </div>
                         </NavLink>
@@ -51,7 +51,7 @@ const Nav = () => {
                             to="/shop-online"
                         >
                             <div>
-                                <i class="fa-solid fa-bag-shopping"></i>
+                                <i className="fa-solid fa-bag-shopping"></i>
                                 <div>Shopping</div>
                             </div>
                         </NavLink>
@@ -62,7 +62,7 @@ const Nav = () => {
                             to="/huong-dan"
                         >
                             <div>
-                                <i class="fa-solid fa-book-open-reader"></i>
+                                <i className="fa-solid fa-book-open-reader"></i>
                                 <div> Hướng Dẫn</div>
                             </div>
                         </NavLink>
@@ -73,7 +73,7 @@ const Nav = () => {
                             to="/ca-nhan"
                         >
                             <div>
-                                <i class="fa-solid fa-user"></i>
+                                <i className="fa-solid fa-user"></i>
                                 <div> Cá Nhân</div>
                             </div>
                         </NavLink>
@@ -87,7 +87,7 @@ const Nav = () => {
                             to="/dang-ki"
                         >
                             <div>
-                                <i class="fa-solid fa-user-plus"></i>
+                                <i className="fa-solid fa-user-plus"></i>
                                 <div> Đăng Kí</div>
                             </div>
                         </NavLink>
@@ -98,7 +98,7 @@ const Nav = () => {
                             to="/dang-nhap"
                         >
                             <div>
-                                <i class="fa-solid fa-right-to-bracket"></i>
+                                <i className="fa-solid fa-right-to-bracket"></i>
                                 <div> Đăng Nhập</div>
                             </div>
                         </NavLink>

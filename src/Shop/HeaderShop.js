@@ -29,9 +29,9 @@ const HeaderShop = (props) => {
             <div>
                 <img src={bannerShop} alt="timtim" className="bannerShop" />
             </div>
-            <div>--- CHÚC MỌI NGƯỜI SĂN SALE VUI VẺ! ---</div>
+            <div className="wecomeShop">--- CHÚC MỌI NGƯỜI SĂN SALE VUI VẺ! ---</div>
             <div>Quy Đổi: 1Gold = 1 VNĐ</div>
-            <div onClick={handlegetMydetail}>loading</div>
+
             <div className="hoptac-sanpham">
                 <button onClick={() => setmoihoptac(1)} className="moihoptac">
                     Mời Hợp Tác
@@ -69,7 +69,7 @@ const HeaderShop = (props) => {
                             Mời Kết Bạn Zalo, để được mở tính năng bán hàng miễn
                             phí!
                         </div>
-                        <button onClick={() => setmoihoptac(0)}>Close</button>
+                        <button className="CloseShop" onClick={() => setmoihoptac(0)}>Close</button>
                     </div>
                 </div>
             ) : (
@@ -78,7 +78,7 @@ const HeaderShop = (props) => {
             {+moihoptac === 2 ? (
                 <div>
                     <div>Đăng kí nhà bán hàng mới có quyền Thêm Sản Phẩm</div>
-                    <button onClick={() => setmoihoptac(0)}>Close</button>
+                    <button className="CloseShop" onClick={() => setmoihoptac(0)}>Close</button>
                 </div>
             ) : (
                 <></>

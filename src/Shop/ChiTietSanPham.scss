@@ -1,16 +1,35 @@
 .container-ChiTietSanPham {
-    width: 350px;
+    width: 60%;
     justify-content: center;
     align-items: center;
-    border: solid 1px gray;
-    margin: auto;
+    border: solid 3px #9cddc2;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    // background-color: #9cddc2;
+    .close {
+        text-align: right;
+
+        button {
+            background-color: red;
+            font-weight: 400;
+            border-radius: 10px;
+        }
+    }
     .anhSanPham {
-        width: 180px;
-        height: 180px;
+        width: 250px;
+        height: 250px;
         object-fit: cover;
-        border: solid 1px gray;
+        
+        background-color: #fff;
+        border-radius: 10px;
     }
     .tenSanPham {
+        font-size: 22px;
+        font-weight: 600;
+        margin-top: 10px;
+        text-transform: uppercase;
     }
     .giaBan {
         display: flex;
@@ -26,11 +45,27 @@
             color: red;
         }
     }
+    .muaHang {
+        font-size: 22px;
+        font-weight: 600;
+        background-color: red;
+        min-width: 200px;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
     .viTriSanPham {
-        // display: flex;
+        display: flex;
+        gap: 10px;
+        text-align: center;
+        justify-content: center;
+        margin-top: 10px;
 
         .diachisanpham {
             font-size: 10px;
         }
+    }
+    .thongtinSanPham {
+        text-align: justify;
+        padding: 20px;
     }
 }

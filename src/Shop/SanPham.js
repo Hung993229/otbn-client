@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { getShop, getStatus, getPost } from "../redux/apiRequest";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import currency from "currency.js";
 const SanPham = (props) => {
     const { detailSanPham, setdetailSanPham } = props;
     const allshop = useSelector((state) => state.shop.shop.allshop?.sanpham);
@@ -25,6 +26,8 @@ const SanPham = (props) => {
             getPost(user?._id, dispatch);
         }
     }, [user, dispatch]);
+
+ 
     return (
         <div>
             <div className="container-sanPham">
@@ -46,10 +49,22 @@ const SanPham = (props) => {
                                 </div>
                                 <div className="giaBan">
                                     <div className="giabanCu">
-                                        {item?.giaNiemYet}{" "}
+                                        {currency(item?.giaNiemYet, {
+                                            symbol: "VNĐ ",
+                                            separator: ".",
+                                            decimal: ",",
+                                        })
+                                            .format()
+                                            .slice(0, -3)}
                                     </div>
                                     <div className="giaBanMoi">
-                                        {item?.giaKhuyenMai}{" "}
+                                        {currency(item?.giaKhuyenMai, {
+                                            symbol: "VNĐ ",
+                                            separator: ".",
+                                            decimal: ",",
+                                        })
+                                            .format()
+                                            .slice(0, -3)}
                                     </div>
                                 </div>
                                 <a
@@ -62,6 +77,7 @@ const SanPham = (props) => {
                                 </a>
 
                                 <div className="viTriSanPham">
+                                    <i className="fa-solid fa-location-dot"></i>
                                     <div className="diachisanpham">
                                         {item?.xa}
                                     </div>

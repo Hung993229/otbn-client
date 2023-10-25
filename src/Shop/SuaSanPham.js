@@ -7,6 +7,7 @@ import { updateShop, getShop, deleteShop } from "../redux/apiRequest";
 import { useDispatch } from "react-redux";
 import CommonUtils from "../component/CommonUtils";
 import ThemSanPham from "./ThemSanPham";
+import currency from "currency.js";
 const SuaSanPham = (props) => {
     const { quanLyShop, setquanLyShop } = props;
     const user = useSelector((state) => state.auth.login?.currentUser);
@@ -82,13 +83,18 @@ const SuaSanPham = (props) => {
 
     console.log("sanPhamGianHang", sanPhamGianHang?.length);
     return (
-        <div>
+        <div className="suaSanPham">
             <div>
-                <button onClick={() => setquanLyShop(0)}>
+                <button
+                    className="quayLaiShopping"
+                    onClick={() => setquanLyShop(0)}
+                >
                     Quay Lại Shoping
                 </button>
                 {+sanPhamGianHang?.length < 10 ? (
-                    <button onClick={() => setsuaSp(2)}>Thêm Sản Phẩm</button>
+                    <button className="themSanPham" onClick={() => setsuaSp(2)}>
+                        Thêm Sản Phẩm
+                    </button>
                 ) : (
                     <div>Bạn Được Đăng Tối Đa 5 Sản Phẩm</div>
                 )}
@@ -99,9 +105,10 @@ const SuaSanPham = (props) => {
                     {sanPhamGianHang &&
                         sanPhamGianHang?.map((item) => {
                             return (
-                                <div className="suaSanPham" key={item._id}>
-                                    <div>
+                                <div key={item._id} className="sanPham">
+                                    <div className="suaxoa">
                                         <button
+                                            className="sua"
                                             onClick={() =>
                                                 handleSuaSanPham(item._id)
                                             }
@@ -109,6 +116,7 @@ const SuaSanPham = (props) => {
                                             Sửa Sản Phẩm
                                         </button>
                                         <button
+                                            className="xoa"
                                             onClick={() =>
                                                 handleXoaSanPham(item._id)
                                             }
@@ -116,7 +124,7 @@ const SuaSanPham = (props) => {
                                             Xoá Sản Phẩm
                                         </button>
                                     </div>
-                                    <div className="sanPham">
+                                    <div>
                                         <img
                                             src={item?.AnhSanPham}
                                             className="anhSanPham"
@@ -127,20 +135,29 @@ const SuaSanPham = (props) => {
                                         </div>
                                         <div className="giaBan">
                                             <div className="giabanCu">
-                                                {item?.giaNiemYet}{" "}
+                                                {currency(item?.giaNiemYet, {
+                                                    symbol: "VNĐ ",
+                                                    separator: ".",
+                                                    decimal: ",",
+                                                })
+                                                    .format()
+                                                    .slice(0, -3)}
                                             </div>
                                             <div className="giaBanMoi">
-                                                {item?.giaKhuyenMai}{" "}
+                                                {currency(item?.giaKhuyenMai, {
+                                                    symbol: "VNĐ ",
+                                                    separator: ".",
+                                                    decimal: ",",
+                                                })
+                                                    .format()
+                                                    .slice(0, -3)}
                                             </div>
                                         </div>
-                                        <a
-                                            href={item?.thongTinNguoiBan}
-                                            target="_blank"
-                                        >
-                                            <button className="muaHang">
-                                                MUA HÀNG
-                                            </button>
-                                        </a>
+
+                                        <button className="muaHang">
+                                            MUA HÀNG
+                                        </button>
+
                                         <div className="thongtinSanPham">
                                             {item?.thongTinSanPham}
                                         </div>
@@ -154,7 +171,9 @@ const SuaSanPham = (props) => {
             )}
             {+suaSp === 1 ? (
                 <div className="container-themSanPham">
-                    <button onClick={() => setsuaSp(0)}>Đóng Lại</button>
+                    <div className="close">
+                        <button onClick={() => setsuaSp(0)}>Đóng Lại</button>
+                    </div>
                     <div className="sanPham">
                         <div>
                             <input
@@ -164,11 +183,17 @@ const SuaSanPham = (props) => {
                                 onChange={handleOnchangeImagesuaSanPham}
                             />
                             <label htmlFor="anhsuasanpham">
-                                <div className="anhsuasanpham">
+                                <div>
                                     {previewSanPham ? (
-                                        <img src={previewSanPham?.preview} />
+                                        <img
+                                            src={previewSanPham?.preview}
+                                            className="anhsuasanpham"
+                                        />
                                     ) : (
-                                        <img src={detailidSpSua?.AnhSanPham} />
+                                        <img
+                                            src={detailidSpSua?.AnhSanPham}
+                                            className="anhsuasanpham"
+                                        />
                                     )}
                                 </div>
                             </label>
@@ -216,7 +241,7 @@ const SuaSanPham = (props) => {
                                 onChange={(e) =>
                                     setthongTinSanPham(e.target.value)
                                 }
-                                className="muaHang"
+                                className="thongTinSanPham"
                                 placeholder={detailidSpSua?.thongTinSanPham}
                             />
                         </div>
@@ -243,7 +268,7 @@ const SuaSanPham = (props) => {
             )}
             {+suaSp === 2 ? (
                 <div>
-                    <button onClick={() => setsuaSp(0)}>Đóng Lại</button>
+                    {/* <button onClick={() => setsuaSp(0)}>Đóng Lại</button> */}
                     <ThemSanPham suaSp={suaSp} setsuaSp={setsuaSp} />
                 </div>
             ) : (

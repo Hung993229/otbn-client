@@ -1,4 +1,5 @@
 .container-header-shop {
+    width: 900px;
     .bannerShop {
         width: 900px;
         height: 250px;
@@ -7,24 +8,37 @@
         align-items: center;
         object-fit: cover;
     }
+    .wecomeShop {
+        color: red;
+        font-weight: 600;
+        text-shadow: 2px 2px 4px #c4c726;
+    }
     .hoptac-sanpham {
         display: flex;
         gap: 50%;
         justify-content: center;
         align-items: center;
+        margin-bottom: 20px;
         .moihoptac {
             display: block;
             margin-right: 0px;
             border-radius: 10px;
-            background-color: rgb(13, 199, 13);
+            background-color: #04aa6d;
             width: 150px;
         }
         .themSanPham {
             display: block;
             margin-right: 0px;
             border-radius: 10px;
-            background-color: rgb(120, 128, 120);
+            background-color: #04aa6d;
             width: 150px;
         }
+    }
+    .CloseShop {
+        margin-top: 20px;
+        margin-right: 0px;
+        border-radius: 10px;
+        background-color: red;
+        width: 150px;
     }
 }

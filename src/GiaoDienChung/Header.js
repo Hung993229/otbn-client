@@ -35,7 +35,7 @@ const Header = () => {
             <div className="container-header">
                 <div className="container-logo">
                     <img src={logo} alt="he" className="logo" />
-                    <div className="my-cash2">TimTim.Vn</div>
+                    <div className="my-cash2">iUiU.Online</div>
                 </div>
 
                 <div className="title"></div>

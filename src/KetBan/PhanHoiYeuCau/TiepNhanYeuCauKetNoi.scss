@@ -1,108 +1,73 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.detail-your-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    // margin: 20px;
+    background-color: #88d3b4;
+    gap: 10px;
+    .loiMoiKetNoi {
+        border-radius: 10px;
+        padding: 20px;
+        margin: 15px;
+        background-color: #fff;
+        .detail-your {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 10px;
+        }
+        .detail-your2 {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            .xemChiTietHomThu {
+                width: 200px;
+                border-radius: 10px;
+                background-color: #04aa6d;
+                color: black;
+            }
+            .dongYKetNoiHomThu {
+                width: 200px;
+                border-radius: 10px;
+                background-color: #e6f702;
+                color: black;
+            }
+            .tuChoiKetNoiHomThu {
+                width: 200px;
+                border-radius: 10px;
+                background-color: red;
+                color: black;
+            }
+        }
+    }
+}
+.yourDetail-avatar-hoTen-cauNoiTamDac-homThu {
+    display: flex;
+    .yourDetail-avatar-homThu {
+        width: 168px;
+        height: 168px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-left: 20px;
+        margin-top: -30px;
+        z-index: 10;
+    }
+
+    .yourDetail-hoTen-cauNoiTamDac-homThu {
+        margin-top: 100px;
+        margin-left: 20px;
+        .yourDetail-hoTen-homThu {
+            // margin-top: 50px;
+
+            color: red;
+            display: block;
+            font-size: 25px;
+            font-weight: 600;
+        }
+        .yourdetail-cauNoiTamDac-homThu {
+            text-align: left;
+            display: inline-block;
+        }
+    }
+}

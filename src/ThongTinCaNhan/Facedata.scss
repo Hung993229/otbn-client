@@ -1,85 +1,54 @@
-.thuNhap {
-    width: 900px;
-    margin: auto;
-    border: solid 1px gray;
-    background-color: red;
-    label {
-        width: 50%;
-    }
-    select {
-        width: 50%;
-    }
-}
-.banner {
-    width: 900px;
-    height: 250px;
-
-    background-color: red;
-    margin: auto;
-    img {
+.container-banner-facedata {
+    .banner {
         width: 900px;
         height: 250px;
         object-fit: cover;
+        background-color: red;
+        .banner2 {
+            width: 900px;
+            height: 250px;
+            object-fit: cover;
+        }
     }
 }
-
-.avatar-hoTen {
-    display: flex;
-    width: 900px;
-
-    margin: auto;
-    .container-avatar {
-        width: 450px;
-        margin-right: 0px;
-        .avatar {
-            width: 100px;
-            height: 100px;
+.container-avatar-facedata {
+    .avatar {
+        width: 168px;
+        height: 168px;
+        object-fit: cover;
+        position: absolute;
+        border-radius: 50%;
+        background-color: rgb(17, 216, 150);
+        top: 330px;
+        left: 35px;
+        .avatar2 {
+            width: 168px;
+            height: 168px;
+            object-fit: cover;
             border-radius: 50%;
-            background-color: red;
-
-            img {
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-                object-fit: cover;
-            }
         }
     }
- 
-}
-
-.containerTieuChi {
-    width: 900px;
-   
-    .tieuChi {
-        width: 50%;
-        border: solid 1px gray;
+    .containerTieuChi-facedata {
+        .noiDung {
+            border: solid 1px red;
+            width: 50%;
+            margin-left: 30%;
+            margin-bottom: 20px;
+        }
     }
+}
+.containerTieuChi-facedata {
     .noiDung {
+        border: solid 1px red;
         width: 50%;
-        border: solid 1px gray;
-        display: flex;
-        margin: auto;
-        .donVi {
-            padding-right: 20px;
-        }
+        margin-left: 10%;
+        margin-bottom: 20px;
     }
-    input {
-        border: solid 1px gray;
-    }
-}
-
-.luuY {
-}
-.mauNguoiYeuLyTuong {
-    width: 900px;
-    border: solid 1px gray;
-    margin: auto;
-    color: red;
 }
 .boQua {
-    margin: 50px;
-    width: 350px;
-    background-color: red;
+    margin-left: 20px;
     cursor: pointer;
+    border-radius: 10px;
+    width: 150px;
+    background-color: #ff0000;
 }

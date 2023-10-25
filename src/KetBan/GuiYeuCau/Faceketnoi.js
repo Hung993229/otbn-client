@@ -15,7 +15,7 @@ const Faceketnoi = (props) => {
             </div>
             <div>Còn rất nhiều người để bạn có thể làm quen!</div>
             <div>
-                Trong lúc chờ đợi bạn có thể giới thiệu TimTim.Vn đến những
+                Trong lúc chờ đợi bạn có thể giới thiệu iUiU.Online đến những
                 người bạn độc thân của mình! Để có thể cùng nhau tìm người yêu
                 hoặc chơi Mini Game quay số may mắn để nhận rất nhiều phần quà!
                 <br />

@@ -137,17 +137,19 @@ const TiepNhanYeuCauKetNoi = () => {
     return (
         <div>
             <div>
-                <div>DANH SÁCH LỜI MỜI KẾT BẠN</div>
-                <div>
+                <h1>DANH SÁCH LỜI MỜI KẾT BẠN</h1>
+                <div className="detail-your-list">
                     {yourIdYeuCauKetNoi2?.map((item) => {
                         return (
-                            <div key={item._id}>
-                                <div className="detail-your-list">
+                            <div key={item._id} className="loiMoiKetNoi">
+                                <div className="detail-your">
                                     <div>{item.hoTen}</div>
                                     <div>Sinh Năm: {item.namSinh}</div>
                                     <div>Quê: {item.queQuan}</div>
+                                </div>
+                                <div className="detail-your2">
                                     <button
-                                        className="boQua"
+                                        className="xemChiTietHomThu"
                                         onClick={() =>
                                             handleXemChiTiet(
                                                 item.yourIdYeuCauKetNoi
@@ -156,9 +158,8 @@ const TiepNhanYeuCauKetNoi = () => {
                                     >
                                         Xem Chi Tiết
                                     </button>
-
                                     <button
-                                        className="xinLamQuen"
+                                        className="dongYKetNoiHomThu"
                                         onClick={() =>
                                             handleDongYKetNoi(
                                                 item.yourIdYeuCauKetNoi
@@ -168,7 +169,7 @@ const TiepNhanYeuCauKetNoi = () => {
                                         Đồng Ý Kết Nối
                                     </button>
                                     <button
-                                        className="boQua"
+                                        className="tuChoiKetNoiHomThu"
                                         onClick={() =>
                                             handleTuChoiKetNoi(
                                                 item.yourIdYeuCauKetNoi
@@ -187,21 +188,21 @@ const TiepNhanYeuCauKetNoi = () => {
                         <div></div>
                     ) : (
                         <div className="container-yourDetail">
-                            <div className="banner">
+                            <div>
                                 <div>
-                                    <img src={ybanner} />
+                                    <img src={ybanner} className="banner" />
                                 </div>
                             </div>
-                            <div className="yourDetail-avatar-hoTen-cauNoiTamDac">
+                            <div className="yourDetail-avatar-hoTen-cauNoiTamDac-homThu">
                                 <img
                                     src={yavatar}
-                                    className="yourDetail-avatar"
+                                    className="yourDetail-avatar-homThu"
                                 />
-                                <div className="yourDetail-hoTen-cauNoiTamDac">
-                                    <div className="yourDetail-hoTen">
+                                <div className="yourDetail-hoTen-cauNoiTamDac-homThu">
+                                    <div className="yourDetail-hoTen-homThu">
                                         {yhoTen}
                                     </div>
-                                    <div className="yourdetail-cauNoiTamDac">
+                                    <div className="yourdetail-cauNoiTamDac-homThu">
                                         {ycauNoiTamDac}
                                     </div>
                                 </div>
@@ -256,7 +257,7 @@ const TiepNhanYeuCauKetNoi = () => {
                             </div>
                             <div className="Container-yourTieuChi-yourNoiDung">
                                 <div className="yourTieuChi">Đặc Điểm</div>
-                                <div className="yourNoiDung">
+                                <div className="yourNoiDung2">
                                     <div>Chiều cao {ychieuCao} (cm)</div>
                                     <div>&emsp;</div>
                                     <div>Cân nặng {ycanNang} (kg)</div>
@@ -309,7 +310,7 @@ const TiepNhanYeuCauKetNoi = () => {
                             </div>
                             <div className="Container-yourTieuChi-yourNoiDung">
                                 <div className="yourTieuChi">Tuổi Hợp</div>
-                                <div className="yourNoiDung">
+                                <div className="yourNoiDung2">
                                     <div>Từ Năm &emsp;</div>
                                     <div>{ytuoiHop2}</div>
                                     <div> &emsp;Đến Năm&emsp;</div>

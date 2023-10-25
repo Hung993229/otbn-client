@@ -318,7 +318,7 @@ const Facedata = (props) => {
 
     return (
         <div>
-            <div>
+            <div className="container-banner-facedata">
                 <label hidden>Banner</label>
                 <div>
                     <input
@@ -330,13 +330,16 @@ const Facedata = (props) => {
                     <label htmlFor="banner">
                         <div className="banner">
                             {previewBanner && (
-                                <img src={previewBanner.preview} />
+                                <img
+                                    src={previewBanner.preview}
+                                    className="banner2"
+                                />
                             )}
                         </div>
                     </label>
                 </div>
             </div>
-            <div className="avatar-hoTen">
+            <div className="container-avatar-facedata">
                 <div>
                     <label hidden>avatar</label>
                     <div className="container-avatar">
@@ -349,19 +352,22 @@ const Facedata = (props) => {
                         <label htmlFor="avatar">
                             <div className="avatar">
                                 {previewAvatar && (
-                                    <img src={previewAvatar.preview} />
+                                    <img
+                                        src={previewAvatar.preview}
+                                        className="avatar2"
+                                    />
                                 )}
                             </div>
                         </label>
                     </div>
                 </div>
-                <div className="containerTieuChi">
+                <div className="containerTieuChi-facedata">
                     <div className="noiDung">{hoTen}</div>
                 </div>
             </div>
 
             <div>
-                <div className="containerTieuChi">
+                <div className="containerTieuChi-facedata">
                     <label hidden className="tieuChi" htmlFor="gioi-tinh">
                         Giới Tính
                     </label>

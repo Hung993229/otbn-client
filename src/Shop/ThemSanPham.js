@@ -67,6 +67,9 @@ const ThemSanPham = (props) => {
 
     return (
         <div className="container-themSanPham">
+            <div className="close">
+                <button onClick={() => setsuaSp(0)}>Close</button>
+            </div>
             <div className="sanPham">
                 <div>
                     <input
@@ -78,7 +81,10 @@ const ThemSanPham = (props) => {
                     <label htmlFor="anhsanpham">
                         <div className="anhsanpham">
                             {previewSanPham && (
-                                <img src={previewSanPham.preview} />
+                                <img
+                                    src={previewSanPham.preview}
+                                    className="anhsanpham"
+                                />
                             )}
                         </div>
                     </label>
@@ -118,7 +124,7 @@ const ThemSanPham = (props) => {
                     <label>Thông Tin Sản Phẩm</label>
                     <input
                         onChange={(e) => setthongTinSanPham(e.target.value)}
-                        className="muaHang"
+                        className="thongTinSanPham"
                         placeholder="Thông Tin Chi Tiết Sản Phẩm"
                     />
                 </div>
@@ -130,7 +136,7 @@ const ThemSanPham = (props) => {
                         placeholder="Liên Hệ Người Bán (Zalo/Facebook/... )"
                     />
                 </div>
-                <button className="luuSanPham" onClick={handleLuuSanPham}>
+                <button className="luuSanPahm" onClick={handleLuuSanPham}>
                     Lưu Sản Phẩm
                 </button>
             </div>

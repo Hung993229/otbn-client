@@ -182,10 +182,8 @@ const ChonVaGuiYeuCau = () => {
                 <div>
                     {(vaiTro && +vaiTro === 0) || (vaiTro && +vaiTro === 1) ? (
                         <div className="container-yourDetail">
-                            <div className="banner">
-                                <div>
-                                    <img src={banner} />
-                                </div>
+                            <div>
+                                <img src={banner} className="banner" />
                             </div>
                             <div className="yourDetail-avatar-hoTen-cauNoiTamDac">
                                 <img
@@ -251,7 +249,7 @@ const ChonVaGuiYeuCau = () => {
                             </div>
                             <div className="Container-yourTieuChi-yourNoiDung">
                                 <div className="yourTieuChi">Đặc Điểm</div>
-                                <div className="yourNoiDung">
+                                <div className="yourNoiDung2">
                                     <div>Chiều cao {chieuCao} (cm)</div>
                                     <div>&emsp;</div>
                                     <div>Cân nặng {canNang} (kg)</div>
@@ -302,7 +300,7 @@ const ChonVaGuiYeuCau = () => {
                             </div>
                             <div className="Container-yourTieuChi-yourNoiDung">
                                 <div className="yourTieuChi">Tuổi Hợp</div>
-                                <div className="yourNoiDung">
+                                <div className="yourNoiDung2">
                                     <div>Từ Năm &emsp;</div>
                                     <div>{tuoiHop2}</div>
                                     <div> &emsp;Đến Năm&emsp;</div>
@@ -324,13 +322,13 @@ const ChonVaGuiYeuCau = () => {
                                     Quay Lại
                                 </button> */}
                                             <button
-                                                className="boQua"
+                                                className="ghepNgauNhien"
                                                 onClick={handleNgauNhien}
                                             >
                                                 Ghép Ngẫu Nhiên
                                             </button>
                                             <button
-                                                className="xinLamQuen"
+                                                className="moiKetNoi"
                                                 onClick={handleKetNoi}
                                             >
                                                 Mời Kết Nối
@@ -351,9 +349,9 @@ const ChonVaGuiYeuCau = () => {
                     )}
                     {vaiTro && +vaiTro === 2 ? (
                         <div className="container-yourDetail">
-                            <div className="banner">
+                            <div >
                                 <div>
-                                    <img src={banner} />
+                                    <img src={banner} className="banner"/>
                                 </div>
                             </div>
                             <div className="yourDetail-avatar-hoTen-cauNoiTamDac">
@@ -431,7 +429,7 @@ const ChonVaGuiYeuCau = () => {
                             </div>
                             <div className="Container-yourTieuChi-yourNoiDung">
                                 <div className="yourTieuChi">Đặc Điểm</div>
-                                <div className="yourNoiDung">
+                                <div className="yourNoiDung2">
                                     <div>Chiều cao {chieuCaoRandom} (cm)</div>
                                     <div>&emsp;</div>
                                     <div>Cân nặng {canNangRandoom} (kg)</div>
@@ -490,7 +488,7 @@ const ChonVaGuiYeuCau = () => {
                             </div>
                             <div className="Container-yourTieuChi-yourNoiDung">
                                 <div className="yourTieuChi">Tuổi Hợp</div>
-                                <div className="yourNoiDung">
+                                <div className="yourNoiDung2">
                                     <div>Từ Năm &emsp;</div>
                                     <div>{tuoiHop2Random}</div>
                                     <div> &emsp;Đến Năm&emsp;</div>
@@ -512,13 +510,13 @@ const ChonVaGuiYeuCau = () => {
                                     Quay Lại
                                 </button> */}
                                             <button
-                                                className="boQua"
+                                                className="ghepNgauNhien"
                                                 onClick={handleNgauNhien}
                                             >
                                                 Ghép Ngẫu Nhiên
                                             </button>
                                             <button
-                                                className="xinLamQuen"
+                                                className="moiKetNoi"
                                                 onClick={handleKetNoi}
                                             >
                                                 Mời Kết Nối

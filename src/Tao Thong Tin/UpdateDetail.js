@@ -1,4 +1,4 @@
-import "./FormRegister.scss";
+import "./UpdateDetail.scss";
 import CommonUtils from "../component/CommonUtils";
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -298,7 +298,7 @@ const UpdateDetail = (props) => {
     };
 
     return (
-        <div>
+        <div className="containerUpdate">
             <div>
                 <label hidden>Banner</label>
                 <div>
@@ -309,17 +309,23 @@ const UpdateDetail = (props) => {
                         onChange={handleOnchangeImageBanner}
                     />
                     <label htmlFor="banner">
-                        <div className="banner">
+                        <div>
                             {previewBanner ? (
-                                <img src={previewBanner?.preview} />
+                                <img
+                                    src={previewBanner?.preview}
+                                    className="bannerFormregis"
+                                />
                             ) : (
-                                <img src={myDetail?.banner} />
+                                <img
+                                    src={myDetail?.banner}
+                                    className="bannerFormregis"
+                                />
                             )}
                         </div>
                     </label>
                 </div>
             </div>
-            <div className="avatar-hoTen">
+            <div className="avatar-hoTenFormregis">
                 <div>
                     <label hidden>avatar</label>
                     <div className="container-avatar">
@@ -330,21 +336,28 @@ const UpdateDetail = (props) => {
                             onChange={handleOnchangeImage}
                         />
                         <label htmlFor="avatar">
-                            <div className="avatar">
+                            <div>
                                 {previewAvatar ? (
-                                    <img src={previewAvatar?.preview} />
+                                    <img
+                                        src={previewAvatar?.preview}
+                                        className="avatarFormregis"
+                                    />
                                 ) : (
-                                    <img src={myDetail?.avatar} />
+                                    <img
+                                        src={myDetail?.avatar}
+                                        className="avatarFormregis"
+                                    />
                                 )}
                             </div>
                         </label>
                     </div>
                 </div>
                 <div>
-                    <div className="hoTen">
+                    <div>
                         <div>
                             <label hidden>Ho Va Ten</label>
                             <input
+                                className="hoTen"
                                 type="text"
                                 placeholder={myDetail?.hoTen}
                                 onChange={(e) => sethoTen(e.target.value)}
@@ -409,7 +422,10 @@ const UpdateDetail = (props) => {
 
                 <div className="noiDung">
                     <label hidden>Ngày</label>
-                    <select onChange={(e) => setngaySinh(e.target.value)}>
+                    <select
+                        className="tinhFromregis"
+                        onChange={(e) => setngaySinh(e.target.value)}
+                    >
                         <option value={myDetail?.ngaySinh}>
                             {myDetail?.ngaySinh}
                         </option>
@@ -420,7 +436,10 @@ const UpdateDetail = (props) => {
                             })}
                     </select>
                     <label hidden>Tháng</label>
-                    <select onChange={(e) => setthangSinh(e.target.value)}>
+                    <select
+                        className="tinhFromregis"
+                        onChange={(e) => setthangSinh(e.target.value)}
+                    >
                         <option value={myDetail?.thangSinh}>
                             {myDetail?.thangSinh}
                         </option>
@@ -431,7 +450,10 @@ const UpdateDetail = (props) => {
                             })}
                     </select>
                     <label hidden>Năm</label>
-                    <select onChange={(e) => setnamSinh(e.target.value)}>
+                    <select
+                        className="tinhFromregis"
+                        onChange={(e) => setnamSinh(e.target.value)}
+                    >
                         <option value={myDetail?.namSinh}>
                             {myDetail?.namSinh}
                         </option>
@@ -452,7 +474,7 @@ const UpdateDetail = (props) => {
                     <select
                         id="provinces"
                         onChange={(e) => setprovincesID(e.target.value)}
-                        // onChange={(e) => console.log("e", e)}
+                        className="tinhFromregis"
                     >
                         <option value="">---{myDetail?.tinhQq}---</option>
                         {provinces?.map((item) => {
@@ -466,7 +488,10 @@ const UpdateDetail = (props) => {
                             );
                         })}
                     </select>
-                    <select onChange={(e) => setDistrictID(e.target.value)}>
+                    <select
+                        className="tinhFromregis"
+                        onChange={(e) => setDistrictID(e.target.value)}
+                    >
                         <option value="">---{myDetail?.huyenQq}---</option>
                         {districts?.map((item) => {
                             return (
@@ -479,7 +504,10 @@ const UpdateDetail = (props) => {
                             );
                         })}
                     </select>
-                    <select onChange={(e) => setWardID(e.target.value)}>
+                    <select
+                        className="tinhFromregis"
+                        onChange={(e) => setWardID(e.target.value)}
+                    >
                         <option value="">---{myDetail?.xaQq}---</option>
                         {wards?.map((item) => {
                             return (
@@ -497,6 +525,7 @@ const UpdateDetail = (props) => {
 
                 <div className="noiDung">
                     <select
+                        className="tinhFromregis"
                         id="provinces"
                         onChange={(e) => setprovincesID2(e.target.value)}
                     >
@@ -513,7 +542,10 @@ const UpdateDetail = (props) => {
                             );
                         })}
                     </select>
-                    <select onChange={(e) => setDistrictID2(e.target.value)}>
+                    <select
+                        className="tinhFromregis"
+                        onChange={(e) => setDistrictID2(e.target.value)}
+                    >
                         <option value="">---{myDetail?.huyenDs}---</option>
                         {districts2?.map((item) => {
                             return (
@@ -526,7 +558,10 @@ const UpdateDetail = (props) => {
                             );
                         })}
                     </select>
-                    <select onChange={(e) => setWardID2(e.target.value)}>
+                    <select
+                        className="tinhFromregis"
+                        onChange={(e) => setWardID2(e.target.value)}
+                    >
                         <option value="">---{myDetail?.xaDs}---</option>
                         {wards2?.map((item) => {
                             return (
@@ -598,11 +633,11 @@ const UpdateDetail = (props) => {
             </div>
             <div className="containerTieuChi">
                 <div className="tieuChi">Đặc Điểm</div>
-                <div className="noiDung">
+                <div className="noiDungDacDiem">
                     <div hidden>Chiều Cao</div>
                     <div className="containerTieuChi">
                         <input
-                            className=""
+                            className="tinhFromregis"
                             onChange={(e) => setchieuCao(e.target.value)}
                             placeholder={myDetail?.chieuCao}
                             type="number"
@@ -613,7 +648,7 @@ const UpdateDetail = (props) => {
                     <label hidden>Cân Nặng</label>
                     <div className="containerTieuChi">
                         <input
-                            className=""
+                            className="tinhFromregis"
                             onChange={(e) => setcanNang(e.target.value)}
                             placeholder={myDetail?.canNang}
                             type="number"
@@ -745,9 +780,12 @@ const UpdateDetail = (props) => {
                 <div className="tieuChi" htmlFor="nam-sinh">
                     Khoảng Tuổi Muốn Làm Quen
                 </div>
-                <div className="noiDung">
+                <div className="noiDungDacDiem">
                     <label>Từ Năm</label>
-                    <select onChange={(e) => settuoiHop2(e.target.value)}>
+                    <select
+                        className="tinhFromregis"
+                        onChange={(e) => settuoiHop2(e.target.value)}
+                    >
                         <option value={myDetail?.tuoiHop2}>
                             {myDetail?.tuoiHop2}
                         </option>
@@ -758,7 +796,10 @@ const UpdateDetail = (props) => {
                             })}
                     </select>
                     <label>Đến Năm</label>
-                    <select onChange={(e) => settuoiHop3(e.target.value)}>
+                    <select
+                        className="tinhFromregis"
+                        onChange={(e) => settuoiHop3(e.target.value)}
+                    >
                         <option value={myDetail?.tuoiHop3}>
                             {myDetail?.tuoiHop3}
                         </option>
@@ -786,7 +827,7 @@ const UpdateDetail = (props) => {
                 Zalo để liên lạc khi ghép đôi. <br /> Vì vậy không dùng Số điện
                 thoại ảo để đăng kí!
             </p>
-            <button className="boQua" onClick={handleUpdatePost}>
+            <button className="luuThongTin" onClick={handleUpdatePost}>
                 Lưu Thông Tin
             </button>
         </div>

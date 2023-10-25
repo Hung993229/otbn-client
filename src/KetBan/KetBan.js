@@ -91,6 +91,7 @@ const KetBan = () => {
     );
     const yourStatushuyKetNoi = allYourStatus?.filter((item) => item.huyKetNoi);
     console.log("myStatus", +myStatus);
+    console.log("dienThoai", dienThoai);
     console.log("yourIdDangKetNoi", yourIdDangKetNoi);
     console.log("yourIdYeuCauKetNoidi", yourIdYeuCauKetNoidi);
     console.log("yourStatusdongYKetNoi", yourStatusdongYKetNoi?.length === 0);

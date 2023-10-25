@@ -1,4 +1,4 @@
-import "./YourDangKetNoi.scss";
+import "./ChonVaGuiYeuCau.scss";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import {
@@ -122,35 +122,35 @@ const YourDangKetNoi = () => {
                 ) : (
                     <div>
                         {+vaiTro === 2 ? (
-                            <div>
+                            <div className="ketNoiFake">
                                 <h1>Yêu Cầu Kết Nối Của Bạn Đã Được Gửi Đi</h1>
-                                <div>
+                                <p>
                                     Xin Vui Lòng Đợi Trả Lời! <br /> Có thể đối
                                     phương đang bận và chưa kịp xem được yêu cầu
                                     kết nối của bạn!
-                                </div>
-                                <div>
+                                </p>
+                                <p>
                                     Nếu chờ lâu quá mà chưa có phản hồi! <br />
                                     Bạn có thể huỷ Yêu Cầu Kết Nối để kết nối
                                     với người khác!
-                                </div>
-                                <div>
+                                </p>
+                                <p>
                                     Còn rất nhiều người để bạn có thể làm quen!
-                                </div>
-                                <div>
+                                </p>
+                                <p>
                                     Trong lúc chờ đợi bạn có thể giới thiệu
-                                    TimTim.Vn đến những người bạn độc thân của
+                                    iUiU.Online đến những người bạn độc thân của
                                     mình! Để có thể cùng nhau tìm người yêu hoặc
                                     chơi Mini Game quay số may mắn để nhận rất
                                     nhiều phần quà!
                                     <br />
                                     Cảm ơn bạn rất nhiều!
-                                </div>
-                                <div>
-                                    CHÚC BẠN SỚM TÌM ĐƯỢC MỘT NỬA YÊU THƯƠNG
-                                </div>
+                                </p>
+                                <h3>
+                                    CHÚC BẠN SỚM TÌM ĐƯỢC MỘT NỬA YÊU THƯƠNG !
+                                </h3>
                                 <button
-                                    className="xinLamQuen"
+                                    className="huyKetNoi"
                                     onClick={handleHuyKetNoi}
                                 >
                                     Huỷ Kết Nối
@@ -158,9 +158,9 @@ const YourDangKetNoi = () => {
                             </div>
                         ) : (
                             <div className="container-yourDetail">
-                                <div className="banner">
+                                <div>
                                     <div>
-                                        <img src={banner} />
+                                        <img src={banner} className="banner" />
                                     </div>
                                 </div>
                                 <div className="yourDetail-avatar-hoTen-cauNoiTamDac">
@@ -235,7 +235,7 @@ const YourDangKetNoi = () => {
                                 </div>
                                 <div className="Container-yourTieuChi-yourNoiDung">
                                     <div className="yourTieuChi">Đặc Điểm</div>
-                                    <div className="yourNoiDung">
+                                    <div className="yourNoiDung2">
                                         <div>Chiều cao {chieuCao} (cm)</div>
                                         <div>&emsp;</div>
                                         <div>Cân nặng {canNang} (kg)</div>
@@ -296,7 +296,7 @@ const YourDangKetNoi = () => {
                                 </div>
                                 <div className="Container-yourTieuChi-yourNoiDung">
                                     <div className="yourTieuChi">Tuổi Hợp</div>
-                                    <div className="yourNoiDung">
+                                    <div className="yourNoiDung2">
                                         <div>Từ Năm &emsp;</div>
                                         <div>{tuoiHop2}</div>
                                         <div> &emsp;Đến Năm&emsp;</div>
@@ -314,7 +314,7 @@ const YourDangKetNoi = () => {
                                 <div>
                                     <div>
                                         <button
-                                            className="xinLamQuen"
+                                            className="huyKetNoi"
                                             onClick={handleHuyKetNoi}
                                         >
                                             Huỷ Kết Nối

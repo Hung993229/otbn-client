@@ -1,16 +1,31 @@
 .container-sanPham {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
+    background-color: #88d3b4;
+    padding: 5px;
+
     .sanPham {
-        width: 50%;
         justify-content: center;
         align-items: center;
+        padding: 20px;
+        margin: 5px;
+        border-radius: 10px;
+        background-color: #fff;
         .anhSanPham {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
             object-fit: cover;
-            border: solid 1px gray;
+            // border: solid 1px gray;
+            background-color: #fff;
+            cursor: pointer;
+            border-radius: 10px;
         }
         .tenSanPham {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 10px;
+            text-transform: uppercase;
         }
         .giaBan {
             display: flex;
@@ -26,13 +41,23 @@
                 color: red;
             }
         }
+        .muaHang {
+            font-size: 15px;
+            font-weight: 600;
+            background-color: red;
+            min-width: 200px;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
         .viTriSanPham {
-            // display: flex;
-           
-            .diachisanpham{
+            display: flex;
+            gap: 10px;
+            text-align: center;
+            justify-content: center;
+            margin-top: 10px;
+            .diachisanpham {
                 font-size: 10px;
             }
-
         }
     }
 }
