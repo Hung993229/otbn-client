@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "./apiCustomize";
 import {
     loginFailed,
     loginStart,
@@ -79,6 +79,7 @@ import {
     deleteshopSuccess,
     deleteshopFailed,
 } from "./shopSlice";
+
 export const loginUser = async (user, dispatch, navigate) => {
     dispatch(loginStart());
     try {
