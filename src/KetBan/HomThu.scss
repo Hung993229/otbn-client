@@ -1,3 +1,15 @@
 .container-homthu {
-    width: 900px;
+    position: absolute;
+    top: 9vw;
+    padding-bottom: 10vw;
+    text-align: center;
+    .homThu{
+        display: block;
+        text-align: center;
+        margin: 2vw auto;
+        width: 100vw;
+        font-size: 5vw;
+        font-weight: 600;
+        color: red;
+    }
 }

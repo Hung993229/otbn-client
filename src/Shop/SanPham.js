@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { getShop, getStatus, getPost } from "../redux/apiRequest";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import currency from "currency.js";
 const SanPham = (props) => {
     const { detailSanPham, setdetailSanPham } = props;
     const allshop = useSelector((state) => state.shop.shop.allshop?.sanpham);
@@ -26,8 +25,11 @@ const SanPham = (props) => {
             getPost(user?._id, dispatch);
         }
     }, [user, dispatch]);
+    const VND = new Intl.NumberFormat("vi-VN", {
+        style: "currency",
+        currency: "VND",
+    });
 
- 
     return (
         <div>
             <div className="container-sanPham">
@@ -48,24 +50,16 @@ const SanPham = (props) => {
                                     {item?.TenSanPham}
                                 </div>
                                 <div className="giaBan">
-                                    <div className="giabanCu">
-                                        {currency(item?.giaNiemYet, {
-                                            symbol: "VNĐ ",
-                                            separator: ".",
-                                            decimal: ",",
-                                        })
-                                            .format()
-                                            .slice(0, -3)}
-                                    </div>
                                     <div className="giaBanMoi">
-                                        {currency(item?.giaKhuyenMai, {
-                                            symbol: "VNĐ ",
-                                            separator: ".",
-                                            decimal: ",",
-                                        })
-                                            .format()
-                                            .slice(0, -3)}
+                                        {VND.format(item?.giaKhuyenMai)}
                                     </div>
+                                    <div className="giabanCu">
+                                        {VND.format(item?.giaNiemYet)}
+                                    </div>
+
+                                    <div>
+                                        {}
+                                </div>
                                 </div>
                                 <a
                                     href={item?.thongTinNguoiBan}

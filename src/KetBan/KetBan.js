@@ -98,7 +98,7 @@ const KetBan = () => {
     console.log("yourStatustuChoiKetNoi", yourStatustuChoiKetNoi?.length === 0);
 
     return (
-        <div>
+        <div className="container-Ketban">
             <div>
                 {+myStatus === 0 &&
                 yourIdYeuCauKetNoidi?.length === 0 &&

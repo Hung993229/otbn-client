@@ -16,6 +16,7 @@ import { updateStatusUser, getStatus, getPost } from "../redux/apiRequest";
 const MiniGame = () => {
     const user = useSelector((state) => state.auth.login?.currentUser);
     const status = useSelector((state) => state.status.status.status?.status);
+    const myDetail = useSelector((state) => state.post.post?.myDetail);
     const [quay, setquay] = useState(0);
     const dispatch = useDispatch();
     const [countDown, setCountDown] = useState(10);
@@ -101,10 +102,10 @@ const MiniGame = () => {
         .format()
         .slice(0, -3);
     const date = new Date();
-    // const gio = date.getHours();
-    // const phut = date.getMinutes();
-    const gio = 20;
-    const phut = 15;
+    const gio = date.getHours();
+    const phut = date.getMinutes();
+    // const gio = 20;
+    // const phut = 15;
     return (
         <div className="containerMiniGame">
             <div className="container-quayso-phanthuong">
@@ -255,9 +256,8 @@ const MiniGame = () => {
                     )}
                 </div>
             </div>
-
+            <h2>A. Giải Thưởng</h2>
             <div className="danhSachGiaiThuong">
-                <h2>A. Giải Thưởng</h2>
                 <div className="Danhmuc">
                     <div className="hang1">Danh Sách</div>
                     <div className="hang1">Mã Trúng Thưởng</div>
@@ -343,7 +343,9 @@ const MiniGame = () => {
 
                 <p>
                     1. Thời Gian Quay Số: 20h - 20h15 hàng ngày <br />
-                    2. Người Tham Gia: Tất cả thành viên đều Có Thể tham gia{" "}
+                    2. Người Tham Gia: Tất cả thành viên sau khi đã cập nhật
+                    thông tin cá nhân sẽ được nhận ngẫu nhiên 5.000 Gold -
+                    100.000 Gold và có thể tham gia Quay Số May Mắn!
                     <br />
                     3. Nhận Thưởng: <br /> - Phần Thưởng là hiện vật được nhận
                     thưởng trong không quá 30 ngày. <br />
@@ -351,6 +353,17 @@ const MiniGame = () => {
                     <br />- Gold có thể dùng để mua hàng trong mục Shopping
                     (1Gold = 1Vnđ)
                 </p>
+                {myDetail && (myDetail.length !== 0) ? (
+                    <div>
+                        <a href={`https://yeuai.online/tao-thong-tin`}>
+                            <button className="capnhatthongtin">
+                                Cập Nhật Thông Tin
+                            </button>
+                        </a>
+                    </div>
+                ) : (
+                    <></>
+                )}
             </div>
         </div>
     );

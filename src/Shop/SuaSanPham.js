@@ -7,7 +7,7 @@ import { updateShop, getShop, deleteShop } from "../redux/apiRequest";
 import { useDispatch } from "react-redux";
 import CommonUtils from "../component/CommonUtils";
 import ThemSanPham from "./ThemSanPham";
-import currency from "currency.js";
+
 const SuaSanPham = (props) => {
     const { quanLyShop, setquanLyShop } = props;
     const user = useSelector((state) => state.auth.login?.currentUser);
@@ -81,7 +81,10 @@ const SuaSanPham = (props) => {
         getShop(dispatch, huyenDs, huyenQq);
     };
 
-    console.log("sanPhamGianHang", sanPhamGianHang?.length);
+    const VND = new Intl.NumberFormat("vi-VN", {
+        style: "currency",
+        currency: "VND",
+    });
     return (
         <div className="suaSanPham">
             <div>
@@ -96,7 +99,7 @@ const SuaSanPham = (props) => {
                         Thêm Sản Phẩm
                     </button>
                 ) : (
-                    <div>Bạn Được Đăng Tối Đa 5 Sản Phẩm</div>
+                    <div>Bạn Được Đăng Tối Đa 9 Sản Phẩm</div>
                 )}
             </div>
 
@@ -134,23 +137,11 @@ const SuaSanPham = (props) => {
                                             {item?.TenSanPham}
                                         </div>
                                         <div className="giaBan">
-                                            <div className="giabanCu">
-                                                {currency(item?.giaNiemYet, {
-                                                    symbol: "VNĐ ",
-                                                    separator: ".",
-                                                    decimal: ",",
-                                                })
-                                                    .format()
-                                                    .slice(0, -3)}
-                                            </div>
                                             <div className="giaBanMoi">
-                                                {currency(item?.giaKhuyenMai, {
-                                                    symbol: "VNĐ ",
-                                                    separator: ".",
-                                                    decimal: ",",
-                                                })
-                                                    .format()
-                                                    .slice(0, -3)}
+                                                {VND.format(item?.giaKhuyenMai)}
+                                            </div>
+                                            <div className="giabanCu">
+                                                {VND.format(item?.giaNiemYet)}
                                             </div>
                                         </div>
 
@@ -172,7 +163,7 @@ const SuaSanPham = (props) => {
             {+suaSp === 1 ? (
                 <div className="container-themSanPham">
                     <div className="close">
-                        <button onClick={() => setsuaSp(0)}>Đóng Lại</button>
+                        <button onClick={() => setsuaSp(0)}>Close</button>
                     </div>
                     <div className="sanPham">
                         <div>
@@ -201,59 +192,72 @@ const SuaSanPham = (props) => {
                         <div>
                             <div>
                                 <label>Tên Sản Phẩm</label>
-                                <input
-                                    onChange={(e) =>
-                                        setTenSanPham(e.target.value)
-                                    }
-                                    className="tenSanPham"
-                                    placeholder={detailidSpSua?.TenSanPham}
-                                />
+                                <div>
+                                    {" "}
+                                    <input
+                                        onChange={(e) =>
+                                            setTenSanPham(e.target.value)
+                                        }
+                                        className="tenSanPham"
+                                        placeholder={detailidSpSua?.TenSanPham}
+                                    />
+                                </div>
                             </div>
                         </div>
                         <div className="giaBan">
-                            <div>
+                            <div className="giabanCu">
                                 <label>Giá Niêm Yết</label>
-                                <input
-                                    onChange={(e) =>
-                                        setgiaNiemYet(e.target.value)
-                                    }
-                                    className="giabanCu"
-                                    placeholder={detailidSpSua?.giaNiemYet}
-                                    type="Number"
-                                />
+                                <div>
+                                    <input
+                                        onChange={(e) =>
+                                            setgiaNiemYet(e.target.value)
+                                        }
+                                        placeholder={detailidSpSua?.giaNiemYet}
+                                        type="Number"
+                                    />
+                                </div>
                             </div>
-                            <div>
+                            <div className="giaBanMoi">
                                 <label>Giá Khuyến Mại</label>
-                                <input
-                                    onChange={(e) =>
-                                        setgiaKhuyenMai(e.target.value)
-                                    }
-                                    className="giaBanMoi"
-                                    placeholder={detailidSpSua?.giaKhuyenMai}
-                                    type="Number"
-                                />
+                                <div>
+                                    <input
+                                        onChange={(e) =>
+                                            setgiaKhuyenMai(e.target.value)
+                                        }
+                                        placeholder={
+                                            detailidSpSua?.giaKhuyenMai
+                                        }
+                                        type="Number"
+                                    />
+                                </div>
                             </div>
                         </div>
 
                         <div>
                             <label>Thông Tin Sản Phẩm</label>
-                            <input
-                                onChange={(e) =>
-                                    setthongTinSanPham(e.target.value)
-                                }
-                                className="thongTinSanPham"
-                                placeholder={detailidSpSua?.thongTinSanPham}
-                            />
+                            <div>
+                                <input
+                                    onChange={(e) =>
+                                        setthongTinSanPham(e.target.value)
+                                    }
+                                    className="thongTinSanPham"
+                                    placeholder={detailidSpSua?.thongTinSanPham}
+                                />
+                            </div>
                         </div>
                         <div>
                             <label>Thông Tin Liên Hệ</label>
-                            <input
-                                onChange={(e) =>
-                                    setthongTinNguoiBan(e.target.value)
-                                }
-                                className="muaHang"
-                                placeholder={detailidSpSua?.thongTinNguoiBan}
-                            />
+                            <div>
+                                <input
+                                    onChange={(e) =>
+                                        setthongTinNguoiBan(e.target.value)
+                                    }
+                                    className="tenSanPham"
+                                    placeholder={
+                                        detailidSpSua?.thongTinNguoiBan
+                                    }
+                                />
+                            </div>
                         </div>
                         <button
                             className="luuSanPham"

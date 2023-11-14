@@ -57,7 +57,7 @@ const YeuCauDuocDongY = () => {
                 <div>Sinh Năm: {yourStatusdongYKetNoi?.namSinh}</div>
                 <div>Quê: {yourStatusdongYKetNoi?.queQuan}</div>
             </div>
-            <div>
+            <div className="loinhanDongy">
                 Giờ Đây 2 Bạn Có Thể Kết Bạn Zalo Và Tìm Hiểu Về Nhau Nhiều Hơn
                 <br /> Bạn Hãy Truy Cập Hòm Thư Để Lấy Thông Tin Zalo Nhé!
             </div>

@@ -27,7 +27,9 @@ const ThongTinCaNhan = () => {
         getPostMydetail();
     }, [user]);
     return (
-        <div>
+        <div
+            className="container-thongTinCanhan"
+        >
             {user ? (
                 <div>
                     {myDetailId ? (
@@ -50,7 +52,8 @@ const ThongTinCaNhan = () => {
                         </div>
                     ) : (
                         <div>
-                            <FormRegister />
+                            <FormRegister suaPost={suaPost}
+                                        setsuaPost={setsuaPost} />
                         </div>
                     )}
                 </div>

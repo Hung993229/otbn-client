@@ -1,71 +1,95 @@
-.container-ChiTietSanPham {
-    width: 60%;
-    justify-content: center;
-    align-items: center;
-    border: solid 3px #9cddc2;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
-    // background-color: #9cddc2;
-    .close {
-        text-align: right;
 
-        button {
-            background-color: red;
-            font-weight: 400;
-            border-radius: 10px;
-        }
-    }
-    .anhSanPham {
-        width: 250px;
-        height: 250px;
-        object-fit: cover;
-        
+.container-ChiTietSanPhamTo{
+    background-color: #9cddc2;
+    padding: 5vw 0vw 15vw 0vw;
+    .container-ChiTietSanPham {
+        width: 85%;
+        justify-content: center;
+        align-items: center;
+        border: solid 0.5vw #9cddc2;
         background-color: #fff;
-        border-radius: 10px;
-    }
-    .tenSanPham {
-        font-size: 22px;
-        font-weight: 600;
-        margin-top: 10px;
-        text-transform: uppercase;
-    }
-    .giaBan {
-        display: flex;
-        margin: auto;
-        text-align: center;
-        justify-content: center;
-        gap: 10px;
-
-        .giabanCu {
-            text-decoration: line-through;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 3vw;
+        box-shadow: 12px 14px 12px -1px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 12px 14px 12px -1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 12px 14px 12px -1px rgba(0,0,0,0.75);
+        .close {
+            // text-align: right;
+            button {
+                font-size: 3vw;
+                background-color: red;
+                font-weight: 600;
+                border-radius: 2vw;
+                // border: solid 0.5vw #9cddc2;
+            }
         }
-        .giaBanMoi {
-            color: red;
+        .anhSanPham {
+            width: 76vw;
+            height: 90vw;
+            object-fit: cover;
+            border: solid 0.1vw gray;
+            background-color: #fff;
+            border-radius: 2vw;
         }
-    }
-    .muaHang {
-        font-size: 22px;
-        font-weight: 600;
-        background-color: red;
-        min-width: 200px;
-        margin-top: 10px;
-        border-radius: 10px;
-    }
-    .viTriSanPham {
-        display: flex;
-        gap: 10px;
-        text-align: center;
-        justify-content: center;
-        margin-top: 10px;
-
-        .diachisanpham {
-            font-size: 10px;
+        .tenSanPham {
+            font-size: 5vw;
+            font-weight: 600;
+            margin-top: 3vw;
+            text-transform: uppercase;
         }
-    }
-    .thongtinSanPham {
-        text-align: justify;
-        padding: 20px;
+        .giaBan {
+            // display: flex;
+            margin-top: 2vw;
+            text-align: center;
+            justify-content: center;
+           
+            
+            .giaBanMoi {
+                color: red;
+                font-size: 5vw;
+            font-weight: 600;
+            }
+            .giabanCu {
+                
+                margin-top: 1vw;
+                text-decoration: line-through;
+                font-size: 5vw;
+                font-weight: 300;
+            
+            }
+           
+        }
+        .muaHang {
+            font-size: 5vw;
+            font-weight: 600;
+            background-color: red;
+            width: 90%;
+            margin-top: 5vw;
+            border-radius: 4.5vw;
+            height: 10vw;
+        }
+        .viTriSanPham {
+            display: flex;
+            gap: 1vw;
+            text-align: center;
+            justify-content: center;
+            margin-top: 3vw;
+    
+            .diachisanpham {
+                font-size: 2.5vw;
+            }
+        }
+        .thongtinSanPham {
+            text-align: justify;
+            padding: 3vw;
+            font-size: 3vw;
+            width: 100%;
+            word-wrap:break-word;
+            height: 20vw;
+            overflow:auto;
+            margin-bottom: 2vw
+        ;
+        }
     }
 }

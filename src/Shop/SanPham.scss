@@ -1,62 +1,70 @@
 .container-sanPham {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 20px;
+    margin-top: 2vw;
     background-color: #88d3b4;
-    padding: 5px;
+    padding: 1vw 0vw 3vw 0vw;
 
     .sanPham {
         justify-content: center;
         align-items: center;
-        padding: 20px;
-        margin: 5px;
-        border-radius: 10px;
+        padding: 2vw;
+        margin: 1vw;
+        border-radius: 2vw;
         background-color: #fff;
+        box-shadow: 12px 14px 12px -1px rgba(0,0,0,0.75);
+-webkit-box-shadow: 12px 14px 12px -1px rgba(0,0,0,0.75);
+-moz-box-shadow: 12px 14px 12px -1px rgba(0,0,0,0.75);
         .anhSanPham {
-            width: 200px;
-            height: 200px;
+            width: 43vw;
+            height: 50vw;
             object-fit: cover;
-            // border: solid 1px gray;
+            border: solid 0.1vw gray;
             background-color: #fff;
             cursor: pointer;
-            border-radius: 10px;
+            border-radius: 2vw;
         }
         .tenSanPham {
-            font-size: 22px;
+            font-size: 3vw;
             font-weight: 600;
-            margin-top: 10px;
+            margin: 2vw auto;
             text-transform: uppercase;
         }
         .giaBan {
-            display: flex;
-            margin: auto;
             text-align: center;
             justify-content: center;
-            gap: 10px;
-
-            .giabanCu {
-                text-decoration: line-through;
-            }
+            margin: 2vw auto;
+            
             .giaBanMoi {
                 color: red;
+                font-size: 5vw;
+            font-weight: 600;
+            margin-bottom: 1vw;
             }
+            .giabanCu {
+                text-decoration: line-through;
+                font-size: 5vw;
+                font-weight: 300;
+
+            }
+            
         }
         .muaHang {
-            font-size: 15px;
+            font-size: 3.5vw;
             font-weight: 600;
             background-color: red;
-            min-width: 200px;
-            margin-top: 10px;
-            border-radius: 10px;
+            width: 100%;
+            margin-top: 2vw;
+            border-radius: 3vw;
         }
         .viTriSanPham {
             display: flex;
-            gap: 10px;
+            gap: 1vw;
             text-align: center;
             justify-content: center;
-            margin-top: 10px;
+            margin-top: 2vw;
             .diachisanpham {
-                font-size: 10px;
+                font-size: 1.6vw;
             }
         }
     }

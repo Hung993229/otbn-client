@@ -1,60 +1,88 @@
 .container-themSanPham {
-    width: 70%;
+    width: 90%;
     justify-content: center;
     align-items: center;
-    border: solid 1px gray;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
+    border: solid 0.1vw gray;
+  
+    
+    border-radius: 2vw;
     background-color: #9cddc2;
-    margin-bottom: 30px;
-    padding: 20px;
+    margin-bottom: 3vw;
+    padding: 1vw;
     .close {
-        text-align: right;
         button {
             background-color: red;
             font-weight: 600;
-            border-radius: 10px;
+            border-radius: 2vw;
         }
     }
     .sanPham {
-        margin: auto;
+        label{
+            // margin: 5vw auto 2vw auto;
+        }
+        
         .anhsanpham {
-            width: 250px;
-            height: 250px;
+            width: 76vw;
+            height: 90vw;
             object-fit: cover;
-            border: solid 1px gray;
+            border: solid 0.1vw gray;
             background-color: #fff;
             margin: auto;
+            border-radius: 3vw;
         }
         .tenSanPham {
-            justify-content: center;
-            align-items: center;
-            margin: auto;
-            border: solid 1px gray;
+            
+            border: solid 0.1vw gray;
+            width: 100%;
+            padding-left: 3vw;
         }
         .thongTinSanPham {
-            height: 70px;
+            height: 7vw;
+            width: 100%;
+            padding-left: 3vw;
+          
         }
         .giaBan {
             display: flex;
-            gap: 10px;
+            text-align: center;
+            gap: 1vw;
             .giabanCu {
-                border: solid 1px gray;
+                border: none;
+                width: 50%;
+                input{
+                    width: 80%;
+                }
             }
             .giaBanMoi {
-                border: solid 1px gray;
+                border: none;
+                width: 50%;
+                input{
+                    width: 100%;
+                }
             }
         }
         .luuSanPahm {
-            margin-top: 10px;
-            font-size: 22px;
+    
+            font-size: 3.5vw;
             font-weight: 600;
             background-color: red;
-            min-width: 200px;
-            margin-top: 10px;
-            border-radius: 10px;
+            width: 80%;
+            margin-top: 5vw;
+            border-radius: 2vw;
+            margin-bottom: 3vw;
         }
     }
+}
+.luuYThemSp{
+    margin-top: 3vw;
+    text-align: center;
+    font-size: 3.5vw;
+    width: 100%;
+    padding:  0vw 3.5vw;
+    
+    font-weight: 500;
+    word-wrap:break-word;
+    text-align: justify;
+            overflow:auto;
+
 }

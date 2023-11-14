@@ -1,7 +1,7 @@
 import "./Nav.scss";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Fatimes from "react-icons/fa";
+
 
 const Nav = () => {
     const user = useSelector((state) => state.auth.login.currentUser);
@@ -27,7 +27,7 @@ const Nav = () => {
                             }
                             to="/hom-thu"
                         >
-                            <div>
+                            <div className="nav-detail">
                                 <i className="fa-solid fa-envelope"></i>
                                 <div>Hòm Thư</div>
                             </div>
@@ -38,7 +38,7 @@ const Nav = () => {
                             }
                             to="/mini-game"
                         >
-                            <div>
+                            <div className="nav-detail">
                                 <i className="fa-solid fa-dice"></i>
                                 <div> Mini Game</div>
                             </div>
@@ -50,7 +50,7 @@ const Nav = () => {
                             }
                             to="/shop-online"
                         >
-                            <div>
+                            <div className="nav-detail">
                                 <i className="fa-solid fa-bag-shopping"></i>
                                 <div>Shopping</div>
                             </div>
@@ -61,9 +61,9 @@ const Nav = () => {
                             }
                             to="/huong-dan"
                         >
-                            <div>
+                            <div className="nav-detail">
                                 <i className="fa-solid fa-book-open-reader"></i>
-                                <div> Hướng Dẫn</div>
+                                <div>Hướng Dẫn</div>
                             </div>
                         </NavLink>
                         <NavLink
@@ -72,7 +72,7 @@ const Nav = () => {
                             }
                             to="/ca-nhan"
                         >
-                            <div>
+                            <div className="nav-detail">
                                 <i className="fa-solid fa-user"></i>
                                 <div> Cá Nhân</div>
                             </div>
@@ -80,13 +80,14 @@ const Nav = () => {
                     </>
                 ) : (
                     <>
-                        <NavLink
+                    
+                        {/* <NavLink
                             className={({ isActive }) =>
                                 isActive ? "active1" : ""
                             }
                             to="/dang-ki"
                         >
-                            <div>
+                            <div className="nav-detail">
                                 <i className="fa-solid fa-user-plus"></i>
                                 <div> Đăng Kí</div>
                             </div>
@@ -97,11 +98,11 @@ const Nav = () => {
                             }
                             to="/dang-nhap"
                         >
-                            <div>
+                            <div className="nav-detail">
                                 <i className="fa-solid fa-right-to-bracket"></i>
                                 <div> Đăng Nhập</div>
                             </div>
-                        </NavLink>
+                        </NavLink> */}
                     </>
                 )}
             </div>

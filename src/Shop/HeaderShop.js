@@ -1,6 +1,6 @@
 import "./HeaderShop.scss";
 import bannerShop from "../assets/images/bannerShop.jpg";
-import zaloLogo from "../assets/images/zaloLogo.png";
+import facebookLogo from "../assets/images/Facebook_Logo.png";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -29,8 +29,10 @@ const HeaderShop = (props) => {
             <div>
                 <img src={bannerShop} alt="timtim" className="bannerShop" />
             </div>
-            <div className="wecomeShop">--- CHÚC MỌI NGƯỜI SĂN SALE VUI VẺ! ---</div>
-            <div>Quy Đổi: 1Gold = 1 VNĐ</div>
+            <div className="wecomeShop">
+                --- CHÚC MỌI NGƯỜI SĂN SALE VUI VẺ! ---
+            </div>
+            <div className="quyDoi">Quy Đổi: 1Gold = 1 VNĐ</div>
 
             <div className="hoptac-sanpham">
                 <button onClick={() => setmoihoptac(1)} className="moihoptac">
@@ -62,14 +64,19 @@ const HeaderShop = (props) => {
                         sản phẩm!
                     </div>
                     <div>
-                        <a href={`https://zalo.me/0976993229`} target="_blank">
-                            <img src={zaloLogo} width="150" height="150" />
+                        <a href={`https://www.facebook.com/profile.php?id=61553364305734`} target="_blank">
+                            <img src={facebookLogo} width="150" height="150" />
                         </a>
                         <div>
                             Mời Kết Bạn Zalo, để được mở tính năng bán hàng miễn
                             phí!
                         </div>
-                        <button className="CloseShop" onClick={() => setmoihoptac(0)}>Close</button>
+                        <button
+                            className="CloseShop"
+                            onClick={() => setmoihoptac(0)}
+                        >
+                            Close
+                        </button>
                     </div>
                 </div>
             ) : (
@@ -78,7 +85,12 @@ const HeaderShop = (props) => {
             {+moihoptac === 2 ? (
                 <div>
                     <div>Đăng kí nhà bán hàng mới có quyền Thêm Sản Phẩm</div>
-                    <button className="CloseShop" onClick={() => setmoihoptac(0)}>Close</button>
+                    <button
+                        className="CloseShop"
+                        onClick={() => setmoihoptac(0)}
+                    >
+                        Close
+                    </button>
                 </div>
             ) : (
                 <></>

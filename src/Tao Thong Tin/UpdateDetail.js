@@ -236,6 +236,7 @@ const UpdateDetail = (props) => {
 
     const handleUpdatePost = (e) => {
         e.preventDefault();
+
         const id = myDetail?._id;
         const tenTinh = provinces?.find(
             (item) => item.province_id === provincesID
@@ -252,6 +253,7 @@ const UpdateDetail = (props) => {
             (item) => item.district_id === districtID2
         );
         const tenXa2 = wards2?.find((item) => item.ward_id === wardID2);
+
         try {
             const newPost = {
                 banner: banner,
@@ -292,6 +294,7 @@ const UpdateDetail = (props) => {
             };
 
             updatePost(newPost, id, dispatch, setsuaPost);
+            setsuaPost(0);
         } catch (err) {
             console.log(err);
         }
@@ -299,7 +302,7 @@ const UpdateDetail = (props) => {
 
     return (
         <div className="containerUpdate">
-            <div>
+            <div className="bannerFormregis">
                 <label hidden>Banner</label>
                 <div>
                     <input
@@ -377,13 +380,13 @@ const UpdateDetail = (props) => {
                 </div>
             </div>
 
-            <div className="containerTieuChi">
-                <label className="tieuChi" htmlFor="gioi-tinh">
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis" htmlFor="gioi-tinh">
                     Giới Tính
                 </label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     name="gioi-tinh"
                     id="gioi-tinh"
                     onChange={(e) => setgioiTinh(e.target.value)}
@@ -397,13 +400,16 @@ const UpdateDetail = (props) => {
                     <option>Gay</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <label className="tieuChi" htmlFor="tinh-trang-hon-nhan">
+            <div className="containerTieuChiFormregis">
+                <label
+                    className="tieuChiFormregis"
+                    htmlFor="tinh-trang-hon-nhan"
+                >
                     Tình Trạng Hôn Nhân
                 </label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     name="tinh-divang-hon-nhan"
                     id="tinh-divang-hon-nhan"
                     onChange={(e) => settinhTrangHonNhan(e.target.value)}
@@ -417,15 +423,12 @@ const UpdateDetail = (props) => {
                     <option>Đã Kết Hôn</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <div className="tieuChi">Ngày Sinh</div>
+            <div className="containerTieuChiFormregis">
+                <div className="tieuChiFormregis">Ngày Sinh</div>
 
-                <div className="noiDung">
+                <div className="myNoiDungFormregis2">
                     <label hidden>Ngày</label>
-                    <select
-                        className="tinhFromregis"
-                        onChange={(e) => setngaySinh(e.target.value)}
-                    >
+                    <select onChange={(e) => setngaySinh(e.target.value)}>
                         <option value={myDetail?.ngaySinh}>
                             {myDetail?.ngaySinh}
                         </option>
@@ -436,10 +439,7 @@ const UpdateDetail = (props) => {
                             })}
                     </select>
                     <label hidden>Tháng</label>
-                    <select
-                        className="tinhFromregis"
-                        onChange={(e) => setthangSinh(e.target.value)}
-                    >
+                    <select onChange={(e) => setthangSinh(e.target.value)}>
                         <option value={myDetail?.thangSinh}>
                             {myDetail?.thangSinh}
                         </option>
@@ -450,10 +450,7 @@ const UpdateDetail = (props) => {
                             })}
                     </select>
                     <label hidden>Năm</label>
-                    <select
-                        className="tinhFromregis"
-                        onChange={(e) => setnamSinh(e.target.value)}
-                    >
+                    <select onChange={(e) => setnamSinh(e.target.value)}>
                         <option value={myDetail?.namSinh}>
                             {myDetail?.namSinh}
                         </option>
@@ -466,15 +463,14 @@ const UpdateDetail = (props) => {
                 </div>
             </div>
 
-            <div className="containerTieuChi">
-                <div className="tieuChi">Quê Quán</div>
+            <div className="containerTieuChiFormregis">
+                <div className="tieuChiFormregis">Quê Quán</div>
 
-                <div className="noiDung">
+                <div className="myNoiDungFormregis2">
                     <label hidden>Tỉnh</label>
                     <select
                         id="provinces"
                         onChange={(e) => setprovincesID(e.target.value)}
-                        className="tinhFromregis"
                     >
                         <option value="">---{myDetail?.tinhQq}---</option>
                         {provinces?.map((item) => {
@@ -488,10 +484,7 @@ const UpdateDetail = (props) => {
                             );
                         })}
                     </select>
-                    <select
-                        className="tinhFromregis"
-                        onChange={(e) => setDistrictID(e.target.value)}
-                    >
+                    <select onChange={(e) => setDistrictID(e.target.value)}>
                         <option value="">---{myDetail?.huyenQq}---</option>
                         {districts?.map((item) => {
                             return (
@@ -504,10 +497,7 @@ const UpdateDetail = (props) => {
                             );
                         })}
                     </select>
-                    <select
-                        className="tinhFromregis"
-                        onChange={(e) => setWardID(e.target.value)}
-                    >
+                    <select onChange={(e) => setWardID(e.target.value)}>
                         <option value="">---{myDetail?.xaQq}---</option>
                         {wards?.map((item) => {
                             return (
@@ -520,12 +510,11 @@ const UpdateDetail = (props) => {
                 </div>
             </div>
 
-            <div className="containerTieuChi">
-                <div className="tieuChi">Hiện Đang Sinh Sống</div>
+            <div className="containerTieuChiFormregis">
+                <div className="tieuChiFormregis">Hiện Đang Sinh Sống</div>
 
-                <div className="noiDung">
+                <div className="myNoiDungFormregis2">
                     <select
-                        className="tinhFromregis"
                         id="provinces"
                         onChange={(e) => setprovincesID2(e.target.value)}
                     >
@@ -542,10 +531,7 @@ const UpdateDetail = (props) => {
                             );
                         })}
                     </select>
-                    <select
-                        className="tinhFromregis"
-                        onChange={(e) => setDistrictID2(e.target.value)}
-                    >
+                    <select onChange={(e) => setDistrictID2(e.target.value)}>
                         <option value="">---{myDetail?.huyenDs}---</option>
                         {districts2?.map((item) => {
                             return (
@@ -558,10 +544,7 @@ const UpdateDetail = (props) => {
                             );
                         })}
                     </select>
-                    <select
-                        className="tinhFromregis"
-                        onChange={(e) => setWardID2(e.target.value)}
-                    >
+                    <select onChange={(e) => setWardID2(e.target.value)}>
                         <option value="">---{myDetail?.xaDs}---</option>
                         {wards2?.map((item) => {
                             return (
@@ -574,13 +557,13 @@ const UpdateDetail = (props) => {
                 </div>
             </div>
 
-            <div className="containerTieuChi">
-                <label className="tieuChi" htmlFor="ton-giao">
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis" htmlFor="ton-giao">
                     Tôn Giáo
                 </label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     name="ton-giao"
                     id="ton-giao"
                     onChange={(e) => settonGiao(e.target.value)}
@@ -598,11 +581,11 @@ const UpdateDetail = (props) => {
                 </select>
             </div>
 
-            <div className="containerTieuChi">
-                <label className="tieuChi">Nghề Nghiệp</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Nghề Nghiệp</label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     onChange={(e) => setngheNghiep(e.target.value)}
                 >
                     <option value={myDetail?.ngheNghiep}>
@@ -617,11 +600,11 @@ const UpdateDetail = (props) => {
                     <option>Khác</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <label className="tieuChi">Thu Nhập</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Thu Nhập</label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     onChange={(e) => setthuNhap(e.target.value)}
                 >
                     <option value={myDetail?.thuNhap}>
@@ -631,13 +614,12 @@ const UpdateDetail = (props) => {
                     <option>Trên 20 Triệu Đồng</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <div className="tieuChi">Đặc Điểm</div>
-                <div className="noiDungDacDiem">
+            <div className="containerTieuChiFormregis">
+                <div className="tieuChiFormregis">Đặc Điểm</div>
+                <div className="noiDungFormregisDacDiem">
                     <div hidden>Chiều Cao</div>
                     <div className="containerTieuChi">
                         <input
-                            className="tinhFromregis"
                             onChange={(e) => setchieuCao(e.target.value)}
                             placeholder={myDetail?.chieuCao}
                             type="number"
@@ -648,7 +630,6 @@ const UpdateDetail = (props) => {
                     <label hidden>Cân Nặng</label>
                     <div className="containerTieuChi">
                         <input
-                            className="tinhFromregis"
                             onChange={(e) => setcanNang(e.target.value)}
                             placeholder={myDetail?.canNang}
                             type="number"
@@ -658,12 +639,12 @@ const UpdateDetail = (props) => {
                 </div>
             </div>
 
-            <div className="containerTieuChi">
-                <label className="tieuChi">Giới thiệu thêm</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Giới thiệu thêm</label>
 
-                <div className="noiDung">
+                <div className="noiDungFormregis3">
                     <input
-                        className=""
+                        className="inputFormregis3"
                         onChange={(e) => setgioiThieuThem(e.target.value)}
                         placeholder={myDetail?.gioiThieuThem}
                     />
@@ -672,13 +653,13 @@ const UpdateDetail = (props) => {
 
             <div className="mauNguoiYeuLyTuong">Mẫu Người Yêu Lý Tưởng</div>
 
-            <div className="containerTieuChi">
-                <label className="tieuChi" htmlFor="gioi-tin-2">
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis" htmlFor="gioi-tin-2">
                     Giới Tính
                 </label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     name="gioi-tinh-2"
                     id="gioi-tinh-2"
                     onChange={(e) => setgioiTinh2(e.target.value)}
@@ -693,11 +674,11 @@ const UpdateDetail = (props) => {
                 </select>
             </div>
 
-            <div className="containerTieuChi">
-                <label className="tieuChi">Tình trạng hôn nhân</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Tình trạng hôn nhân</label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     onChange={(e) => settinhTrangHonNhan2(e.target.value)}
                 >
                     <option value={myDetail?.tinhTrangHonNhan2}>
@@ -709,11 +690,11 @@ const UpdateDetail = (props) => {
                     <option>Đã Kết Hôn</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <label className="tieuChi">Khu Vực Làm Quen</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Khu Vực Làm Quen</label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     onChange={(e) => setkhuVucLamQuen2(e.target.value)}
                 >
                     <option value={myDetail?.khuVucLamQuen2}>
@@ -724,11 +705,11 @@ const UpdateDetail = (props) => {
                     <option value="">Ở Đâu Cũng Được</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <label className="tieuChi">Tôn Giáo</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Tôn Giáo</label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     onChange={(e) => settonGiao2(e.target.value)}
                 >
                     <option value={myDetail?.tonGiao2}>
@@ -743,11 +724,11 @@ const UpdateDetail = (props) => {
                     <option>Cao Đài</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <label className="tieuChi">Nghề Nghiệp</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Nghề Nghiệp</label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     onChange={(e) => setngheNghiep2(e.target.value)}
                 >
                     <option value={myDetail?.ngheNghiep2}>
@@ -762,11 +743,11 @@ const UpdateDetail = (props) => {
                     <option>Khác</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <label className="tieuChi">Thu Nhập</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Thu Nhập</label>
 
                 <select
-                    className="noiDung"
+                    className="noiDungFormregis"
                     onChange={(e) => setthuNhap2(e.target.value)}
                 >
                     <option value={myDetail?.thuNhap2}>
@@ -776,12 +757,12 @@ const UpdateDetail = (props) => {
                     <option>Trên 20 Triệu Đồng</option>
                 </select>
             </div>
-            <div className="containerTieuChi">
-                <div className="tieuChi" htmlFor="nam-sinh">
+            <div className="containerTieuChiFormregis">
+                <div className="tieuChiFormregis" htmlFor="nam-sinh">
                     Khoảng Tuổi Muốn Làm Quen
                 </div>
-                <div className="noiDungDacDiem">
-                    <label>Từ Năm</label>
+                <div className="myNoiDungFormregis2">
+                    <label>Từ Năm &nbsp; </label>
                     <select
                         className="tinhFromregis"
                         onChange={(e) => settuoiHop2(e.target.value)}
@@ -795,7 +776,7 @@ const UpdateDetail = (props) => {
                                 return <option key={index}>{item}</option>;
                             })}
                     </select>
-                    <label>Đến Năm</label>
+                    <label> &nbsp; &nbsp; Đến Năm &nbsp;</label>
                     <select
                         className="tinhFromregis"
                         onChange={(e) => settuoiHop3(e.target.value)}
@@ -811,12 +792,12 @@ const UpdateDetail = (props) => {
                     </select>
                 </div>
             </div>
-            <div className="containerTieuChi">
-                <label className="tieuChi">Yêu Cầu Khác</label>
+            <div className="containerTieuChiFormregis">
+                <label className="tieuChiFormregis">Yêu Cầu Khác</label>
 
-                <div className="noiDung">
+                <div className="noiDungFormregis3">
                     <input
-                        className=""
+                        className="inputFormregis3"
                         onChange={(e) => setyeucaukhac2(e.target.value)}
                         placeholder={myDetail?.yeucaukhac2}
                     />

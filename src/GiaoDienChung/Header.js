@@ -35,14 +35,14 @@ const Header = () => {
             <div className="container-header">
                 <div className="container-logo">
                     <img src={logo} alt="he" className="logo" />
-                    <div className="my-cash2">iUiU.Online</div>
+                    <div className="my-cash2">YeuAi.Online</div>
                 </div>
 
-                <div className="title"></div>
+                <div className="title">KẾT NỐI TRÁI TIM</div>
                 <div className="my-detail">
                     <img
                         src={myDetail?.avatar}
-                        alt="he"
+                        alt="Avatar"
                         className="my-avatar"
                     />
                     <div className="my-cash">

@@ -89,6 +89,7 @@ const HomThu = () => {
     const yourStatushuyKetNoi = allYourStatus?.filter((item) => item.huyKetNoi);
     return (
         <div className="container-homthu">
+            <div className="homThu">HÒM THƯ</div>
             <div>
                 {+myStatus === 0 &&
                 yourIdYeuCauKetNoi &&

@@ -12,13 +12,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import QuanLyUser from "./QuanLyUser/QuanLyUser";
 import ShopOnline from "./Shop/ShopOnline";
 import HomThu from "./KetBan/HomThu";
+import { useSelector } from "react-redux";
 
 function App() {
+    const user = useSelector((state) => state.auth.login.currentUser);
     return (
         <Router>
             <div className="App">
-                <Header />
-                <Nav />
+                <Header className="header" />
+
                 <Routes>
                     <Route path="/ket-ban" element={<KetBan />} />
                     <Route path="/mini-game" element={<MiniGame />} />
@@ -30,7 +32,9 @@ function App() {
                     <Route path="/quan-ly-user" element={<QuanLyUser />} />
                     <Route path="/shop-online" element={<ShopOnline />} />
                     <Route path="/hom-thu" element={<HomThu />} />
+                    <Route path="/" element={<DangNhap />} />
                 </Routes>
+                {user ? <Nav className="nav" /> : <></>}
             </div>
         </Router>
     );

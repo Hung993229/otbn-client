@@ -10,6 +10,7 @@ import {
     yourPost,
     deleteYourStatus,
     registerYourStatus,
+    deleteAllYourStatus,
 } from "../../redux/apiRequest";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -101,6 +102,9 @@ const YourDangKetNoi = () => {
             deleteYourStatus(id2, dispatch);
         }
 
+        const id2 = user?._id;
+        deleteAllYourStatus(id2, dispatch);
+
         if (status?.dienThoai) {
             const yourstatusUser1 = {
                 huyKetNoi: user?._id,
@@ -120,7 +124,7 @@ const YourDangKetNoi = () => {
                 {!yourIdDangKetNoi ? (
                     <div></div>
                 ) : (
-                    <div>
+                    <div className="container-yourDetail">
                         {+vaiTro === 2 ? (
                             <div className="ketNoiFake">
                                 <h1>Yêu Cầu Kết Nối Của Bạn Đã Được Gửi Đi</h1>
@@ -139,14 +143,14 @@ const YourDangKetNoi = () => {
                                 </p>
                                 <p>
                                     Trong lúc chờ đợi bạn có thể giới thiệu
-                                    iUiU.Online đến những người bạn độc thân của
-                                    mình! Để có thể cùng nhau tìm người yêu hoặc
-                                    chơi Mini Game quay số may mắn để nhận rất
-                                    nhiều phần quà!
+                                    YeuAi.Online đến những người bạn độc thân
+                                    của mình! Để có thể cùng nhau tìm người yêu
+                                    hoặc chơi Mini Game quay số may mắn để nhận
+                                    rất nhiều phần quà!
                                     <br />
                                     Cảm ơn bạn rất nhiều!
                                 </p>
-                                <h3>
+                                <h3 className="loinhanchophanhoi">
                                     CHÚC BẠN SỚM TÌM ĐƯỢC MỘT NỬA YÊU THƯƠNG !
                                 </h3>
                                 <button
@@ -157,157 +161,148 @@ const YourDangKetNoi = () => {
                                 </button>
                             </div>
                         ) : (
-                            <div className="container-yourDetail">
+                            <div className="thongTinCaNhan">
                                 <div>
                                     <div>
-                                        <img src={banner} className="banner" />
+                                        <img
+                                            src={banner}
+                                            className="bannerThongTinCaNhan"
+                                        />
                                     </div>
                                 </div>
-                                <div className="yourDetail-avatar-hoTen-cauNoiTamDac">
+                                <div className="myDetail-avatar-hoTen-cauNoiTamDac">
                                     <img
                                         src={avatar}
-                                        className="yourDetail-avatar"
+                                        className="myDetail-avatar"
                                     />
-                                    <div className="yourDetail-hoTen-cauNoiTamDac">
-                                        <div className="yourDetail-hoTen">
+                                    <div className="myDetail-hoTen-cauNoiTamDac">
+                                        <div className="myDetail-hoTen">
                                             {hoTen}
                                         </div>
-                                        <div className="yourdetail-cauNoiTamDac">
+                                        <div className="mydetail-cauNoiTamDac">
                                             {cauNoiTamDac}
                                         </div>
                                     </div>
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">Giới Tính</div>
-                                    <div className="yourNoiDung">
-                                        {gioiTinh}
-                                    </div>
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">Giới Tính</div>
+                                    <div className="myNoiDung">{gioiTinh}</div>
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">
                                         Tình Trạng Hôn Nhân
                                     </div>
-                                    <div className="yourNoiDung">
+                                    <div className="myNoiDung">
                                         {tinhTrangHonNhan}
                                     </div>
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">Ngày Sinh</div>
-                                    <div className="yourNoiDung">
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">Ngày Sinh</div>
+                                    <div className="myNoiDung">
                                         <div>
                                             {ngaySinh}/{thangSinh}/{namSinh}
                                         </div>
                                     </div>
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">Quê Quán</div>
-                                    <div className="yourNoiDung">
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">Quê Quán</div>
+                                    <div className="myNoiDung">
                                         {xaQq}&nbsp;-&nbsp;{huyenQq}
                                         &nbsp;-&nbsp;
                                         {tinhQq}
                                     </div>
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">
                                         Hiện Đang Sinh Sống
                                     </div>
-                                    <div className="yourNoiDung">
+                                    <div className="myNoiDung">
                                         {xaDs}&nbsp;-&nbsp;{huyenDs}
                                         &nbsp;-&nbsp;
                                         {tinhDs}
                                     </div>
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">Tôn Giáo</div>
-                                    <div className="yourNoiDung">{tonGiao}</div>
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">Tôn Giáo</div>
+                                    <div className="myNoiDung">{tonGiao}</div>
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">
-                                        Nghề Nghiệp
-                                    </div>
-                                    <div className="yourNoiDung">
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">Nghề Nghiệp</div>
+                                    <div className="myNoiDung">
                                         {ngheNghiep}
                                     </div>
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">Thu Nhập</div>
-                                    <div className="yourNoiDung">{thuNhap}</div>
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">Thu Nhập</div>
+                                    <div className="myNoiDung">{thuNhap}</div>
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">Đặc Điểm</div>
-                                    <div className="yourNoiDung2">
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">Đặc Điểm</div>
+                                    <div className="myNoiDung2">
                                         <div>Chiều cao {chieuCao} (cm)</div>
                                         <div>&emsp;</div>
                                         <div>Cân nặng {canNang} (kg)</div>
                                     </div>
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">
                                         Giới thiệu thêm
                                     </div>
-                                    <div className="yourNoiDung">
+                                    <div className="myNoiDung">
                                         {gioiThieuThem}
                                     </div>
                                 </div>
-                                <div className="yourMauNguoiYeuLyTuong">
+                                <div className="myMauNguoiYeuLyTuong">
                                     Mẫu Người Yêu Lý Tưởng
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">Giới Tính</div>
-                                    <div className="yourNoiDung">
-                                        {gioiTinh2}
-                                    </div>
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">Giới Tính</div>
+                                    <div className="myNoiDung">{gioiTinh2}</div>
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">
                                         Tình trạng hôn nhân
                                     </div>
-                                    <div className="yourNoiDung">
+                                    <div className="myNoiDung">
                                         {tinhTrangHonNhan2}
                                     </div>
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">
                                         Khu Vực Làm Quen
                                     </div>
-                                    <div className="yourNoiDung">
+                                    <div className="myNoiDung">
                                         {khuVucLamQuen2}
                                     </div>
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">Tôn Giáo</div>
-                                    <div className="yourNoiDung">
-                                        {tonGiao2}
-                                    </div>
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">Tôn Giáo</div>
+                                    <div className="myNoiDung">{tonGiao2}</div>
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">
-                                        Nghề Nghiệp
-                                    </div>
-                                    <div className="yourNoiDung">
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">Nghề Nghiệp</div>
+                                    <div className="myNoiDung">
                                         {ngheNghiep2}
                                     </div>
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">Thu Nhập</div>
-                                    <div className="yourNoiDung">
-                                        {thuNhap2}
-                                    </div>
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">Thu Nhập</div>
+                                    <div className="myNoiDung">{thuNhap2}</div>
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">Tuổi Hợp</div>
-                                    <div className="yourNoiDung2">
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">Tuổi Hợp</div>
+                                    <div className="myNoiDung2">
                                         <div>Từ Năm &emsp;</div>
                                         <div>{tuoiHop2}</div>
                                         <div> &emsp;Đến Năm&emsp;</div>
                                         <div>{tuoiHop3}</div>
                                     </div>
                                 </div>
-                                <div className="Container-yourTieuChi-yourNoiDung">
-                                    <div className="yourTieuChi">
+                                <div className="Container-myTieuChi-myNoiDung">
+                                    <div className="myTieuChi">
                                         Yêu Cầu Khác
                                     </div>
-                                    <div className="yourNoiDung">
+                                    <div className="myNoiDung">
                                         {yeucaukhac2}
                                     </div>
                                 </div>

@@ -12,7 +12,8 @@ import {
     apiGetPublicWard,
 } from "../redux/ApiProvince";
 
-const FormRegister = () => {
+const FormRegister = (props) => {
+    const { suaPost, setsuaPost } = props;
     const user = useSelector((state) => state.auth.login.currentUser);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -42,7 +43,7 @@ const FormRegister = () => {
     const [avatar, setAvatar] = useState();
     const [hoTen, sethoTen] = useState();
     const [cauNoiTamDac, setcauNoiTamDac] = useState(
-        "Thời gian thích hợp gặp một người thích hợp là Hạnh Phúc"
+        "Thời gian thích hợp gặp một người thích hợp là Hạnh Phúc!"
     );
     const [gioiTinh, setgioiTinh] = useState();
     const [tinhTrangHonNhan, settinhTrangHonNhan] = useState();
@@ -233,6 +234,9 @@ const FormRegister = () => {
 
     const handleRegisterPost = (e) => {
         e.preventDefault();
+        if (+tuoiHop2 > +tuoiHop3) {
+            alert("Khoảng Tuổi Phải Từ Thấp Đến Cao");
+        }
         if (
             !banner ||
             !avatar ||
@@ -254,6 +258,7 @@ const FormRegister = () => {
             alert("Xin hãy điền đầy đủ các mục còn thiếu");
             return;
         }
+
         // Que Quan
         const tenTinh = provinces?.find(
             (item) => item.province_id === provincesID
@@ -321,8 +326,8 @@ const FormRegister = () => {
                 yourIdDangKetNoi: "",
                 user: user._id,
             };
-            console.log("statusUser", statusUser);
             registerStatus(statusUser, dispatch);
+            setsuaPost(0);
         } catch (err) {
             console.log(err);
         }
@@ -332,14 +337,15 @@ const FormRegister = () => {
         <div className="containerFormregis">
             <div>
                 <label hidden>Banner</label>
-                <div className="bannerFormregis">
+                <div>
                     <input
                         id="banner"
                         type="file"
                         hidden
                         onChange={handleOnchangeImageBanner}
+                        className="bannerFormregis2"
                     />
-                    <label htmlFor="banner" className="bannerFormregis">
+                    <label htmlFor="banner" className="bannerFormregis2">
                         <dispatchEvent>
                             {previewBanner && (
                                 <img
@@ -648,9 +654,9 @@ const FormRegister = () => {
             <div className="containerTieuChiFormregis">
                 <label className="tieuChiFormregis">Giới thiệu thêm</label>
 
-                <div className="noiDungFormregis">
+                <div className="noiDungFormregis3">
                     <input
-                        className=""
+                        className="inputFormregis3"
                         onChange={(e) => setgioiThieuThem(e.target.value)}
                         placeholder="Hãy kể về: Sở thích, Sở ghét, Quan niệm sống, ... của bạn!"
                     />
@@ -756,7 +762,7 @@ const FormRegister = () => {
                     Khoảng Tuổi Muốn Làm Quen
                 </div>
                 <div className="myNoiDungFormregis2">
-                    <label hidden>Từ Năm</label>
+                    <label hidden>Từ Năm &nbsp;</label>
                     <select onChange={(e) => settuoiHop2(e.target.value)}>
                         <option value="">---Từ Năm---</option>
                         {arrYear &&
@@ -765,7 +771,7 @@ const FormRegister = () => {
                                 return <option key={index}>{item}</option>;
                             })}
                     </select>
-                    <label hidden>Đến Năm</label>
+                    <label hidden>&nbsp; Đến Năm &nbsp;</label>
                     <select onChange={(e) => settuoiHop3(e.target.value)}>
                         <option value="">---Đến Năm---</option>
                         {arrYear &&
@@ -779,9 +785,9 @@ const FormRegister = () => {
             <div className="containerTieuChiFormregis">
                 <label className="tieuChiFormregis">Yêu Cầu Khác</label>
 
-                <div className="noiDungFormregis">
+                <div className="noiDungFormregis3">
                     <input
-                        className=""
+                        className="inputFormregis3"
                         onChange={(e) => setyeucaukhac2(e.target.value)}
                         placeholder="Mong muốn của bạn về người bạn muốn làm quen"
                     />

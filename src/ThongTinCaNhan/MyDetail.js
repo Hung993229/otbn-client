@@ -204,7 +204,7 @@ const MyDetail = (props) => {
                         <div className="myNoiDung">{yeucaukhac2}</div>
                     </div>
                     <div>
-                        {" "}
+                        
                         <button
                             className="suaThongTin"
                             onClick={() => setsuaPost(1)}

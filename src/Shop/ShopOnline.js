@@ -17,45 +17,55 @@ const ShopOnline = () => {
     const dispatch = useDispatch();
 
     const [quanLyShop, setquanLyShop] = useState(0);
+    const [loadingShop, setloadingShop] = useState(1);
+    // useEffect(() => {
+    //     const myTimeout = setTimeout(setloadingShop(1), 3000)
+    //     clearTimeout(myTimeout);
+    // }, []);
     useEffect(() => {
         const huyenDs = myDetail?.huyenDs;
         const huyenQq = myDetail?.huyenQq;
         getShop(dispatch, huyenDs, huyenQq);
     }, [user]);
-    const d = new Date();
-    console.log("newdate", d);
-    console.log("detailSanPham", detailSanPham);
     return (
         <div className="container-shopOnline">
-            {detailSanPham !== 0 ? (
-                <ChiTietSanPham
-                    detailSanPham={detailSanPham}
-                    setdetailSanPham={setdetailSanPham}
-                    allshop={allshop}
-                />
+            {+loadingShop === 0 ? (
+                <div>
+                    <span class="loader"></span>
+                </div>
             ) : (
                 <div>
-                    {+quanLyShop === 0 && detailSanPham === 0 ? (
-                        <div>
-                            <HeaderShop
-                                quanLyShop={quanLyShop}
-                                setquanLyShop={setquanLyShop}
-                            />
-                            <SanPham
-                                detailSanPham={detailSanPham}
-                                setdetailSanPham={setdetailSanPham}
-                            />
-                        </div>
-                    ) : (
-                        <></>
-                    )}
-                    {+quanLyShop === 1 ? (
-                        <SuaSanPham
-                            quanLyShop={quanLyShop}
-                            setquanLyShop={setquanLyShop}
+                    {detailSanPham !== 0 ? (
+                        <ChiTietSanPham
+                            detailSanPham={detailSanPham}
+                            setdetailSanPham={setdetailSanPham}
+                            allshop={allshop}
                         />
                     ) : (
-                        <></>
+                        <div>
+                            {+quanLyShop === 0 && detailSanPham === 0 ? (
+                                <div>
+                                    <HeaderShop
+                                        quanLyShop={quanLyShop}
+                                        setquanLyShop={setquanLyShop}
+                                    />
+                                    <SanPham
+                                        detailSanPham={detailSanPham}
+                                        setdetailSanPham={setdetailSanPham}
+                                    />
+                                </div>
+                            ) : (
+                                <></>
+                            )}
+                            {+quanLyShop === 1 ? (
+                                <SuaSanPham
+                                    quanLyShop={quanLyShop}
+                                    setquanLyShop={setquanLyShop}
+                                />
+                            ) : (
+                                <></>
+                            )}
+                        </div>
                     )}
                 </div>
             )}

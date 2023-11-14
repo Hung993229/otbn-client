@@ -64,7 +64,7 @@ const YeuCauBiTuChoi = () => {
                 <div>Sinh Năm: {yourStatustuChoiKetNoi?.namSinh}</div>
                 <div>Quê: {yourStatustuChoiKetNoi?.queQuan}</div>
             </div>
-            <div>
+            <div className="loinhanTuChoi">
                 Còn Rất Nhiều Người Để Bạn Có Thể Làm Quen, Hãy Tiếp Tục Kết Nối
                 Với Người Khác Bạn Nhé!
             </div>
