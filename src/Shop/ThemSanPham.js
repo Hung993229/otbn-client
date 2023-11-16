@@ -19,6 +19,7 @@ const ThemSanPham = (props) => {
     const [giaKhuyenMai, setgiaKhuyenMai] = useState();
     const [thongTinNguoiBan, setthongTinNguoiBan] = useState();
     const [thongTinSanPham, setthongTinSanPham] = useState();
+
     const handleLuuSanPham = () => {
         if (+sanPhamGianHang.length < 10) {
             if (+giaNiemYet < +giaKhuyenMai) {
@@ -72,92 +73,97 @@ const ThemSanPham = (props) => {
     return (
         <div>
             <div className="container-themSanPham">
-            <div className="close">
-                <button onClick={() => setsuaSp(0)}>Close</button>
-            </div>
-            <div className="sanPham">
-                <div>
-                    <input
-                        id="anhsanpham"
-                        type="file"
-                        hidden
-                        onChange={handleOnchangeImageSanPham}
-                    />
-                    <label htmlFor="anhsanpham">
-                        <div className="anhsanpham">
-                            {previewSanPham && (
-                                <img
-                                    src={previewSanPham.preview}
-                                    className="anhsanpham"
-                                />
-                            )}
-                        </div>
-                    </label>
+                <div className="close">
+                    <button onClick={() => setsuaSp(0)}>Close</button>
                 </div>
-                <div>
+                <div className="sanPham">
                     <div>
-                        <label>Tên Sản Phẩm</label>
+                        <input
+                            id="anhsanpham"
+                            type="file"
+                            hidden
+                            onChange={handleOnchangeImageSanPham}
+                        />
+                        <label htmlFor="anhsanpham">
+                            <div className="anhsanpham">
+                                {previewSanPham && (
+                                    <img
+                                        src={previewSanPham.preview}
+                                        className="anhsanpham"
+                                    />
+                                )}
+                            </div>
+                        </label>
+                    </div>
+                    <div>
                         <div>
-                            <input
-                                onChange={(e) => setTenSanPham(e.target.value)}
-                                className="tenSanPham"
-                                placeholder="Tên Sản Phẩm"
-                            />
+                            <label>Tên Sản Phẩm</label>
+                            <div>
+                                <input
+                                    onChange={(e) =>
+                                        setTenSanPham(e.target.value)
+                                    }
+                                    className="tenSanPham"
+                                    placeholder="Tên Sản Phẩm"
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="giaBan">
-                    <div className="giabanCu">
-                        <label>Giá Niêm Yết</label>
-                        <div>
-                            <input
-                                onChange={(e) => setgiaNiemYet(e.target.value)}
-                                placeholder="Giá niêm yết (VNĐ)"
-                                type="Number"
-                            />
+                    <div className="giaBan">
+                        <div className="giabanCu">
+                            <label>Giá Niêm Yết</label>
+                            <div>
+                                <input
+                                    onChange={(e) =>
+                                        setgiaNiemYet(e.target.value)
+                                    }
+                                    placeholder="Giá niêm yết (VNĐ)"
+                                    type="Number"
+                                />
+                            </div>
+                        </div>
+                        <div className="giaBanMoi">
+                            <label>Giá Khuyến Mại</label>
+                            <div>
+                                <input
+                                    onChange={(e) =>
+                                        setgiaKhuyenMai(e.target.value)
+                                    }
+                                    placeholder="Giá khuyến mại (VNĐ)"
+                                    type="Number"
+                                />
+                            </div>
                         </div>
                     </div>
-                    <div className="giaBanMoi">
-                        <label>Giá Khuyến Mại</label>
+
+                    <div>
+                        <label>Thông Tin Sản Phẩm</label>
                         <div>
                             <input
                                 onChange={(e) =>
-                                    setgiaKhuyenMai(e.target.value)
+                                    setthongTinSanPham(e.target.value)
                                 }
-                                placeholder="Giá khuyến mại (VNĐ)"
-                                type="Number"
+                                className="thongTinSanPham"
+                                placeholder="Thông Tin Chi Tiết Sản Phẩm"
                             />
                         </div>
                     </div>
-                </div>
-
-                <div>
-                    <label>Thông Tin Sản Phẩm</label>
                     <div>
-                        <input
-                            onChange={(e) => setthongTinSanPham(e.target.value)}
-                            className="thongTinSanPham"
-                            placeholder="Thông Tin Chi Tiết Sản Phẩm"
-                        />
+                        <label>Thông Tin Liên Hệ</label>
+                        <div>
+                            <input
+                                onChange={(e) =>
+                                    setthongTinNguoiBan(e.target.value)
+                                }
+                                className="tenSanPham"
+                                placeholder="Liên Hệ Người Bán (Zalo/Facebook/... )"
+                            />
+                        </div>
                     </div>
+                    <button className="luuSanPahm" onClick={handleLuuSanPham}>
+                        Lưu Sản Phẩm
+                    </button>
                 </div>
-                <div>
-                    <label>Thông Tin Liên Hệ</label>
-                    <div>
-                        <input
-                            onChange={(e) =>
-                                setthongTinNguoiBan(e.target.value)
-                            }
-                            className="tenSanPham"
-                            placeholder="Liên Hệ Người Bán (Zalo/Facebook/... )"
-                        />
-                    </div>
-                </div>
-                <button className="luuSanPahm" onClick={handleLuuSanPham}>
-                    Lưu Sản Phẩm
-                </button>
-            </div>
-            
             </div>
             <div className="luuYThemSp">
                 Lưu Ý: <br />
@@ -175,7 +181,6 @@ const ThemSanPham = (props) => {
                 thú Săn Sale của khách hàng!
             </div>
         </div>
-        
     );
 };
 export default ThemSanPham;

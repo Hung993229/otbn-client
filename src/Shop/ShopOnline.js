@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { getShop } from "../redux/apiRequest";
 import { useDispatch } from "react-redux";
 import SuaSanPham from "./SuaSanPham";
+import Loading from "../GiaoDienChung/Loading"
 
 const ShopOnline = () => {
     const user = useSelector((state) => state.auth.login?.currentUser);
@@ -17,7 +18,7 @@ const ShopOnline = () => {
     const dispatch = useDispatch();
 
     const [quanLyShop, setquanLyShop] = useState(0);
-    const [loadingShop, setloadingShop] = useState(1);
+    
     // useEffect(() => {
     //     const myTimeout = setTimeout(setloadingShop(1), 3000)
     //     clearTimeout(myTimeout);
@@ -25,15 +26,14 @@ const ShopOnline = () => {
     useEffect(() => {
         const huyenDs = myDetail?.huyenDs;
         const huyenQq = myDetail?.huyenQq;
-        getShop(dispatch, huyenDs, huyenQq);
+        const duLieuSP = async () => {
+            getShop(dispatch, huyenDs, huyenQq);
+        };
+        duLieuSP();
     }, [user]);
     return (
         <div className="container-shopOnline">
-            {+loadingShop === 0 ? (
-                <div>
-                    <span class="loader"></span>
-                </div>
-            ) : (
+          
                 <div>
                     {detailSanPham !== 0 ? (
                         <ChiTietSanPham
@@ -68,7 +68,7 @@ const ShopOnline = () => {
                         </div>
                     )}
                 </div>
-            )}
+            
         </div>
     );
 };

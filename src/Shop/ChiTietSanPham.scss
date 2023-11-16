@@ -47,17 +47,26 @@
             
             .giaBanMoi {
                 color: red;
-                font-size: 5vw;
+                font-size: 6vw;
             font-weight: 600;
             }
-            .giabanCu {
-                
-                margin-top: 1vw;
-                text-decoration: line-through;
-                font-size: 5vw;
-                font-weight: 300;
+            .giaGiam{
+                display: flex;
+                gap: 2vw;
+                align-items: center;
+                justify-content: center;
+                .giabanCu {
+                    text-decoration: line-through;
+                    font-size: 5vw;
+                    font-weight: 300;
+    
+                }
+                .phanTram{
+                    font-size: 5vw;
+                    font-weight: 300;
+                }
             
-            }
+        }
            
         }
         .muaHang {

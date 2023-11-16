@@ -18,6 +18,8 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import MoiDangKi2 from "../GiaoDienChung/MoiDangKi2";
+import FormRegister from "../Tao Thong Tin/FormRegister";
 const HomThu = () => {
     const dispatch = useDispatch();
     const myDetail = useSelector((state) => state.post.post?.myDetail);
@@ -87,48 +89,56 @@ const HomThu = () => {
         (item) => item.tuChoiKetNoi
     );
     const yourStatushuyKetNoi = allYourStatus?.filter((item) => item.huyKetNoi);
-    return (
-        <div className="container-homthu">
-            <div className="homThu">HÒM THƯ</div>
-            <div>
-                {+myStatus === 0 &&
-                yourIdYeuCauKetNoi &&
-                yourIdYeuCauKetNoi?.length !== 0 &&
-                !dienThoai ? (
-                    <TiepNhanYeuCauKetNoi />
-                ) : (
-                    <></>
-                )}
-            </div>
-            {/* Dong Y */}
-            <div>
-                {+myStatus === 1 &&
-                dienThoai &&
-                yourIdDangKetNoi &&
-                yourIdDangKetNoi?.length !== 0 &&
-                yourIdYeuCauKetNoi?.length === 0 &&
-                yourStatustuChoiKetNoi?.length === 0 &&
-                yourIdYeuCauKetNoidi?.length === 0 ? (
-                    <DongYKetNoi />
-                ) : (
-                    <></>
-                )}
-            </div>
+    return !user ? (
+        <MoiDangKi2 />
+    ) : (
+        <>
+            {!status ? (
+                <FormRegister />
+            ) : (
+                <div className="container-homthu">
+                    <div className="homThu">HÒM THƯ</div>
+                    <div>
+                        {+myStatus === 0 &&
+                        yourIdYeuCauKetNoi &&
+                        yourIdYeuCauKetNoi?.length !== 0 &&
+                        !dienThoai ? (
+                            <TiepNhanYeuCauKetNoi />
+                        ) : (
+                            <></>
+                        )}
+                    </div>
+                    {/* Dong Y */}
+                    <div>
+                        {+myStatus === 1 &&
+                        dienThoai &&
+                        yourIdDangKetNoi &&
+                        yourIdDangKetNoi?.length !== 0 &&
+                        yourIdYeuCauKetNoi?.length === 0 &&
+                        yourStatustuChoiKetNoi?.length === 0 &&
+                        yourIdYeuCauKetNoidi?.length === 0 ? (
+                            <DongYKetNoi />
+                        ) : (
+                            <></>
+                        )}
+                    </div>
 
-            {/* Tu Choi */}
-            <div>
-                {+myStatus === 0 &&
-                !dienThoai &&
-                yourIdDangKetNoi?.length === 0 &&
-                yourIdYeuCauKetNoi?.length === 0 &&
-                yourStatustuChoiKetNoi?.length === 0 &&
-                yourIdYeuCauKetNoidi?.length === 0 ? (
-                    <></>
-                ) : (
-                    <></>
-                )}
-            </div>
-        </div>
+                    {/* Tu Choi */}
+                    <div>
+                        {+myStatus === 0 &&
+                        !dienThoai &&
+                        yourIdDangKetNoi?.length === 0 &&
+                        yourIdYeuCauKetNoi?.length === 0 &&
+                        yourStatustuChoiKetNoi?.length === 0 &&
+                        yourIdYeuCauKetNoidi?.length === 0 ? (
+                            <></>
+                        ) : (
+                            <></>
+                        )}
+                    </div>
+                </div>
+            )}
+        </>
     );
 };
 export default HomThu;

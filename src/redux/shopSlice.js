@@ -11,6 +11,13 @@ const shopSlice = createSlice({
         },
     },
     reducers: {
+        logOutSuccessShop: (state) => {
+            state.shop.shop= null;
+            state.shop.isFetching= false;
+            state.shop.error= false;
+            state.shop.success= false;
+            state.shop.allshop= null;
+        },
         updateshopStart: (state) => {
             state.shop.isFetching = true;
         },
@@ -79,6 +86,7 @@ export const {
     deleteshopStart,
     deleteshopSuccess,
     deleteshopFailed,
+    logOutSuccessShop
 } = shopSlice.actions;
 
 export default shopSlice.reducer;

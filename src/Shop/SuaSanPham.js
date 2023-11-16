@@ -54,12 +54,14 @@ const SuaSanPham = (props) => {
             giaKhuyenMai: giaKhuyenMai,
             thongTinNguoiBan: thongTinNguoiBan,
             thongTinSanPham: thongTinSanPham,
+            
             xa: myDetail.xaDs,
             huyen: myDetail.huyenDs,
             tinh: myDetail.tinhDs,
             vaiTro: myDetail.vaiTro,
             user: user._id,
         };
+        console.log("newSanPham", newSanPham);
         updateShop(newSanPham, id, dispatch);
         setsuaSp(0);
     };
@@ -193,7 +195,7 @@ const SuaSanPham = (props) => {
                             <div>
                                 <label>Tên Sản Phẩm</label>
                                 <div>
-                                    {" "}
+                                    
                                     <input
                                         onChange={(e) =>
                                             setTenSanPham(e.target.value)

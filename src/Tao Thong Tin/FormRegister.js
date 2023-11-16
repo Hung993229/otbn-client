@@ -11,12 +11,13 @@ import {
     apiGetPublicDistrict,
     apiGetPublicWard,
 } from "../redux/ApiProvince";
-
+import Loading from "../GiaoDienChung/Loading";
 const FormRegister = (props) => {
     const { suaPost, setsuaPost } = props;
     const user = useSelector((state) => state.auth.login.currentUser);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [loading, setloading] = useState(1);
     const [previewAvatar, setpreviewAvatar] = useState();
     const [previewBanner, setpreviewBanner] = useState();
     // Provinces
@@ -326,14 +327,17 @@ const FormRegister = (props) => {
                 yourIdDangKetNoi: "",
                 user: user._id,
             };
-            registerStatus(statusUser, dispatch);
+            registerStatus(statusUser, dispatch, setloading);
             setsuaPost(0);
+            setloading(1);
         } catch (err) {
             console.log(err);
         }
     };
 
-    return (
+    return loading === 0 ? (
+        <Loading />
+    ) : (
         <div className="containerFormregis">
             <div>
                 <label hidden>Banner</label>
@@ -708,7 +712,7 @@ const FormRegister = (props) => {
                     <option value="">---Mời Chọn---</option>
                     <option>Ưu Tiên Người Cùng Quê</option>
                     <option>Ưu Tiên Người Gần Nơi Đang Sinh Sống</option>
-                    <option value="">Ở Đâu Cũng Được</option>
+                    <option>Ở Đâu Cũng Được</option>
                 </select>
             </div>
             <div className="containerTieuChiFormregis">

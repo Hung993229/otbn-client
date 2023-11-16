@@ -294,6 +294,9 @@ const Facedata = (props) => {
 
     const handleRegisterPost = (e) => {
         e.preventDefault();
+        if (!banner || !avatar || gioiTinh) {
+            alert("Hãy điền thông tin còn thiếu");
+        }
         try {
             const newPost = {
                 banner: banner,
@@ -309,8 +312,12 @@ const Facedata = (props) => {
                 vaiTro: 2,
                 user: user._id,
             };
-            console.log("newPost", newPost);
+
             registerPost(newPost, dispatch, navigate);
+            setpreviewBanner("");
+            setpreviewAvatar("");
+            setgioiTinh("");
+            sethoTen("");
         } catch (err) {
             console.log(err);
         }

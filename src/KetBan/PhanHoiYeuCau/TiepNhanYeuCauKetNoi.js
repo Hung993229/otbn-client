@@ -320,9 +320,9 @@ const TiepNhanYeuCauKetNoi = () => {
                                 <div className="Container-myTieuChi-myNoiDung">
                                     <div className="myTieuChi">Tuổi Hợp</div>
                                     <div className="myNoiDung2">
-                                        <div>Từ Năm &emsp;</div>
+                                        <div>Từ &nbsp;</div>
                                         <div>{ytuoiHop2}</div>
-                                        <div> &emsp;Đến Năm&emsp;</div>
+                                        <div> &emsp;Đến &nbsp;</div>
                                         <div>{ytuoiHop3}</div>
                                     </div>
                                 </div>

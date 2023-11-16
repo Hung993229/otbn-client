@@ -12,6 +12,7 @@ import {
     getYourStatus,
     updatePost,
 } from "../../redux/apiRequest";
+import Loading from "../../GiaoDienChung/Loading";
 const ChonVaGuiYeuCau = () => {
     const dispatch = useDispatch();
     const myDetail = useSelector((state) => state.post.post?.myDetail);
@@ -25,7 +26,14 @@ const ChonVaGuiYeuCau = () => {
     const [ketnoi, setketnoi] = useState(0);
     const [yourDetail, setyourDetail] = useState("");
     const [suaPost, setsuaPost] = useState(1);
-
+    const [loading, setloading] = useState(1);
+    const [ngaySinhRandoom, setngaySinhRandoom] = useState();
+    const [thangSinhRandoom, setthangSinhRandoom] = useState();
+    const [namSinhRandoom, setnamSinhRandoom] = useState();
+    const [chieuCaoRandom, setchieuCaoRandom] = useState();
+    const [canNangRandoom, setcanNangRandoom] = useState();
+    const [tuoiHop3Random, settuoiHop3Random] = useState();
+    const [tuoiHop2Random, settuoiHop2Random] = useState();
     useEffect(() => {
         if (user) {
             getYourStatus(user?._id, dispatch);
@@ -39,7 +47,7 @@ const ChonVaGuiYeuCau = () => {
     }, [user]);
 
     useEffect(() => {
-        const getTatCaPostPhuHop = () => {
+        const getTatCaPostPhuHop = async () => {
             const gioiTinh2 = myDetail?.gioiTinh2;
             const tinhTrangHonNhan2 = myDetail?.tinhTrangHonNhan2;
             const tonGiao2 = myDetail?.tonGiao2;
@@ -57,7 +65,8 @@ const ChonVaGuiYeuCau = () => {
                 tuoiHop2,
                 tuoiHop3,
                 huyenDs,
-                huyenQq
+                huyenQq,
+                setloading
             );
         };
         getTatCaPostPhuHop();
@@ -76,9 +85,24 @@ const ChonVaGuiYeuCau = () => {
     const handleNgauNhien = () => {
         const a = allPosts.length;
         const e = Math.floor(Math.random() * a);
-
+        setloading(1);
         setindexId(e);
+        const random = () => {
+            setloading(0);
+        };
+        setTimeout(random, 3000);
     };
+
+    // const handleQuaySo = () => {
+    //     setquay(1);
+    //     const random = () => {
+    //         setquay(2);
+    //         randomInteger();
+    //     };
+    //     setTimeout(random, 10000);
+
+    //     setCountDown(10);
+    // };
 
     // Quay Lai
 
@@ -128,9 +152,7 @@ const ChonVaGuiYeuCau = () => {
             };
             console.log("yourstatusUser", yourstatusUser);
             registerYourStatus(yourstatusUser, dispatch);
-            
         }
-        
     };
     // Chi Tiet
     const banner = yourDetail?.banner;
@@ -164,22 +186,22 @@ const ChonVaGuiYeuCau = () => {
     const tuoiHop3 = yourDetail?.tuoiHop3;
     const yeucaukhac2 = yourDetail?.yeucaukhac2;
     const vaiTro = yourDetail?.vaiTro;
-    const ngaySinhRandoom = Math.floor(Math.random() * 29) + 1;
-    const thangSinhRandoom = Math.floor(Math.random() * 11) + 1;
-    const tuoiMin = +myDetail?.tuoiHop2;
-    const tuoiMax = +myDetail?.tuoiHop3;
-    const a = tuoiMax - tuoiMin;
-    console.log("a", a);
-    const namSinhRandoom = Math.floor(Math.random() * a) + tuoiMin;
-    console.log("namSinhRandoom", namSinhRandoom);
-    const chieuCaoRandom = Math.floor(Math.random() * 20) + 150;
-    const canNangRandoom = Math.floor(Math.random() * 30) + 45;
-    const tuoiHop3Random = +myDetail?.namSinh + 3;
-    const tuoiHop2Random = +myDetail?.namSinh - 5;
-    console.log("allPosts", allPosts);
-    console.log("indexId", indexId);
+    useEffect(() => {
+        const tuoiMin = +myDetail?.tuoiHop2;
+        const tuoiMax = +myDetail?.tuoiHop3;
+        const a = tuoiMax - tuoiMin;
+        setngaySinhRandoom(Math.floor(Math.random() * 29) + 1);
+        setthangSinhRandoom(Math.floor(Math.random() * 11) + 1);
+        setnamSinhRandoom(Math.floor(Math.random() * a) + tuoiMin);
+        setchieuCaoRandom(Math.floor(Math.random() * 20) + 150);
+        setcanNangRandoom(Math.floor(Math.random() * 30) + 45);
+        settuoiHop3Random(+myDetail?.namSinh + 3);
+        settuoiHop2Random(+myDetail?.namSinh - 5);
+    }, []);
 
-    return (
+    return +loading === 1 ? (
+        <Loading />
+    ) : (
         <div className="container-yourDetail">
             {allPosts && allPosts.length !== 0 ? (
                 <div>
@@ -300,9 +322,9 @@ const ChonVaGuiYeuCau = () => {
                             <div className="Container-myTieuChi-myNoiDung">
                                 <div className="myTieuChi">Tuổi Hợp</div>
                                 <div className="myNoiDung2">
-                                    <div>Từ Năm &emsp;</div>
+                                    <div>Từ&nbsp;</div>
                                     <div>{tuoiHop2}</div>
-                                    <div> &emsp;Đến Năm&emsp;</div>
+                                    <div> &emsp;Đến&nbsp;</div>
                                     <div>{tuoiHop3}</div>
                                 </div>
                             </div>
@@ -484,9 +506,9 @@ const ChonVaGuiYeuCau = () => {
                             <div className="Container-myTieuChi-myNoiDung">
                                 <div className="myTieuChi">Tuổi Hợp</div>
                                 <div className="myNoiDung2">
-                                    <div>Từ Năm &emsp;</div>
+                                    <div>Từ&nbsp;</div>
                                     <div>{tuoiHop2Random}</div>
-                                    <div> &emsp;Đến Năm&emsp;</div>
+                                    <div> &emsp;Đến&nbsp;</div>
                                     <div>{tuoiHop3Random}</div>
                                 </div>
                             </div>
@@ -533,7 +555,7 @@ const ChonVaGuiYeuCau = () => {
                 </div>
             ) : (
                 <div className="LocDoituongxemmat">
-                    <div >
+                    <div>
                         Danh Sách Đối Tượng Xem Mắt Phù Hợp Yêu Cầu Của Bạn
                     </div>
                     <div>---Đang Cập Nhật---</div>

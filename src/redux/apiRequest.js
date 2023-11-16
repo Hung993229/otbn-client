@@ -17,6 +17,7 @@ import {
     getUsersFailed,
     getUsersStart,
     getUsersSuccess,
+    logOutSuccessUser,
 } from "./userSlice";
 import {
     registerPostStart,
@@ -34,6 +35,7 @@ import {
     getAllPostsStart,
     getAllPostsSuccess,
     getAllPostsFailed,
+    logOutSuccessPost,
 } from "./postSlice";
 
 import {
@@ -46,6 +48,7 @@ import {
     getStatusStart,
     getStatusSuccess,
     getStatusFailed,
+    logOutSuccessStatus,
 } from "./statusSlice";
 
 import {
@@ -64,6 +67,7 @@ import {
     deleteAllYourStatusStart,
     deleteAllYourStatusSuccess,
     deleteAllYourStatusFailed,
+    logOutSuccessYourStatus,
 } from "./yourStatusSlice";
 import {
     updateshopStart,
@@ -78,6 +82,7 @@ import {
     deleteshopStart,
     deleteshopSuccess,
     deleteshopFailed,
+    logOutSuccessShop,
 } from "./shopSlice";
 
 export const loginUser = async (user, dispatch, navigate) => {
@@ -130,16 +135,22 @@ export const logOut = async (dispatch, id, navigate, accessToken, axiosJWT) => {
             headers: { token: `Bearer ${accessToken}` },
         });
         dispatch(logOutSuccess());
+        dispatch(logOutSuccessPost());
+        dispatch(logOutSuccessShop());
+        dispatch(logOutSuccessStatus());
+        dispatch(logOutSuccessUser());
+        dispatch(logOutSuccessYourStatus());
         navigate("/dang-nhap");
     } catch (err) {
         dispatch(logOutFailed());
     }
 };
-export const registerPost = async (post, dispatch, navigate) => {
+export const registerPost = async (post, dispatch, navigate,setloading) => {
     dispatch(registerPostStart());
     try {
         const res = await axios.post("/v1/post/add-post", post);
         dispatch(registerPostSuccess(res.data));
+        setloading(0)
         navigate("/ca-nhan");
     } catch (err) {
         dispatch(registerPostFailed());
@@ -159,11 +170,12 @@ export const updatePost = async (newPost, id, dispatch, setsuaPost) => {
     }
 };
 
-export const getPost = async (id, dispatch) => {
+export const getPost = async (id, dispatch,setloading) => {
     dispatch(getPostStart());
     try {
         const res = await axios.get(`/v1/post/${id}`);
         dispatch(getPostSuccess(res.data));
+        setloading(0)
     } catch (err) {
         dispatch(getPostFailed());
     }
@@ -187,7 +199,8 @@ export const getAllPosts = async (
     tuoiHop2,
     tuoiHop3,
     huyenDs,
-    huyenQq
+    huyenQq,
+    setloading
 ) => {
     dispatch(getAllPostsStart());
     try {
@@ -196,6 +209,7 @@ export const getAllPosts = async (
             `
         );
         dispatch(getAllPostsSuccess(res.data));
+        setloading(0);
     } catch (err) {
         dispatch(getAllPostsFailed());
     }
@@ -284,13 +298,14 @@ export const registerShop = async (newSanPham, dispatch) => {
         dispatch(registershopFailed());
     }
 };
-export const getShop = async (dispatch, huyenDs, huyenQq) => {
+export const getShop = async (dispatch, huyenDs, huyenQq, setloading) => {
     dispatch(getshopStart());
     try {
         const res = await axios.get(
             `/v1/shop/?huyenDs=${huyenDs}&huyenQq=${huyenQq}`
         );
         dispatch(getshopSuccess(res.data));
+        setloading(0);
     } catch (err) {
         dispatch(getshopFailed());
     }

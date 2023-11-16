@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { getShop, getStatus, getPost } from "../redux/apiRequest";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import Loading from "../../src/GiaoDienChung/Loading";
 const SanPham = (props) => {
     const { detailSanPham, setdetailSanPham } = props;
     const allshop = useSelector((state) => state.shop.shop.allshop?.sanpham);
@@ -11,10 +12,11 @@ const SanPham = (props) => {
     const user = useSelector((state) => state.auth.login?.currentUser);
     const [moihoptac, setmoihoptac] = useState(0);
     const dispatch = useDispatch();
+    const [loading, setloading] = useState(1);
     useEffect(() => {
         const huyenDs = myDetail?.huyenDs;
         const huyenQq = myDetail?.huyenQq;
-        getShop(dispatch, huyenDs, huyenQq);
+        getShop(dispatch, huyenDs, huyenQq, setloading);
     }, [user]);
     useEffect(() => {
         if (!user) {
@@ -30,7 +32,9 @@ const SanPham = (props) => {
         currency: "VND",
     });
 
-    return (
+    return +loading === 1 ? (
+        <Loading />
+    ) : (
         <div>
             <div className="container-sanPham">
                 {allshop &&
@@ -53,13 +57,22 @@ const SanPham = (props) => {
                                     <div className="giaBanMoi">
                                         {VND.format(item?.giaKhuyenMai)}
                                     </div>
-                                    <div className="giabanCu">
-                                        {VND.format(item?.giaNiemYet)}
-                                    </div>
 
-                                    <div>
-                                        {}
-                                </div>
+                                    <div className="giaGiam">
+                                        <div className="giabanCu">
+                                            {VND.format(item?.giaNiemYet)}
+                                        </div>
+                                        <div className="phanTram">
+                                            Giảm&nbsp;
+                                            {Math.floor(
+                                                (100 *
+                                                    (item?.giaNiemYet -
+                                                        item?.giaKhuyenMai)) /
+                                                    item?.giaNiemYet
+                                            )}
+                                            %
+                                        </div>
+                                    </div>
                                 </div>
                                 <a
                                     href={item?.thongTinNguoiBan}

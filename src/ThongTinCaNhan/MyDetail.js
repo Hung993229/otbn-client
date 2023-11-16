@@ -19,7 +19,7 @@ import {
 import { createAxios } from "../../src/createInstance";
 import { logOutSuccess } from "../redux/authSlice";
 import Facedata from "./Facedata";
-
+import Loading from "../GiaoDienChung/Loading";
 const MyDetail = (props) => {
     const { suaPost, setsuaPost } = props;
     const [taodata, settaodata] = useState(0);
@@ -31,7 +31,7 @@ const MyDetail = (props) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     let axiosJWT = createAxios(user, dispatch, logOutSuccess);
-
+    const [loading, setloading] = useState(1);
     // Mydetail Chi tiet
     const banner = myDetail?.banner;
     const avatar = myDetail?.avatar;
@@ -86,7 +86,9 @@ const MyDetail = (props) => {
         navigate("/quan-ly-user");
     };
     console.log("taodata", taodata);
-    return (
+    return loading === 0 ? (
+        <Loading />
+    ) : (
         <div className="container-myDetail">
             {+taodata === 0 ? (
                 <div className="thongTinCaNhan">
@@ -193,9 +195,9 @@ const MyDetail = (props) => {
                             Khoảng Tuổi Muốn Làm Quen
                         </div>
                         <div className="myNoiDung2">
-                            <div>Từ Năm &emsp;</div>
+                            <div>Từ &nbsp;</div>
                             <div>{tuoiHop2}</div>
-                            <div> &emsp;Đến Năm&emsp;</div>
+                            <div> &emsp; &emsp;Đến&nbsp;</div>
                             <div>{tuoiHop3}</div>
                         </div>
                     </div>
@@ -204,7 +206,6 @@ const MyDetail = (props) => {
                         <div className="myNoiDung">{yeucaukhac2}</div>
                     </div>
                     <div>
-                        
                         <button
                             className="suaThongTin"
                             onClick={() => setsuaPost(1)}

@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 import DangNhap from "../DangNhap/DangNhap";
+import MoiDangKi from "../GiaoDienChung/MoiDangKi";
 const ThongTinCaNhan = () => {
     const [suaPost, setsuaPost] = useState(0);
     const myDetailId = useSelector((state) => state.post.post.myDetail?._id);
@@ -26,40 +27,38 @@ const ThongTinCaNhan = () => {
         };
         getPostMydetail();
     }, [user]);
-    return (
-        <div
-            className="container-thongTinCanhan"
-        >
-            {user ? (
-                <div>
-                    {myDetailId ? (
-                        <div>
-                            {suaPost === 0 ? (
-                                <div>
-                                    <MyDetail
-                                        suaPost={suaPost}
-                                        setsuaPost={setsuaPost}
-                                    />
-                                </div>
-                            ) : (
-                                <div>
-                                    <UpdateDetail
-                                        suaPost={suaPost}
-                                        setsuaPost={setsuaPost}
-                                    />
-                                </div>
-                            )}
-                        </div>
-                    ) : (
-                        <div>
-                            <FormRegister suaPost={suaPost}
-                                        setsuaPost={setsuaPost} />
-                        </div>
-                    )}
-                </div>
-            ) : (
-                <DangNhap />
-            )}
+    return !user ? (
+        <MoiDangKi />
+    ) : (
+        <div className="container-thongTinCanhan">
+            <div>
+                {myDetailId ? (
+                    <div>
+                        {suaPost === 0 ? (
+                            <div>
+                                <MyDetail
+                                    suaPost={suaPost}
+                                    setsuaPost={setsuaPost}
+                                />
+                            </div>
+                        ) : (
+                            <div>
+                                <UpdateDetail
+                                    suaPost={suaPost}
+                                    setsuaPost={setsuaPost}
+                                />
+                            </div>
+                        )}
+                    </div>
+                ) : (
+                    <div>
+                        <FormRegister
+                            suaPost={suaPost}
+                            setsuaPost={setsuaPost}
+                        />
+                    </div>
+                )}
+            </div>
         </div>
     );
 };

@@ -11,20 +11,19 @@ const Instruct = () => {
                 <br />
                 Tuy nhiên theo thống kê hiện nay độ tuổi kết hôn trung bình tại
                 Việt Nam ngày càng cao. Năm 2019 độ tuổi kết hôn trung tình tại
-                một số thành phố đã chạm mốc 30 tuổi. <br/> Lý giải cho vấn đề này một
-                số bạn trẻ nói rằng: <br /> - Mỗi ngày dành 8-10 tiếng để làm
-                việc, 8 - 10 tiếng nghỉ ngơi. Nên không có nhiều thời gian đi
-                chơi gặp gỡ bạn bè, tìm hiểu, yêu đương, mãi đến lúc lớn tuổi
-                gia đình bạn bè giục quá mới chịu cưới. <br /> - Mình cũng muốn
-                kết hôn sớm chút, nhưng chuyện hôn nhân đâu phải muốn
-                là kết hôn được luôn đâu, mình tìm mãi chưa gặp được người hợp
-                và cảm thấy muốn kết hôn. <br /> - Chắc mình ế thật rồi bạn ạ!
-                Mình đi tìm người yêu mà chưa tìm được, môi trường làm việc thì
-                toàn người có đôi, có cặp rồi, lên trên mạng xã hội thấy có ai
-                đó than ế muốn có người yêu, lúc mình inbox làm quen thì không
-                thấy trả lời. Các cuộc gặp gỡ bên ngoài thực tế để làm quen cũng
-                ít, nhờ bạn bè mai mối mãi cũng chưa gặp được người tâm đầu ý
-                hợp!
+                một số thành phố đã chạm mốc 30 tuổi. <br /> Lý giải cho vấn đề
+                này một số bạn trẻ nói rằng: <br /> - Mỗi ngày dành 8-10 tiếng
+                để làm việc, 8 - 10 tiếng nghỉ ngơi. Nên không có nhiều thời
+                gian đi chơi gặp gỡ bạn bè, tìm hiểu, yêu đương, mãi đến lúc lớn
+                tuổi gia đình bạn bè giục quá mới chịu cưới. <br /> - Mình cũng
+                muốn kết hôn sớm chút, nhưng chuyện hôn nhân đâu phải muốn là
+                kết hôn được luôn đâu, mình tìm mãi chưa gặp được người hợp và
+                cảm thấy muốn kết hôn. <br /> - Chắc mình ế thật rồi bạn ạ! Mình
+                đi tìm người yêu mà chưa tìm được, môi trường làm việc thì toàn
+                người có đôi, có cặp rồi, lên trên mạng xã hội thấy có ai đó
+                than ế muốn có người yêu, lúc mình inbox làm quen thì không thấy
+                trả lời. Các cuộc gặp gỡ bên ngoài thực tế để làm quen cũng ít,
+                nhờ bạn bè mai mối mãi cũng chưa gặp được người tâm đầu ý hợp!
                 <br />
                 Hiểu được sự quan trọng và mong muốn của mọi người trong việc
                 kết hôn. Cũng hiểu rõ nguyên nhân kết hôn muộn do đâu, chính vì
@@ -52,13 +51,13 @@ const Instruct = () => {
                 cũng giúp bạn chọn ra những người phù hợp với tiêu chuẩn bạn
                 mong muốn từ đầu, từ đó tăng tỉ lệ gặp được người phù hợp mong
                 muốn của bạn! Ví dụ: <br /> - Bạn độc thân, đơn thân, hay đã ly
-                hôn đều sẽ tìm được người tương ứng phù hợp yêu cầu bạn đặt ra! <br /> - Bạn mong
-                muốn quen người cùng Tôn giáo, gần nơi sinh sống, làm việc hay
-                cùng quê! <br /> - Bạn mong muốn người bạn đời có công việc, thu
-                nhập phù hợp với điều kiện bản thân! <br /> - Thậm chí bạn là
-                người thuộc giới tính thứ 3, cũng có thể tham gia! <br /> Hệ
-                thống tự động lọc và gợi ý bạn kết bạn với những người phù hợp
-                với nhu cầu của bạn!
+                hôn đều sẽ tìm được người tương ứng phù hợp yêu cầu bạn đặt ra!{" "}
+                <br /> - Bạn mong muốn quen người cùng Tôn giáo, gần nơi sinh
+                sống, làm việc hay cùng quê! <br /> - Bạn mong muốn người bạn
+                đời có công việc, thu nhập phù hợp với điều kiện bản thân!{" "}
+                <br /> - Thậm chí bạn là người thuộc giới tính thứ 3, cũng có
+                thể tham gia! <br /> Hệ thống tự động lọc và gợi ý bạn kết bạn
+                với những người phù hợp với nhu cầu của bạn!
                 <br />
             </p>
             <h2 className="h2">3. Hòm Thư</h2>
@@ -72,9 +71,17 @@ const Instruct = () => {
             <h2 className="h2">4. Mini Game</h2>
             <p>
                 Trong lúc tìm người yêu, rảnh rỗi bạn có thể chơi MiniGame quay
-                số may mắn để nhận rất nhiều phần quà có giá trị! Vừa có người
-                yêu, lại vừa có phần thưởng! Hãy mời bạn bè cùng chơi chung và
-                cùng có người yêu nhá!
+                số may mắn để nhận rất nhiều phần quà có giá trị! <br />
+                Phần thưởng từ MiniGame là hiện vật thì sẽ được trao thưởng
+                trong không quá 30 ngày!
+                <br /> Nếu phần thưởng là Gold thì sẽ được cộng ngay vào tài
+                khoản Gold. Mỗi Gold = 1 Vnđ.
+                <br />
+                Sau khi đăng kí tài khoản! Mọi người sẽ nhận được một số Gold
+                thưởng ngẫu nhiên 5.000 Gold - 100.000 Gold. <br /> Đủ 100.000
+                Gold có thể dùng để mua hàng trong Shopping. <br />
+                Vừa có người yêu, lại vừa có phần thưởng! <br /> Hãy mời bạn bè
+                cùng chơi chung và cùng có người yêu nha!
             </p>
             <h2 className="h2">5. Shopping</h2>
             <p>
@@ -83,14 +90,9 @@ const Instruct = () => {
                 YeuAi.Online là mục đích xã hội. Tuy nhiên YeuAi.Online cũng cần
                 có kinh phí để duy trì và phát triển. Vì vậy, nếu thấy sản phẩm
                 YeuAi.Online cung cấp có chất lượng tốt, giá tốt, phù hợp nhu
-                cầu thì mong bạn sẽ mua ủng hộ! <br /> Phần thưởng từ MiniGame
-                là hiện vật thì sẽ được trao thưởng trong không quá 30 ngày!
-                <br /> Nếu phần thưởng là Gold thì sẽ được cộng ngay vào tài
-                khoản Gold. Mỗi Gold = 1 Vnđ có thể dùng để mua hàng trong
-                Shopping <br />
-                Sau khi đăng kí tài khoản! Mọi người sẽ nhận được một số Gold
-                thưởng ngẫu nhiên. Tối thiểu là 25.000 Gold = 25.000 VNĐ. Hãy
-                mời bạn bè cùng tham gia để nhận thưởng và tìm người yêu nhé!
+                cầu thì mong bạn sẽ mua ủng hộ! <br />
+                Hãy mời bạn bè cùng tham gia để nhận thưởng và tìm người yêu
+                nhé!
             </p>
             <h2 className="h2">6. Hướng Dẫn</h2>
 
@@ -113,9 +115,11 @@ const Instruct = () => {
                 được mọi người tham gia, ủng hộ và giới thiệu thêm cho bạn bè
                 người thân cũng đang độc thân biết!
             </p>
+          
             <h3 className="h3">
                 Chúc Bạn Sớm Tìm Được Hạnh Phúc Cho Riêng Mình!
             </h3>
+            
         </div>
     );
 };

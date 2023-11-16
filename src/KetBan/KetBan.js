@@ -18,6 +18,8 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import MoiDangKi from "../GiaoDienChung/MoiDangKi";
+import FormRegister from "../Tao Thong Tin/FormRegister";
 const KetBan = () => {
     const dispatch = useDispatch();
     const myDetail = useSelector((state) => state.post.post?.myDetail);
@@ -97,89 +99,97 @@ const KetBan = () => {
     console.log("yourStatusdongYKetNoi", yourStatusdongYKetNoi?.length === 0);
     console.log("yourStatustuChoiKetNoi", yourStatustuChoiKetNoi?.length === 0);
 
-    return (
-        <div className="container-Ketban">
-            <div>
-                {+myStatus === 0 &&
-                yourIdYeuCauKetNoidi?.length === 0 &&
-                yourStatusdongYKetNoi?.length === 0 &&
-                yourStatustuChoiKetNoi?.length === 0 ? (
-                    <ChonVaGuiYeuCau />
-                ) : (
-                    <div></div>
-                )}
-            </div>
-            <div>
-                {+myStatus === 1 &&
-                yourIdDangKetNoi &&
-                yourIdDangKetNoi?.length !== 0 &&
-                !dienThoai &&
-                yourIdYeuCauKetNoidi?.length !== 0 &&
-                yourStatusdongYKetNoi?.length === 0 &&
-                yourStatustuChoiKetNoi?.length === 0 ? (
-                    <YourDangKetNoi />
-                ) : (
-                    <></>
-                )}
-            </div>
-            {/* tu Choi */}
-            <div>
-                {+myStatus === 1 &&
-                yourIdDangKetNoi &&
-                !dienThoai &&
-                yourIdYeuCauKetNoidi?.length === 0 &&
-                yourStatusdongYKetNoi?.length === 0 &&
-                yourStatustuChoiKetNoi?.length !== 0 ? (
-                    <YeuCauBiTuChoi />
-                ) : (
-                    <></>
-                )}
-            </div>
-            <div>{/* ok Tu choi thi ve ban dau */}</div>
-            {/* Dong Y */}
-            <div>
-                {+myStatus === 1 &&
-                yourIdDangKetNoi &&
-                !dienThoai &&
-                yourIdYeuCauKetNoidi?.length === 0 &&
-                yourStatusdongYKetNoi?.length !== 0 &&
-                yourStatustuChoiKetNoi?.length === 0 ? (
-                    <YeuCauDuocDongY />
-                ) : (
-                    <></>
-                )}
-            </div>
-            <div>
-                {+myStatus === 1 &&
-                yourIdDangKetNoi &&
-                yourIdDangKetNoi?.length !== 0 &&
-                dienThoai &&
-                yourIdYeuCauKetNoidi?.length === 0 &&
-                yourStatusdongYKetNoi?.length === 0 &&
-                yourStatustuChoiKetNoi?.length === 0 &&
-                yourStatushuyKetNoi?.length === 0 ? (
-                    <YourDangKetNoi />
-                ) : (
-                    <></>
-                )}
-            </div>
-            {/* Chia tay */}
-            <div>
-                {+myStatus === 1 &&
-                yourIdDangKetNoi &&
-                yourIdDangKetNoi?.length !== 0 &&
-                dienThoai &&
-                yourIdYeuCauKetNoidi?.length === 0 &&
-                yourStatusdongYKetNoi?.length === 0 &&
-                yourStatushuyKetNoi &&
-                yourStatushuyKetNoi?.length !== 0 ? (
-                    <YeuCauBiTuChoi />
-                ) : (
-                    <></>
-                )}
-            </div>
-            <div>{/* chia tay xong thi ve ban dau */}</div>
-        </div>
+    return !user ? (
+        <MoiDangKi />
+    ) : (
+        <>
+            {!status ? (
+                <FormRegister />
+            ) : (
+                <div className="container-Ketban">
+                    <div>
+                        {+myStatus === 0 &&
+                        yourIdYeuCauKetNoidi?.length === 0 &&
+                        yourStatusdongYKetNoi?.length === 0 &&
+                        yourStatustuChoiKetNoi?.length === 0 ? (
+                            <ChonVaGuiYeuCau />
+                        ) : (
+                            <div></div>
+                        )}
+                    </div>
+                    <div>
+                        {+myStatus === 1 &&
+                        yourIdDangKetNoi &&
+                        yourIdDangKetNoi?.length !== 0 &&
+                        !dienThoai &&
+                        yourIdYeuCauKetNoidi?.length !== 0 &&
+                        yourStatusdongYKetNoi?.length === 0 &&
+                        yourStatustuChoiKetNoi?.length === 0 ? (
+                            <YourDangKetNoi />
+                        ) : (
+                            <></>
+                        )}
+                    </div>
+                    {/* tu Choi */}
+                    <div>
+                        {+myStatus === 1 &&
+                        yourIdDangKetNoi &&
+                        !dienThoai &&
+                        yourIdYeuCauKetNoidi?.length === 0 &&
+                        yourStatusdongYKetNoi?.length === 0 &&
+                        yourStatustuChoiKetNoi?.length !== 0 ? (
+                            <YeuCauBiTuChoi />
+                        ) : (
+                            <></>
+                        )}
+                    </div>
+                    <div>{/* ok Tu choi thi ve ban dau */}</div>
+                    {/* Dong Y */}
+                    <div>
+                        {+myStatus === 1 &&
+                        yourIdDangKetNoi &&
+                        !dienThoai &&
+                        yourIdYeuCauKetNoidi?.length === 0 &&
+                        yourStatusdongYKetNoi?.length !== 0 &&
+                        yourStatustuChoiKetNoi?.length === 0 ? (
+                            <YeuCauDuocDongY />
+                        ) : (
+                            <></>
+                        )}
+                    </div>
+                    <div>
+                        {+myStatus === 1 &&
+                        yourIdDangKetNoi &&
+                        yourIdDangKetNoi?.length !== 0 &&
+                        dienThoai &&
+                        yourIdYeuCauKetNoidi?.length === 0 &&
+                        yourStatusdongYKetNoi?.length === 0 &&
+                        yourStatustuChoiKetNoi?.length === 0 &&
+                        yourStatushuyKetNoi?.length === 0 ? (
+                            <YourDangKetNoi />
+                        ) : (
+                            <></>
+                        )}
+                    </div>
+                    {/* Chia tay */}
+                    <div>
+                        {+myStatus === 1 &&
+                        yourIdDangKetNoi &&
+                        yourIdDangKetNoi?.length !== 0 &&
+                        dienThoai &&
+                        yourIdYeuCauKetNoidi?.length === 0 &&
+                        yourStatusdongYKetNoi?.length === 0 &&
+                        yourStatushuyKetNoi &&
+                        yourStatushuyKetNoi?.length !== 0 ? (
+                            <YeuCauBiTuChoi />
+                        ) : (
+                            <></>
+                        )}
+                    </div>
+                    <div>{/* chia tay xong thi ve ban dau */}</div>
+                </div>
+            )}
+        </>
     );
 };
 export default KetBan;

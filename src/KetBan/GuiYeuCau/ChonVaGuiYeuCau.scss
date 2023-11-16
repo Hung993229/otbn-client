@@ -4,7 +4,7 @@
     .thongTinCaNhan {
         .bannerThongTinCaNhan {
             width: 100vw;
-            height: 25vw;
+            height: 40vw;
             object-fit: cover;
             position: relative;
         }
@@ -15,7 +15,7 @@
                 object-fit: cover;
                 position: absolute;
                 border-radius: 50%;
-                top: 20vw;
+                top: 35vw;
                 left: 12vw;
             }
         }
@@ -48,6 +48,8 @@
                 width: 60%;
             }
             .myNoiDung2 {
+                justify-content: center;
+                align-items: center;
                 text-align: center;
                 border-bottom: solid 0.1vw rgb(143, 140, 140);
                 width: 60%;

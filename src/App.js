@@ -22,19 +22,72 @@ function App() {
                 <Header className="header" />
 
                 <Routes>
-                    <Route path="/ket-ban" element={<KetBan />} />
-                    <Route path="/mini-game" element={<MiniGame />} />
-                    <Route path="/huong-dan" element={<Instruct />} />
-                    <Route path="/ca-nhan" element={<ThongTinCaNhan />} />
+                    <Route
+                        path="/ket-ban"
+                        element={
+                            <>
+                                <KetBan />
+                                <Nav />
+                            </>
+                        }
+                    />
+                    <Route
+                        path="/mini-game"
+                        element={
+                            <>
+                                <MiniGame />
+                                <Nav />
+                            </>
+                        }
+                    />
+                    <Route
+                        path="/huong-dan"
+                        element={
+                            <>
+                                <Instruct />
+                                <Nav />
+                            </>
+                        }
+                    />
+                    <Route
+                        path="/ca-nhan"
+                        element={
+                            <>
+                                <ThongTinCaNhan />
+                                <Nav />
+                            </>
+                        }
+                    />
                     <Route path="/tao-thong-tin" element={<FormRegister />} />
                     <Route path="/dang-ki" element={<DangKi />} />
                     <Route path="/dang-nhap" element={<DangNhap />} />
                     <Route path="/quan-ly-user" element={<QuanLyUser />} />
-                    <Route path="/shop-online" element={<ShopOnline />} />
-                    <Route path="/hom-thu" element={<HomThu />} />
-                    <Route path="/" element={<DangNhap />} />
+                    <Route
+                        path="/shop-online"
+                        element={
+                            <>
+                                <ShopOnline /> <Nav />
+                            </>
+                        }
+                    />
+                    <Route
+                        path="/hom-thu"
+                        element={
+                            <>
+                                <HomThu /> <Nav />
+                            </>
+                        }
+                    />
+                    <Route
+                        path="/"
+                        element={
+                            <>
+                                <MiniGame />
+                                <Nav />
+                            </>
+                        }
+                    />
                 </Routes>
-                {user ? <Nav className="nav" /> : <></>}
             </div>
         </Router>
     );

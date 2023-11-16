@@ -4,7 +4,6 @@ const postSlice = createSlice({
     initialState: {
         post: {
             myDetail: null,
-            // yourDetail: null,
             isFetching: false,
             error: false,
             success: false,
@@ -12,6 +11,13 @@ const postSlice = createSlice({
         },
     },
     reducers: {
+        logOutSuccessPost: (state) => {
+            state.post.myDetail = null;
+            state.post.isFetching = false;
+            state.post.error = false;
+            state.post.success = false;
+            state.post.allPosts = null;
+        },
         registerPostStart: (state) => {
             state.post.isFetching = true;
         },
@@ -96,6 +102,7 @@ export const {
     getAllPostsStart,
     getAllPostsSuccess,
     getAllPostsFailed,
+    logOutSuccessPost,
 } = postSlice.actions;
 
 export default postSlice.reducer;

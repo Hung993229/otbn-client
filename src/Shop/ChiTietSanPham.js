@@ -29,8 +29,20 @@ const ChiTietSanPham = (props) => {
                         <div className="giaBanMoi">
                             {VND.format(thongTinSp?.giaKhuyenMai)}
                         </div>
-                        <div className="giabanCu">
-                            {VND.format(thongTinSp?.giaNiemYet)}
+                        <div className="giaGiam">
+                            <div className="giabanCu">
+                                {VND.format(thongTinSp?.giaNiemYet)}
+                            </div>
+                            <div className="phanTram">
+                                Giảm&nbsp;
+                                {Math.floor(
+                                    (100 *
+                                        (thongTinSp?.giaNiemYet -
+                                            thongTinSp?.giaKhuyenMai)) /
+                                        thongTinSp?.giaNiemYet
+                                )}
+                                %
+                            </div>
                         </div>
                     </div>
                     <a href={thongTinSp?.thongTinNguoiBan} target="_blank">

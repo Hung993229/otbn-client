@@ -11,6 +11,13 @@ const yourStatusSlice = createSlice({
         },
     },
     reducers: {
+        logOutSuccessYourStatus: (state) => {
+            state.yourStatus.yourStatus= null;
+            state.yourStatus.isFetching= false;
+            state.yourStatus.error= false;
+            state.yourStatus.success= false;
+            state.yourStatus.allYourStatus= null;
+        },
         updateyourStatusStart: (state) => {
             state.yourStatus.isFetching = true;
         },
@@ -95,6 +102,7 @@ export const {
     deleteAllYourStatusStart,
     deleteAllYourStatusSuccess,
     deleteAllYourStatusFailed,
+    logOutSuccessYourStatus
 } = yourStatusSlice.actions;
 
 export default yourStatusSlice.reducer;

@@ -353,16 +353,28 @@ const MiniGame = () => {
                     <br />- Gold có thể dùng để mua hàng trong mục Shopping
                     (1Gold = 1Vnđ)
                 </p>
-                {myDetail && (myDetail.length !== 0) ? (
+                {!user ? (
                     <div>
-                        <a href={`https://yeuai.online/tao-thong-tin`}>
+                        <a href={`/dang-nhap`}>
                             <button className="capnhatthongtin">
-                                Cập Nhật Thông Tin
+                                Đăng Nhập Ngay
                             </button>
                         </a>
                     </div>
                 ) : (
-                    <></>
+                    <>
+                        {!status ? (
+                            <div>
+                                <a href={`/tao-thong-tin`}>
+                                    <button className="capnhatthongtin">
+                                        Cập Nhật Thông Tin
+                                    </button>
+                                </a>
+                            </div>
+                        ) : (
+                            <></>
+                        )}
+                    </>
                 )}
             </div>
         </div>

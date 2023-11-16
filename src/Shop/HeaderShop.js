@@ -64,12 +64,17 @@ const HeaderShop = (props) => {
                         sản phẩm!
                     </div>
                     <div>
-                        <a href={`https://www.facebook.com/profile.php?id=61553364305734`} target="_blank">
+                        <a
+                            href={`https://www.facebook.com/profile.php?id=61553364305734`}
+                            target="_blank"
+                        >
                             <img src={facebookLogo} width="150" height="150" />
                         </a>
                         <div>
-                            Mời Kết Bạn Zalo, để được mở tính năng bán hàng miễn
-                            phí!
+                            Để được mở tính năng bán hàng miễn phí! <br />
+                            Hãy Like Fage Facebook trên và nhắn tin với nội dung
+                            : <br />
+                            "Đăng Kí Nhà Bán Hàng"
                         </div>
                         <button
                             className="CloseShop"

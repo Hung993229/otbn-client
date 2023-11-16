@@ -23,7 +23,8 @@ const QuanLyUser = () => {
     let axiosJWT = createAxios(user, dispatch, loginSuccess);
     const yourDetail = useSelector((state) => state.post.post?.yourDetail);
     const [suaPost, setsuaPost] = useState();
-
+    const [vaiTro, setvaiTro] = useState();
+    const [hoTen, sethoTen] = useState();
     const handleDelete = (id) => {
         deleteUser(user?.accessToken, dispatch, id, axiosJWT);
     };
@@ -38,11 +39,15 @@ const QuanLyUser = () => {
     }, [user, dispatch]);
     const handleThongTinUser = (id) => {
         yourPost(id, dispatch);
+        setvaiTro(yourDetail?.vaiTro);
+        sethoTen(yourDetail?.hoTen);
+        console.log("yourDetail?.vaiTro", yourDetail?.vaiTro);
     };
     const handleSuaVaiTroUser = () => {
         const newPost = {
             vaiTro: 0,
         };
+        setvaiTro(0);
         const id = yourDetail._id;
         updatePost(newPost, id, dispatch, setsuaPost);
     };
@@ -50,6 +55,7 @@ const QuanLyUser = () => {
         const newPost = {
             vaiTro: 1,
         };
+        setvaiTro(1);
         const id = yourDetail._id;
         updatePost(newPost, id, dispatch, setsuaPost);
     };
@@ -58,15 +64,21 @@ const QuanLyUser = () => {
             vaiTro: 2,
         };
         const id = yourDetail._id;
+        setvaiTro(2);
         updatePost(newPost, id, dispatch, setsuaPost);
     };
 
     return (
         <main className="home-container">
             <div>
+                <div>
+                    <a href={`/ca-nhan`}>
+                        <button className="buttonQuanly">Quay Lại</button>
+                    </a>
+                </div>
                 <div className="home-title">Tất Cả Tài Khoản</div>
                 <div className="home-role">
-                    {`Your role: ${user?.admin ? `Admin` : `User`}`}
+                    {`Xin Chào: ${user?.admin ? `Admin` : `User`}`}
                 </div>
                 <div className="home-userlist">
                     {userList?.map((user) => {
@@ -74,7 +86,7 @@ const QuanLyUser = () => {
                             <div className="user-container" key={user._id}>
                                 <div
                                     className="home-user"
-                                    onClick={()=>handleThongTinUser(user._id)}
+                                    onClick={() => handleThongTinUser(user._id)}
                                 >
                                     {user.username}
                                 </div>
@@ -82,32 +94,35 @@ const QuanLyUser = () => {
                         );
                     })}
                 </div>
-                <div>
+                <div className="QuanLYVaiTro">
                     {yourDetail && yourDetail.length !== 0 ? (
                         <div>
-                            <div>{yourDetail?.hoTen}</div>
-                            <div>
-                                {+yourDetail?.vaiTro === 0 && <div>User</div>}
-                            </div>
-                            <div>
-                                {+yourDetail?.vaiTro === 1 && (
-                                    <div>Ban Hang</div>
-                                )}
-                            </div>
-                            <div>
-                                {+yourDetail?.vaiTro === 2 && (
-                                    <div>Quan Ly</div>
-                                )}
+                            <div className="vaiTro">
+                                <div>{hoTen}</div>
+                                <div>{+vaiTro === 0 && <div>User</div>}</div>
+                                <div>
+                                    {+vaiTro === 1 && <div>Ban Hang</div>}
+                                </div>
+                                <div>{+vaiTro === 2 && <div>Quan Ly</div>}</div>
                             </div>
                             <div>Sửa Vai Trò</div>
                             <div>
-                                <button onClick={handleSuaVaiTroUser}>
+                                <button
+                                    className="buttonQuanly"
+                                    onClick={handleSuaVaiTroUser}
+                                >
                                     User
                                 </button>
-                                <button onClick={handleSuaVaiTroBanHang}>
+                                <button
+                                    className="buttonQuanly"
+                                    onClick={handleSuaVaiTroBanHang}
+                                >
                                     Ban Hang
                                 </button>
-                                <button onClick={handleSuaVaiTroQuanLy}>
+                                <button
+                                    className="buttonQuanly"
+                                    onClick={handleSuaVaiTroQuanLy}
+                                >
                                     Quan Ly
                                 </button>
                             </div>

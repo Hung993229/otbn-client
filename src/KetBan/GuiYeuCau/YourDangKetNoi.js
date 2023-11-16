@@ -292,9 +292,9 @@ const YourDangKetNoi = () => {
                                 <div className="Container-myTieuChi-myNoiDung">
                                     <div className="myTieuChi">Tuổi Hợp</div>
                                     <div className="myNoiDung2">
-                                        <div>Từ Năm &emsp;</div>
+                                        <div>Từ &nbsp;</div>
                                         <div>{tuoiHop2}</div>
-                                        <div> &emsp;Đến Năm&emsp;</div>
+                                        <div> &emsp;Đến &nbsp;</div>
                                         <div>{tuoiHop3}</div>
                                     </div>
                                 </div>
