@@ -296,30 +296,31 @@ const Facedata = (props) => {
         e.preventDefault();
         if (!banner || !avatar || gioiTinh) {
             alert("Hãy điền thông tin còn thiếu");
-        }
-        try {
-            const newPost = {
-                banner: banner,
-                avatar: avatar,
-                hoTen: hoTen,
-                cauNoiTamDac: cauNoiTamDac,
-                gioiTinh: gioiTinh,
 
-                gioiThieuThem: gioiThieuThem,
+            try {
+                const newPost = {
+                    banner: banner,
+                    avatar: avatar,
+                    hoTen: hoTen,
+                    cauNoiTamDac: cauNoiTamDac,
+                    gioiTinh: gioiTinh,
 
-                yeucaukhac2: yeucaukhac2,
-                myStatus: 0,
-                vaiTro: 2,
-                user: user._id,
-            };
+                    gioiThieuThem: gioiThieuThem,
 
-            registerPost(newPost, dispatch, navigate);
-            setpreviewBanner("");
-            setpreviewAvatar("");
-            setgioiTinh("");
-            sethoTen("");
-        } catch (err) {
-            console.log(err);
+                    yeucaukhac2: yeucaukhac2,
+                    myStatus: 0,
+                    vaiTro: 2,
+                    user: user._id,
+                };
+
+                registerPost(newPost, dispatch, navigate);
+                setpreviewBanner("");
+                setpreviewAvatar("");
+                setgioiTinh("");
+                sethoTen("");
+            } catch (err) {
+                console.log(err);
+            }
         }
     };
 

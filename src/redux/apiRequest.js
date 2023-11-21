@@ -145,12 +145,12 @@ export const logOut = async (dispatch, id, navigate, accessToken, axiosJWT) => {
         dispatch(logOutFailed());
     }
 };
-export const registerPost = async (post, dispatch, navigate,setloading) => {
+export const registerPost = async (post, dispatch, navigate, setloading) => {
     dispatch(registerPostStart());
     try {
         const res = await axios.post("/v1/post/add-post", post);
         dispatch(registerPostSuccess(res.data));
-        setloading(0)
+        setloading(0);
         navigate("/ca-nhan");
     } catch (err) {
         dispatch(registerPostFailed());
@@ -170,12 +170,12 @@ export const updatePost = async (newPost, id, dispatch, setsuaPost) => {
     }
 };
 
-export const getPost = async (id, dispatch,setloading) => {
+export const getPost = async (id, dispatch, setloading) => {
     dispatch(getPostStart());
     try {
         const res = await axios.get(`/v1/post/${id}`);
         dispatch(getPostSuccess(res.data));
-        setloading(0)
+        setloading(0);
     } catch (err) {
         dispatch(getPostFailed());
     }
@@ -200,12 +200,13 @@ export const getAllPosts = async (
     tuoiHop3,
     huyenDs,
     huyenQq,
+    skip,
     setloading
 ) => {
     dispatch(getAllPostsStart());
     try {
         const res = await axios.get(
-            `/v1/post/?gioiTinh2=${gioiTinh2}&tinhTrangHonNhan2=${tinhTrangHonNhan2}&tonGiao2=${tonGiao2}&thuNhap2=${thuNhap2}&tuoiHop2=${tuoiHop2}&tuoiHop3=${tuoiHop3}&huyenDs=${huyenDs}&huyenQq=${huyenQq}
+            `/v1/post/?gioiTinh2=${gioiTinh2}&tinhTrangHonNhan2=${tinhTrangHonNhan2}&tonGiao2=${tonGiao2}&thuNhap2=${thuNhap2}&tuoiHop2=${tuoiHop2}&tuoiHop3=${tuoiHop3}&huyenDs=${huyenDs}&huyenQq=${huyenQq}&skip=${skip}
             `
         );
         dispatch(getAllPostsSuccess(res.data));
@@ -214,6 +215,31 @@ export const getAllPosts = async (
         dispatch(getAllPostsFailed());
     }
 };
+// export const getAllPosts = async (
+//     dispatch,
+//     gioiTinh2,
+//     tinhTrangHonNhan2,
+//     tonGiao2,
+//     thuNhap2,
+//     tuoiHop2,
+//     tuoiHop3,
+//     huyenDs,
+//     huyenQq,
+  
+//     setloading
+// ) => {
+//     dispatch(getAllPostsStart());
+//     try {
+//         const res = await axios.get(
+//             `/v1/post/?gioiTinh2=${gioiTinh2}&tinhTrangHonNhan2=${tinhTrangHonNhan2}&tonGiao2=${tonGiao2}&thuNhap2=${thuNhap2}&tuoiHop2=${tuoiHop2}&tuoiHop3=${tuoiHop3}&huyenDs=${huyenDs}&huyenQq=${huyenQq}
+//             `
+//         );
+//         dispatch(getAllPostsSuccess(res.data));
+//         setloading(0);
+//     } catch (err) {
+//         dispatch(getAllPostsFailed());
+//     }
+// };
 export const updateStatusUser = async (statusUser, id, dispatch) => {
     dispatch(updateStatusStart());
     try {

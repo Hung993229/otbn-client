@@ -92,12 +92,6 @@ const KetBan = () => {
         (item) => item.tuChoiKetNoi
     );
     const yourStatushuyKetNoi = allYourStatus?.filter((item) => item.huyKetNoi);
-    console.log("myStatus", +myStatus);
-    console.log("dienThoai", dienThoai);
-    console.log("yourIdDangKetNoi", yourIdDangKetNoi);
-    console.log("yourIdYeuCauKetNoidi", yourIdYeuCauKetNoidi);
-    console.log("yourStatusdongYKetNoi", yourStatusdongYKetNoi?.length === 0);
-    console.log("yourStatustuChoiKetNoi", yourStatustuChoiKetNoi?.length === 0);
 
     return !user ? (
         <MoiDangKi />
