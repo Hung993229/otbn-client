@@ -27,6 +27,7 @@ const TiepNhanYeuCauKetNoi = () => {
     const dispatch = useDispatch();
     const [yourStatusUserId, setyourStatusUserId] = useState(0);
     const { suaPost, setsuaPost } = useState(0);
+    const [loading, setloading] = useState(1);
 
     useEffect(() => {
         if (!user) {
@@ -64,6 +65,7 @@ const TiepNhanYeuCauKetNoi = () => {
         const id = yourzalo._id;
 
         deleteYourStatus(id, dispatch);
+        getYourStatus(user?._id, dispatch);
     };
     const handleDongYKetNoi = (userId) => {
         const yourzalo = allYourStatus.find(
@@ -100,7 +102,7 @@ const TiepNhanYeuCauKetNoi = () => {
     };
     const handleXemChiTiet = (userId) => {
         console.log("id", userId);
-        yourPost(userId, dispatch);
+        yourPost(userId, dispatch, setloading);
         setyourStatusUserId(userId);
     };
     // yourDetai Chi Tiet

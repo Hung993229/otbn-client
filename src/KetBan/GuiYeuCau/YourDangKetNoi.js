@@ -29,6 +29,7 @@ const YourDangKetNoi = () => {
     );
     const [suaPost, setsuaPost] = useState(1);
     const yourIdDangKetNoi = status?.yourIdDangKetNoi;
+    const [loading, setloading] = useState(1);
 
     // load
     useEffect(() => {
@@ -44,7 +45,7 @@ const YourDangKetNoi = () => {
     }, [user]);
     useEffect(() => {
         if (yourIdDangKetNoi && yourIdDangKetNoi.length !== 0) {
-            yourPost(yourIdDangKetNoi, dispatch);
+            yourPost(yourIdDangKetNoi, dispatch, setloading);
         }
     }, [yourIdDangKetNoi]);
 

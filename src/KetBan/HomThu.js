@@ -34,7 +34,7 @@ const HomThu = () => {
         if (user) {
             getYourStatus(user?._id, dispatch);
         }
-    }, [user, status]);
+    }, [user]);
     useEffect(() => {
         if (user) {
             getStatus(user?._id, dispatch);

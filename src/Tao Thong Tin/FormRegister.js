@@ -320,14 +320,15 @@ const FormRegister = (props) => {
                 user: user._id,
             };
 
-            registerPost(newPost, dispatch, navigate);
+            registerPost(newPost, dispatch, navigate, setloading);
             const statusUser = {
                 cash: 25000,
                 dienThoai: "",
                 yourIdDangKetNoi: "",
+                skip: 0,
                 user: user._id,
             };
-            registerStatus(statusUser, dispatch, setloading);
+            registerStatus(statusUser, dispatch);
             setsuaPost(0);
             setloading(1);
         } catch (err) {

@@ -180,11 +180,12 @@ export const getPost = async (id, dispatch, setloading) => {
         dispatch(getPostFailed());
     }
 };
-export const yourPost = async (yourId, dispatch) => {
+export const yourPost = async (yourId, dispatch, setloading) => {
     dispatch(yourPostStart());
     try {
         const res = await axios.get(`/v1/post/your-post/${yourId}`);
         dispatch(yourPostSuccess(res.data));
+        setloading(0);
     } catch (err) {
         dispatch(yourPostFailed());
     }
@@ -200,46 +201,19 @@ export const getAllPosts = async (
     tuoiHop3,
     huyenDs,
     huyenQq,
-    skip,
-    setloading
+    skip
 ) => {
     dispatch(getAllPostsStart());
     try {
         const res = await axios.get(
-            `/v1/post/?gioiTinh2=${gioiTinh2}&tinhTrangHonNhan2=${tinhTrangHonNhan2}&tonGiao2=${tonGiao2}&thuNhap2=${thuNhap2}&tuoiHop2=${tuoiHop2}&tuoiHop3=${tuoiHop3}&huyenDs=${huyenDs}&huyenQq=${huyenQq}&skip=${skip}
+            `/v1/post/?gioiTinh2=${gioiTinh2}&tinhTrangHonNhan2=${tinhTrangHonNhan2}&tonGiao2=${tonGiao2}&thuNhap2=${thuNhap2}&tuoiHop2=${tuoiHop2}&tuoiHop3=${tuoiHop3}&huyenDs=${huyenDs}&huyenQq=${huyenQq}
             `
         );
         dispatch(getAllPostsSuccess(res.data));
-        setloading(0);
     } catch (err) {
         dispatch(getAllPostsFailed());
     }
 };
-// export const getAllPosts = async (
-//     dispatch,
-//     gioiTinh2,
-//     tinhTrangHonNhan2,
-//     tonGiao2,
-//     thuNhap2,
-//     tuoiHop2,
-//     tuoiHop3,
-//     huyenDs,
-//     huyenQq,
-  
-//     setloading
-// ) => {
-//     dispatch(getAllPostsStart());
-//     try {
-//         const res = await axios.get(
-//             `/v1/post/?gioiTinh2=${gioiTinh2}&tinhTrangHonNhan2=${tinhTrangHonNhan2}&tonGiao2=${tonGiao2}&thuNhap2=${thuNhap2}&tuoiHop2=${tuoiHop2}&tuoiHop3=${tuoiHop3}&huyenDs=${huyenDs}&huyenQq=${huyenQq}
-//             `
-//         );
-//         dispatch(getAllPostsSuccess(res.data));
-//         setloading(0);
-//     } catch (err) {
-//         dispatch(getAllPostsFailed());
-//     }
-// };
 export const updateStatusUser = async (statusUser, id, dispatch) => {
     dispatch(updateStatusStart());
     try {

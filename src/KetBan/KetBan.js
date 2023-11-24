@@ -30,6 +30,7 @@ const KetBan = () => {
         (state) => state.yourStatus.yourStatus.allYourStatus?.yourStatus
     );
     const yourDetail = useSelector((state) => state.post.post?.yourDetail);
+    const [loading, setloading] = useState(1);
     const [vitri, setvitri] = useState(0);
     useEffect(() => {
         if (user) {
@@ -67,11 +68,18 @@ const KetBan = () => {
         };
         getTatCaPostPhuHop();
     }, [status]);
+    const yourIdDangKetNoi = status?.yourIdDangKetNoi;
+    useEffect(() => {
+
+        if (yourIdDangKetNoi && yourIdDangKetNoi.length !== 0) {
+            yourPost(yourIdDangKetNoi, dispatch, setloading);
+        }
+    }, [yourIdDangKetNoi]);
 
     const myStatus = myDetail?.myStatus;
     const yourStatus = yourDetail?.myStatus;
 
-    const yourIdDangKetNoi = status?.yourIdDangKetNoi;
+    
     const dienThoai = status?.dienThoai;
 
     // yeu cau ket noi di

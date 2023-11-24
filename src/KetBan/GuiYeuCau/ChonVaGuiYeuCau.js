@@ -11,11 +11,13 @@ import {
     registerYourStatus,
     getYourStatus,
     updatePost,
+    yourPost,
 } from "../../redux/apiRequest";
 import Loading from "../../GiaoDienChung/Loading";
 const ChonVaGuiYeuCau = () => {
     const dispatch = useDispatch();
     const myDetail = useSelector((state) => state.post.post?.myDetail);
+    const yourDetail = useSelector((state) => state.post.post?.yourDetail);
     const user = useSelector((state) => state.auth.login?.currentUser);
     const allPosts = useSelector((state) => state.post.post?.allPosts);
     const status = useSelector((state) => state.status.status.status?.status);
@@ -26,7 +28,7 @@ const ChonVaGuiYeuCau = () => {
     );
     const [indexId, setindexId] = useState(0);
     const [ketnoi, setketnoi] = useState(0);
-    const [yourDetail, setyourDetail] = useState(0);
+    // const [yourDetail, setyourDetail] = useState(0);
     const [suaPost, setsuaPost] = useState(1);
     const [loading, setloading] = useState(1);
     const [ngaySinhRandoom, setngaySinhRandoom] = useState();
@@ -37,40 +39,21 @@ const ChonVaGuiYeuCau = () => {
     const [tuoiHop3Random, settuoiHop3Random] = useState();
     const [tuoiHop2Random, settuoiHop2Random] = useState();
     const [skip, setskip] = useState(0);
-    // const skip = status?.skip;
+    console.log("skip", skip);
     useEffect(() => {
         if (user) {
             getStatus(user?._id, dispatch);
             getPost(user?._id, dispatch);
+            setskip(status?.skip + 1);
         }
     }, []);
     useEffect(() => {
+        const yourId = allPosts[skip]?._id || user?._id;
         if (user) {
             getYourStatus(user?._id, dispatch);
+            yourPost(yourId, dispatch, setloading);
         }
-    }, [user, status]);
-
-    // useEffect(() => {
-    //     const skipStatusDetail = () => {
-    //         if (!skipStatus) {
-    //             setskip(0);
-    //         } else {
-    //             setskip(skipStatus);
-    //         }
-    //     };
-
-    //     skipStatusDetail();
-    // }, [skipStatus]);
-
-    useEffect(() => {
-        const loadYourDetail = () => {
-            if (allPosts) {
-                setyourDetail(allPosts[1]);
-            }
-        };
-
-        loadYourDetail();
-    }, [allPosts]);
+    }, [user, status, skip]);
     useEffect(() => {
         const getTatCaPostPhuHop = async () => {
             const gioiTinh2 = myDetail?.gioiTinh2;
@@ -81,6 +64,7 @@ const ChonVaGuiYeuCau = () => {
             const tuoiHop3 = myDetail?.tuoiHop3;
             const huyenDs = myDetail?.huyenDs;
             const huyenQq = myDetail?.huyenQq;
+            const skip = skipStatus;
             getAllPosts(
                 dispatch,
                 gioiTinh2,
@@ -91,37 +75,58 @@ const ChonVaGuiYeuCau = () => {
                 tuoiHop3,
                 huyenDs,
                 huyenQq,
-                skip,
-                setloading
+                skip
             );
         };
 
         getTatCaPostPhuHop();
-    }, [skip]);
+    }, []);
 
-    // Ngau nhien
-
-    const handleNgauNhien = () => {
-        const a = allPosts.length;
-        const e = Math.floor(Math.random() * a);
-        setloading(1);
-        setindexId(e);
-        const random = () => {
-            setloading(0);
-        };
-        setTimeout(random, 3000);
-    };
     // tiep theo
+    // const handleTiepTheo = () => {
+    //     if (allPosts.length === 3) {
+    //         setskip(skip + 1);
+    //         const statusUser = {
+    //             skip: +skip + 1,
+    //             user: user?._id,
+    //         };
+    //         const id = status?._id;
+    //         updateStatusUser(statusUser, id, dispatch);
+    //     }
+    //     if (allPosts.length === 2) {
+    //         // setskip(0);
+    //         const statusUser = {
+    //             skip: 0,
+    //             user: user?._id,
+    //         };
+    //         const id = status?._id;
+
+    //         updateStatusUser(statusUser, id, dispatch);
+    //     }
+    // };
     const handleTiepTheo = () => {
         setloading(1);
-        if (allPosts?.length === 3) {
-            setskip(+skip + 1);
-        }
-        if (allPosts?.length === 2) {
-            setskip(+0);
+        setskip(+skip + 1);
+        if (allPosts?.length > skip) {
+            const statusUser = {
+                skip: skip,
+                user: user?._id,
+            };
+            const id = status?._id;
+            console.log("statusUser", statusUser);
+            updateStatusUser(statusUser, id, dispatch);
+        } else {
+            setskip(0);
+            const statusUser = {
+                skip: 0,
+                user: user?._id,
+            };
+            const id = status?._id;
+            console.log("statusUser", statusUser);
+            updateStatusUser(statusUser, id, dispatch);
         }
     };
-    console.log("skip", skip);
+
     // ketnoi
     const handleKetNoi = () => {
         setketnoi(1);
@@ -129,8 +134,8 @@ const ChonVaGuiYeuCau = () => {
         if (statusId) {
             const statusUser = {
                 dienThoai: "",
-                skip: skip,
-                yourIdDangKetNoi: allPosts[indexId]?.user,
+                skip: skipStatus,
+                yourIdDangKetNoi: yourDetail?.user,
                 user: user?._id,
             };
             const id = status?._id;
@@ -144,10 +149,10 @@ const ChonVaGuiYeuCau = () => {
         if (allPosts) {
             const yourstatusUser = {
                 yourIdYeuCauKetNoi: user?._id,
-                user: allPosts[indexId]?.user,
-                hoTen: hoTen,
-                namSinh: namSinh,
-                queQuan: tinhQq,
+                user: yourDetail?.user,
+                hoTen: myDetail.hoTen,
+                namSinh: myDetail.namSinh,
+                queQuan: myDetail.tinhQq,
                 dienThoai: user?.username,
             };
             console.log("yourstatusUser", yourstatusUser);
@@ -192,14 +197,15 @@ const ChonVaGuiYeuCau = () => {
         const a = tuoiMax - tuoiMin;
         // setngaySinhRandoom(Math.floor(Math.random() * 29) + 1);
         // setthangSinhRandoom(Math.floor(Math.random() * 11) + 1);
+        setnamSinhRandoom(Math.floor(Math.random() * a) + tuoiMin);
         setngaySinhRandoom("**");
         setthangSinhRandoom("**");
-        setnamSinhRandoom(Math.floor(Math.random() * a) + tuoiMin);
+        // setnamSinhRandoom("****");
         setchieuCaoRandom(Math.floor(Math.random() * 20) + 150);
         setcanNangRandoom(Math.floor(Math.random() * 30) + 45);
-        settuoiHop3Random(+myDetail?.namSinh + 3);
+        settuoiHop3Random(+myDetail?.namSinh + 5);
         settuoiHop2Random(+myDetail?.namSinh - 5);
-    }, []);
+    }, [skip]);
 
     return +loading === 1 ? (
         <Loading />
@@ -339,14 +345,14 @@ const ChonVaGuiYeuCau = () => {
                                     <div>
                                         <div>
                                             {/* <button
-                                    className="boQua"
-                                    onClick={handleQuayLai}
-                                >
-                                    Quay Lại
-                                </button> */}
-                                            <button
                                                 className="suaThongTin"
                                                 onClick={handleNgauNhien}
+                                            >
+                                                Ghép Ngẫu Nhiên
+                                                </button> */}
+                                            <button
+                                                className="suaThongTin"
+                                                onClick={handleTiepTheo}
                                             >
                                                 Ghép Ngẫu Nhiên
                                             </button>
@@ -354,13 +360,7 @@ const ChonVaGuiYeuCau = () => {
                                                 className="dangXuat"
                                                 onClick={handleKetNoi}
                                             >
-                                                Mời Kết Nối
-                                            </button>
-                                            <button
-                                                className="suaThongTin"
-                                                onClick={handleTiepTheo}
-                                            >
-                                                Tiếp Theo
+                                                Kết Bạn Zalo
                                             </button>
                                         </div>
                                     </div>
@@ -417,9 +417,9 @@ const ChonVaGuiYeuCau = () => {
                             <div className="Container-myTieuChi-myNoiDung">
                                 <div className="myTieuChi">Quê Quán</div>
                                 <div className="myNoiDung">
-                                    {myDetail?.xaQq}&nbsp;-&nbsp;
-                                    {myDetail?.huyenQq}&nbsp;-&nbsp;
-                                    {myDetail?.tinhQq}
+                                    {myDetail?.xaDs}&nbsp;-&nbsp;
+                                    {myDetail?.huyenDs}&nbsp;-&nbsp;
+                                    {myDetail?.tinhDs}
                                 </div>
                             </div>
                             <div className="Container-myTieuChi-myNoiDung">
@@ -523,14 +523,14 @@ const ChonVaGuiYeuCau = () => {
                                     <div>
                                         <div>
                                             {/* <button
-                                    className="boQua"
-                                    onClick={handleQuayLai}
-                                >
-                                    Quay Lại
-                                </button> */}
-                                            <button
                                                 className="suaThongTin"
                                                 onClick={handleNgauNhien}
+                                            >
+                                                Ghép Ngẫu Nhiên
+                                            </button> */}
+                                            <button
+                                                className="suaThongTin"
+                                                onClick={handleTiepTheo}
                                             >
                                                 Ghép Ngẫu Nhiên
                                             </button>
@@ -538,13 +538,7 @@ const ChonVaGuiYeuCau = () => {
                                                 className="dangXuat"
                                                 onClick={handleKetNoi}
                                             >
-                                                Mời Kết Nối
-                                            </button>
-                                            <button
-                                                className="suaThongTin"
-                                                onClick={handleTiepTheo}
-                                            >
-                                                Tiếp Theo
+                                                Kết Bạn Zalo
                                             </button>
                                         </div>
                                     </div>

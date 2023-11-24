@@ -25,6 +25,7 @@ const QuanLyUser = () => {
     const [suaPost, setsuaPost] = useState();
     const [vaiTro, setvaiTro] = useState();
     const [hoTen, sethoTen] = useState();
+    const [loading, setloading] = useState(1);
     const handleDelete = (id) => {
         deleteUser(user?.accessToken, dispatch, id, axiosJWT);
     };
@@ -38,7 +39,7 @@ const QuanLyUser = () => {
         }
     }, [user, dispatch]);
     const handleThongTinUser = (id) => {
-        yourPost(id, dispatch);
+        yourPost(id, dispatch, setloading);
         setvaiTro(yourDetail?.vaiTro);
         sethoTen(yourDetail?.hoTen);
         console.log("yourDetail?.vaiTro", yourDetail?.vaiTro);
@@ -104,6 +105,7 @@ const QuanLyUser = () => {
                                     {+vaiTro === 1 && <div>Ban Hang</div>}
                                 </div>
                                 <div>{+vaiTro === 2 && <div>Quan Ly</div>}</div>
+                                <div>{!vaiTro && <div>Chua Cap Nhat</div>}</div>
                             </div>
                             <div>Sửa Vai Trò</div>
                             <div>
